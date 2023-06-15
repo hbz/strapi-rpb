@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_rpb_biogrammes",
+  "info": {
+    "displayName": "BiogrammeComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f1z1": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

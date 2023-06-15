@@ -1,0 +1,175 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rppds",
+  "info": {
+    "singularName": "rppd",
+    "pluralName": "rppds",
+    "displayName": "RPPD",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "versions": {
+      "versioned": true
+    }
+  },
+  "attributes": {
+    "f82b": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string",
+      "regex": "1[012]?\\d{7}[0-9X]|[47]\\d{6}-\\d|[1-9]\\d{0,7}-[0-9X]|3\\d{7}[0-9X]",
+      "required": true,
+      "unique": true
+    },
+    "f00": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "f11": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "boolean",
+      "default": true
+    },
+    "f13": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "f14": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "f15": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "f1ne": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      }
+    },
+    "f1no": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.rpb-spatial-link-component"
+    },
+    "f1np": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "date"
+    },
+    "f1nq": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.rpb-spatial-link-component"
+    },
+    "f1nr": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "date"
+    },
+    "f1ns": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.rpb-spatial-link-component"
+    },
+    "f1nt": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rppd.rppd"
+    },
+    "f1nu": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.werke-component"
+    },
+    "f1nx": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.rppd-quelle-component",
+      "required": true
+    },
+    "f1z1": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.biogramme"
+    }
+  }
+}

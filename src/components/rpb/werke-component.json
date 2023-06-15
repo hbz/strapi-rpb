@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rpb_werke_components",
+  "info": {
+    "displayName": "WerkeComponent"
+  },
+  "options": {},
+  "attributes": {
+    "f1nu": {
+      "type": "text"
+    }
+  }
+}

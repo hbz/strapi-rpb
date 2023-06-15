@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_rpb_url_components",
+  "info": {
+    "displayName": "URLComponent"
+  },
+  "options": {},
+  "attributes": {
+    "f90f": {
+      "type": "string",
+      "regex": "^(((ht|f)tp(s?))\\://)?(www.|[a-zA-Z].)[a-zA-Z0-9\\-\\.]+\\.(com|edu|gov|mil|net|org|biz|info|name|museum|us|ca|uk)(\\:[0-9]+)*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&%\\$#\\=~_\\-]+))*$",
+      "required": true
+    },
+    "n90e": {
+      "type": "enumeration",
+      "enum": [
+        "Volltext",
+        "Andere URL"
+      ],
+      "required": true
+    }
+  }
+}

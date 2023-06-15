@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rpb_gesamttitel_components",
+  "info": {
+    "displayName": "GesamttitelComponent"
+  },
+  "options": {},
+  "attributes": {
+    "f85_": {
+      "type": "string"
+    }
+  }
+}

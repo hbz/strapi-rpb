@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_rpb_publisher_components",
+  "info": {
+    "displayName": "PublisherComponent"
+  },
+  "options": {},
+  "attributes": {
+    "f74": {
+      "type": "string",
+      "required": true
+    },
+    "f75": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

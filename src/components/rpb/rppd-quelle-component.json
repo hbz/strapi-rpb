@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_rpb_rppd_quelle_components",
+  "info": {
+    "displayName": "RppdQuelleComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f1nx": {
+      "type": "text",
+      "required": true
+    },
+    "f1nx_rpb": {
+      "type": "string"
+    }
+  }
+}

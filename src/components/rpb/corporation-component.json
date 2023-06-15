@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_rpb_corporation_components",
+  "info": {
+    "displayName": "CorporationComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "n60a": {
+      "type": "enumeration",
+      "enum": [
+        "Verfasser",
+        "Herausgeber",
+        "Mitwirkender",
+        "Sammler",
+        "Librettist",
+        "Übersetzer",
+        "Illustrator",
+        "Komponist",
+        "Interpret"
+      ]
+    }
+  }
+}

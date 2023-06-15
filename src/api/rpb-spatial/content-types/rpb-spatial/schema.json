@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpb_spatials",
+  "info": {
+    "singularName": "rpb-spatial",
+    "pluralName": "rpb-spatials",
+    "displayName": "rpb-spatial"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "prefLabel": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "URI": {
+      "type": "string",
+      "regex": "^https://rpb.lobid.org/spatial#n\\d*$",
+      "required": true,
+      "unique": true
+    }
+  }
+}

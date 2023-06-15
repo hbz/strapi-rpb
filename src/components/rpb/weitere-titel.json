@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_weitere_titels",
+  "info": {
+    "displayName": "AbweichendeTitelComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f27": {
+      "type": "string"
+    }
+  }
+}

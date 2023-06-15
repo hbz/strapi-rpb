@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpb_authorities",
+  "info": {
+    "singularName": "rpb-authority",
+    "pluralName": "rpb-authorities",
+    "displayName": "RPB-Normdaten",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "f00": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Person",
+        "Körperschaft",
+        "Konferenz oder Veranstaltung",
+        "Werk",
+        "Geografikum",
+        "Schlagwort",
+        "Familie"
+      ],
+      "required": true
+    },
+    "f3na": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gnd_authorities",
+  "info": {
+    "singularName": "gnd-authority",
+    "pluralName": "gnd-authorities",
+    "displayName": "GND-Normdaten",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gndId": {
+      "type": "string",
+      "regex": "1[012]?\\d{7}[0-9X]|[47]\\d{6}-\\d|[1-9]\\d{0,7}-[0-9X]|3\\d{7}[0-9X]",
+      "required": true,
+      "unique": true
+    },
+    "preferredName": {
+      "type": "string"
+    }
+  }
+}

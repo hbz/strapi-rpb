@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_rpb_rpb_spatial_link_components",
+  "info": {
+    "displayName": "RpbSpatialLinkComponent"
+  },
+  "options": {},
+  "attributes": {
+    "rpb_spatial": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rpb-spatial.rpb-spatial"
+    }
+  }
+}

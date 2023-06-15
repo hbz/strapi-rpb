@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_nebensachtitel_23_s",
+  "info": {
+    "displayName": "ParallelTitelComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f24": {
+      "type": "string"
+    }
+  }
+}

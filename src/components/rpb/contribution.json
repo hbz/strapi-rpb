@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_rpb_contributions",
+  "info": {
+    "displayName": "PersonComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "n40a": {
+      "type": "enumeration",
+      "enum": [
+        "Verfasser",
+        "Herausgeber",
+        "Mitwirkender",
+        "Sammler",
+        "Librettist",
+        "Übersetzer",
+        "Illustrator",
+        "Komponist",
+        "Interpret"
+      ],
+      "required": true,
+      "default": "Verfasser"
+    },
+    "f40_": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
