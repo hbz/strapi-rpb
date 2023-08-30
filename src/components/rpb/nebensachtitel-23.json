@@ -6,8 +6,8 @@
   },
   "options": {},
   "attributes": {
-    "f24": {
-      "type": "string"
+    "f24_": {
+      "type": "text"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "books",
+  "collectionName": "independent_works",
   "info": {
-    "singularName": "book",
-    "pluralName": "books",
-    "displayName": "Monographie",
+    "singularName": "independent-work",
+    "pluralName": "independent-works",
+    "displayName": "Selbständiges Werk",
     "description": ""
   },
   "options": {
@@ -25,6 +25,29 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "f36_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "sbd",
+        "sm",
+        "s"
+      ]
+    },
+    "Bandinformationen": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.is-part-of-relation"
     },
     "f14_": {
       "pluginOptions": {
@@ -70,7 +93,7 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "f20_": {
       "pluginOptions": {
@@ -78,7 +101,7 @@
           "versioned": true
         }
       },
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "n20a": {
@@ -109,7 +132,7 @@
       },
       "component": "rpb.weitere-titel"
     },
-    "f28": {
+    "f28_": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -123,18 +146,7 @@
           "versioned": true
         }
       },
-      "type": "string"
-    },
-    "publisher": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "component": "rpb.publisher-component",
-      "required": false
+      "type": "text"
     },
     "f76a": {
       "pluginOptions": {
@@ -152,10 +164,9 @@
         }
       },
       "type": "string",
-      "required": true,
-      "regex": "\\d{4}"
+      "required": true
     },
-    "f85_": {
+    "f85": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -164,16 +175,6 @@
         }
       },
       "component": "rpb.gesamttitel-component"
-    },
-    "f81": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "component": "rpb.anmerkungen-component"
     },
     "f90a": {
       "type": "component",
@@ -185,7 +186,7 @@
       },
       "component": "rpb.bestand-component"
     },
-    "Ortsnotation": {
+    "f31": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -194,6 +195,111 @@
         }
       },
       "component": "rpb.rpb-spatial-link-component"
+    },
+    "f74_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text"
+    },
+    "f75_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text"
+    },
+    "f30": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.f30"
+    },
+    "f32": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.f32"
+    },
+    "f71_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
+    },
+    "f77_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text"
+    },
+    "endDate": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "integer"
+    },
+    "f87_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text",
+      "unique": false
+    },
+    "f81": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.anmerkungen-component"
+    },
+    "f90": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.url-component"
+    },
+    "f01_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text"
+    },
+    "f36t": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
     }
   }
 }

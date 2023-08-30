@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_f32s",
+  "info": {
+    "displayName": "f32",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f32_": {
+      "type": "text"
+    }
+  }
+}

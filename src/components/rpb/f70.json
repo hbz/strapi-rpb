@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_f70s",
+  "info": {
+    "displayName": "f70",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f70_": {
+      "type": "text"
+    }
+  }
+}

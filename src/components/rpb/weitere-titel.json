@@ -6,8 +6,8 @@
   },
   "options": {},
   "attributes": {
-    "f27": {
-      "type": "string"
+    "f27_": {
+      "type": "text"
     }
   }
 }

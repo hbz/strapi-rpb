@@ -12,12 +12,18 @@
         "Verfasser",
         "Herausgeber",
         "Mitwirkender",
+        "Bearb.",
+        "Begr.",
         "Sammler",
         "Librettist",
         "Übersetzer",
         "Illustrator",
+        "Verfasser von ergänzendem Text",
         "Komponist",
-        "Interpret"
+        "Red.",
+        "Sonstige",
+        "Ausführender",
+        "Gefeierter"
       ],
       "required": true,
       "default": "Verfasser"

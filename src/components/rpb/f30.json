@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rpb_f30s",
+  "info": {
+    "displayName": "f30"
+  },
+  "options": {},
+  "attributes": {
+    "f30_": {
+      "type": "string"
+    }
+  }
+}

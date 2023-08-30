@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_rpb_is_part_of_relations",
+  "info": {
+    "displayName": "isPartOf-Relation",
+    "icon": "arrowUp",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "hasSuperordinate": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::independent-work.independent-work"
+    },
+    "f01": {
+      "type": "string"
+    },
+    "numbering": {
+      "type": "integer"
+    }
+  }
+}

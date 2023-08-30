@@ -4,7 +4,8 @@
   "info": {
     "singularName": "rpb-spatial",
     "pluralName": "rpb-spatials",
-    "displayName": "rpb-spatial"
+    "displayName": "rpb-spatial",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +17,7 @@
       "required": true,
       "unique": true
     },
-    "URI": {
+    "uri": {
       "type": "string",
       "regex": "^https://rpb.lobid.org/spatial#n\\d*$",
       "required": true,

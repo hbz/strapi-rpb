@@ -9,16 +9,13 @@
     "n60a": {
       "type": "enumeration",
       "enum": [
-        "Verfasser",
-        "Herausgeber",
-        "Mitwirkender",
-        "Sammler",
-        "Librettist",
-        "Übersetzer",
-        "Illustrator",
-        "Komponist",
-        "Interpret"
+        "HE Urheber",
+        "NE hrsg. Körperschaft",
+        "Gefeierte Körperschaft"
       ]
+    },
+    "f60_": {
+      "type": "string"
     }
   }
 }

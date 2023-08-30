@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpb_notations",
+  "info": {
+    "singularName": "rpb-notation",
+    "pluralName": "rpb-notations",
+    "displayName": "rpb-notationen"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "prefLabel": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    }
+  }
+}

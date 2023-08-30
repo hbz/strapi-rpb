@@ -1,20 +1,21 @@
 {
   "collectionName": "components_rpb_bestand_components",
   "info": {
-    "displayName": "BestandComponent"
+    "displayName": "BestandComponent",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "f90a": {
       "type": "string"
     },
-    "n90a2": {
+    "n90a": {
       "type": "enumeration",
       "enum": [
-        "Koblenz",
-        "Mainz",
-        "Speyer",
-        "Trier"
+        "KO",
+        "SP",
+        "MZ",
+        "TR"
       ]
     }
   }

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_rpb_rpb_spatial_link_components",
   "info": {
-    "displayName": "RpbSpatialLinkComponent"
+    "displayName": "f31",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,6 +10,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::rpb-spatial.rpb-spatial"
+    },
+    "f31_": {
+      "type": "string"
     }
   }
 }

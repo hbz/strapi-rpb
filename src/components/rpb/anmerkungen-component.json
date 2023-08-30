@@ -1,12 +1,13 @@
 {
   "collectionName": "components_rpb_anmerkungen_components",
   "info": {
-    "displayName": "AnmerkungenComponent"
+    "displayName": "AnmerkungenComponent",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "f81": {
-      "type": "string"
+    "f81_": {
+      "type": "text"
     }
   }
 }
