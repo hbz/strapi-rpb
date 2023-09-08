@@ -39,9 +39,9 @@
         "s"
       ]
     },
-    "Bandinformationen": {
+    "f01": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -285,21 +285,13 @@
       },
       "component": "rpb.url-component"
     },
-    "f01_": {
+    "f20u": {
       "pluginOptions": {
         "versions": {
           "versioned": true
         }
       },
       "type": "text"
-    },
-    "f36t": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "string"
     }
   }
 }

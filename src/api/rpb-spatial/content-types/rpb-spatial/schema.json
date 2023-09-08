@@ -19,7 +19,7 @@
     },
     "uri": {
       "type": "string",
-      "regex": "^https://rpb.lobid.org/spatial#n\\d*$",
+      "regex": "^https://rpb.lobid.org/spatial#n.*$",
       "required": true,
       "unique": true
     }

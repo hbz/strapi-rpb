@@ -8,6 +8,9 @@
   "attributes": {
     "f85_": {
       "type": "text"
+    },
+    "f85u": {
+      "type": "string"
     }
   }
 }

@@ -9,9 +9,9 @@
     "n60a": {
       "type": "enumeration",
       "enum": [
-        "HE Urheber",
-        "NE hrsg. Körperschaft",
-        "Gefeierte Körperschaft"
+        "http://id.loc.gov/vocabulary/relators/org",
+        "http://id.loc.gov/vocabulary/relators/isb",
+        "http://id.loc.gov/vocabulary/relators/hnr"
       ]
     },
     "f60_": {

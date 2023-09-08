@@ -7,7 +7,10 @@
   "options": {},
   "attributes": {
     "f32_": {
-      "type": "text"
+      "displayName": "swf",
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.swf"
     }
   }
 }

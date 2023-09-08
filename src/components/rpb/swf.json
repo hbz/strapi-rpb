@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_swfs",
+  "info": {
+    "displayName": "swf",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f32_": {
+      "type": "string"
+    }
+  }
+}
