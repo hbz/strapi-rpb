@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rppd_f1nts",
+  "info": {
+    "displayName": "f1nt"
+  },
+  "options": {},
+  "attributes": {
+    "f1nt": {
+      "type": "string"
+    }
+  }
+}

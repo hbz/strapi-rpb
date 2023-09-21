@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rppd_f1nns",
+  "info": {
+    "displayName": "f1nn",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "f1nn": {
+      "type": "string"
+    }
+  }
+}
