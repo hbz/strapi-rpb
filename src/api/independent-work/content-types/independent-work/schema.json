@@ -34,9 +34,9 @@
       },
       "type": "enumeration",
       "enum": [
-        "sbd",
-        "sm",
-        "s"
+        "Monografie",
+        "Mehrt. Mono (ÜO)",
+        "Band"
       ]
     },
     "f01": {
@@ -248,23 +248,6 @@
       },
       "type": "text"
     },
-    "endDate": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "integer"
-    },
-    "f87_": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "text",
-      "unique": false
-    },
     "f81": {
       "type": "component",
       "repeatable": true,
@@ -292,6 +275,40 @@
         }
       },
       "type": "text"
+    },
+    "f71k": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
+    },
+    "f86_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
+    },
+    "f87": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "component": "rpb.isbn-component"
+    },
+    "endDate": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
     }
   }
 }

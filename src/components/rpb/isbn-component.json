@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_rpb_isbn_components",
+  "info": {
+    "displayName": "ISBNComponent",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "f87": {
+      "type": "string"
+    },
+    "korrekt": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
