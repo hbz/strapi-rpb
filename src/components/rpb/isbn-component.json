@@ -2,14 +2,15 @@
   "collectionName": "components_rpb_isbn_components",
   "info": {
     "displayName": "ISBNComponent",
-    "icon": "book"
+    "icon": "book",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "f87": {
+    "f87_": {
       "type": "string"
     },
-    "korrekt": {
+    "n87": {
       "type": "boolean",
       "default": true
     }
