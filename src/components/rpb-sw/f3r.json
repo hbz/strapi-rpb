@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rpb_sw_f3rs",
+  "info": {
+    "displayName": "f3r"
+  },
+  "options": {},
+  "attributes": {
+    "f3r": {
+      "type": "string"
+    }
+  }
+}
