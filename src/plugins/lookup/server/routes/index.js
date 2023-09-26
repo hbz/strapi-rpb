@@ -1,8 +1,8 @@
 module.exports = [
   {
     method: 'POST',
-    path: '/lookup',
-    handler: 'lookupController.generate',
+    path: '/gnd',
+    handler: 'lookupController.gnd',
     config: {
       policies: [],
     },

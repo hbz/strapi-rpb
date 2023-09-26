@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = ({ strapi }) => ({
-  async generate(ctx) {
+  async gnd(ctx) {
     ctx.body = await strapi
       .plugin('lookup')
       .service('lookup')

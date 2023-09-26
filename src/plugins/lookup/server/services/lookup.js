@@ -8,18 +8,15 @@ module.exports = ({ strapi }) => ({
     try {
       const response = await axios(
         {
-          url: `http://lobid.org/gnd/search?q=${prompt}&format=json:suggest&size=5`,
+          url: `http://lobid.org/gnd/search?q=${prompt}&format=json:suggest&size=3`,
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          data: JSON.stringify({})
         })
 
       return response.data;
     }
     catch (err) {
-      console.log(err.response)
+      console.log("Error on GND query")
+      console.log(err)
     }
 
   }
