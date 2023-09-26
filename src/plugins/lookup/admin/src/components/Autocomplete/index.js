@@ -74,6 +74,29 @@ export default function Index({
     }
   }
 
+  const callLookupRpbAuthorities = async (query) => {
+    try {
+      const response = await fetch(`/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=${query}`, {
+        method: 'GET',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+      const result = await response.json();
+
+      return result.data.map(r => {return {
+        name: r.attributes.f3na,
+        category:{id: "0", name: "cat-name-0"},
+        description: r.attributes.f99z,
+        id: r.attributes.f00_,
+        image: "http://rpb.lobid.org/assets/images/wappen.png"}});
+
+    } catch (err) {
+      setErr(err.message);
+    }
+  }
+
   return (
     <Stack spacing={1}>
         <TextInput
@@ -133,6 +156,29 @@ export default function Index({
                     },
                     noResults() {
                         return 'No RPPD entries for this query.';
+                    },
+                    item({ item, components, html }) {
+                        return <SearchItem item={item} components={components} html={html}/>;
+                    }
+                }
+              },
+              {
+                sourceId: "rpb-authorities",
+                getItems() {
+                  return callLookupRpbAuthorities(query);
+                },
+                onSelect: function(event) {
+                  console.log("rpb-authorities item")
+                  console.log(event.item)
+                  event.setQuery(event.item.name);
+                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
+              },
+                templates: {
+                    header({ html }) {
+                    return html`<span class="aa-SourceHeaderTitle">RPB-Normdaten</span><div class="aa-SourceHeaderLine" />`;
+                    },
+                    noResults() {
+                        return 'Keine RPB-Normdaten für diese Anfrage gefunden.';
                     },
                     item({ item, components, html }) {
                         return <SearchItem item={item} components={components} html={html}/>;
