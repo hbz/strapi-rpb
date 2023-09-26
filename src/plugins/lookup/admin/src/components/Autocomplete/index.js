@@ -132,7 +132,7 @@ export default function Index({
                         return html`<span class="aa-SourceHeaderTitle">GND</span><div class="aa-SourceHeaderLine" />`;
                     },
                     noResults() {
-                        return 'No GND entries for this query.';
+                        return 'Keine GND-Einträge für diese Anfrage gefunden.';
                     },
                     item({ item, components, html }) {
                         return <SearchItem item={item} components={components} html={html}/>;
@@ -155,7 +155,7 @@ export default function Index({
                     return html`<span class="aa-SourceHeaderTitle">RPPD</span><div class="aa-SourceHeaderLine" />`;
                     },
                     noResults() {
-                        return 'No RPPD entries for this query.';
+                        return 'Keine RPPD-Einträge für diese Anfrage gefunden.';
                     },
                     item({ item, components, html }) {
                         return <SearchItem item={item} components={components} html={html}/>;
