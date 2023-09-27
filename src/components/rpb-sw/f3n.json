@@ -1,12 +1,13 @@
 {
   "collectionName": "components_rpb_sw_f3ns",
   "info": {
-    "displayName": "f3n"
+    "displayName": "f3n",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "f3n": {
-      "type": "string"
+      "type": "text"
     }
   }
 }

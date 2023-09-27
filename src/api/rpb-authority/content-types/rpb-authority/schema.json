@@ -31,7 +31,7 @@
       "required": true
     },
     "f3na": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "f3n": {
