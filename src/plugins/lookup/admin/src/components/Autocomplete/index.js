@@ -51,9 +51,9 @@ export default function Index({
     }
   }
 
-  const callLookupRppd = async (query) => {
+  const callLookupRppd = async (path, query, logo) => {
     try {
-      const response = await fetch(`/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=${query}`, {
+      const response = await fetch(`${path}${query}`, {
         method: 'GET',
       });
 
@@ -67,16 +67,16 @@ export default function Index({
         category:{id: "0", name: "cat-name-0"},
         description: "Person",
         id: r.attributes.f00_,
-        image: "http://rpb.lobid.org/assets/images/wappen.png"}});
+        image: logo}});
 
     } catch (err) {
       setErr(err.message);
     }
   }
 
-  const callLookupRpbAuthorities = async (query) => {
+  const callLookupRpbAuthorities = async (path, query, logo) => {
     try {
-      const response = await fetch(`/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=${query}`, {
+      const response = await fetch(`${path}${query}`, {
         method: 'GET',
       });
 
@@ -90,16 +90,16 @@ export default function Index({
         category:{id: "0", name: "cat-name-0"},
         description: r.attributes.f99z,
         id: r.attributes.f00_,
-        image: "http://rpb.lobid.org/assets/images/wappen.png"}});
+        image: logo}});
 
     } catch (err) {
       setErr(err.message);
     }
   }
 
-  const callLookupRpbNotations = async (type, query) => {
+  const callLookupRpbNotations = async (path, query, logo) => {
     try {
-      const response = await fetch(`/api/${type}?pagination[limit]=3&filters[prefLabel][$containsi]=${query}`, {
+      const response = await fetch(`${path}${query}`, {
         method: 'GET',
       });
 
@@ -113,7 +113,38 @@ export default function Index({
         category:{id: "0", name: "cat-name-0"},
         description: r.attributes.uri.split(/#/).pop(),
         id: r.attributes.uri,
-        image: "http://rpb.lobid.org/assets/images/wappen.png"}});
+        image: logo}});
+
+    } catch (err) {
+      setErr(err.message);
+    }
+  }
+
+  const getSource = (id, lookupFun, path, logo, query) => {
+    try {
+      return {
+        sourceId: id,
+        getItems() {
+          return lookupFun(path, query, logo);
+        },
+        onSelect: function(event) {
+            console.log(`${id} item`)
+            console.log(event.item)
+            event.setQuery(event.item.name);
+            onChange({ target: { name, value: event.item.id, type: attribute.type } })
+        },
+        templates: {
+            header({ html }) {
+                return html`<span class="aa-SourceHeaderTitle">${id}</span><div class="aa-SourceHeaderLine" />`;
+            },
+            noResults() {
+                return `Keine ${id}-Einträge für diese Anfrage gefunden.`;
+            },
+            item({ item, components, html }) {
+                return <SearchItem item={item} components={components} html={html}/>;
+            },
+          },
+      };
 
     } catch (err) {
       setErr(err.message);
@@ -139,144 +170,12 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              {
-                sourceId: "gnd",
-                getItems() {
-                  return callLookupLobid("/lookup/gnd", query, "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2");
-                },
-                onSelect: function(event) {
-                    console.log("GND item")
-                    console.log(event.item)
-                    event.setQuery(event.item.name);
-                    onChange({ target: { name, value: event.item.id, type: attribute.type } })
-                },
-                templates: {
-                    header({ html }) {
-                        return html`<span class="aa-SourceHeaderTitle">GND</span><div class="aa-SourceHeaderLine" />`;
-                    },
-                    noResults() {
-                        return 'Keine GND-Einträge für diese Anfrage gefunden.';
-                    },
-                    item({ item, components, html }) {
-                        return <SearchItem item={item} components={components} html={html}/>;
-                    },
-                  },
-              },
-              {
-                sourceId: "rppd",
-                getItems() {
-                  return callLookupRppd(query);
-                },
-                onSelect: function(event) {
-                  console.log("RPPD item")
-                  console.log(event.item)
-                  event.setQuery(event.item.name);
-                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
-              },
-                templates: {
-                    header({ html }) {
-                    return html`<span class="aa-SourceHeaderTitle">RPPD</span><div class="aa-SourceHeaderLine" />`;
-                    },
-                    noResults() {
-                        return 'Keine RPPD-Einträge für diese Anfrage gefunden.';
-                    },
-                    item({ item, components, html }) {
-                        return <SearchItem item={item} components={components} html={html}/>;
-                    }
-                }
-              },
-              {
-                sourceId: "rpb-authorities",
-                getItems() {
-                  return callLookupRpbAuthorities(query);
-                },
-                onSelect: function(event) {
-                  console.log("rpb-authorities item")
-                  console.log(event.item)
-                  event.setQuery(event.item.name);
-                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
-              },
-                templates: {
-                    header({ html }) {
-                    return html`<span class="aa-SourceHeaderTitle">RPB-Normdaten</span><div class="aa-SourceHeaderLine" />`;
-                    },
-                    noResults() {
-                        return 'Keine RPB-Normdaten für diese Anfrage gefunden.';
-                    },
-                    item({ item, components, html }) {
-                        return <SearchItem item={item} components={components} html={html}/>;
-                    }
-                }
-              },
-              {
-                sourceId: "rpb-notations",
-                getItems() {
-                  return callLookupRpbNotations("rpb-notations", query);
-                },
-                onSelect: function(event) {
-                  console.log("rpb-notations item")
-                  console.log(event.item)
-                  event.setQuery(event.item.name);
-                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
-              },
-                templates: {
-                    header({ html }) {
-                    return html`<span class="aa-SourceHeaderTitle">RPB-Sachsystematik</span><div class="aa-SourceHeaderLine" />`;
-                    },
-                    noResults() {
-                        return 'Keine RPB-Sachsystematik-Einträge für diese Anfrage gefunden.';
-                    },
-                    item({ item, components, html }) {
-                        return <SearchItem item={item} components={components} html={html}/>;
-                    }
-                }
-              },
-              {
-                sourceId: "rpb-spatials",
-                getItems() {
-                  return callLookupRpbNotations("rpb-spatials", query);
-                },
-                onSelect: function(event) {
-                  console.log("rpb-notations item")
-                  console.log(event.item)
-                  event.setQuery(event.item.name);
-                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
-              },
-                templates: {
-                    header({ html }) {
-                    return html`<span class="aa-SourceHeaderTitle">RPB-Raumsystematik</span><div class="aa-SourceHeaderLine" />`;
-                    },
-                    noResults() {
-                        return 'Keine RPB-Raumsystematik-Einträge für diese Anfrage gefunden.';
-                    },
-                    item({ item, components, html }) {
-                        return <SearchItem item={item} components={components} html={html}/>;
-                    }
-                }
-              },
-              {
-                sourceId: "resources",
-                getItems() {
-                  return callLookupLobid("/lookup/resources", query, "https://www.hbz-nrw.de/favicon.ico");
-                },
-                onSelect: function(event) {
-                    console.log("resources item")
-                    console.log(event.item)
-                    event.setQuery(event.item.name);
-                    onChange({ target: { name, value: event.item.id, type: attribute.type } })
-                },
-                templates: {
-                    header({ html }) {
-                        return html`<span class="aa-SourceHeaderTitle">hbz-Verbundkatalog</span><div class="aa-SourceHeaderLine" />`;
-                    },
-                    noResults() {
-                        return 'Keine Einträge im hbz-Verbundkatalog für diese Anfrage gefunden.';
-                    },
-                    item({ item, components, html }) {
-                        return <SearchItem item={item} components={components} html={html}/>;
-                    },
-                  },
-              },
+              getSource("GND", callLookupLobid, "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
+              getSource("RPPD", callLookupRppd, "/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Normdaten", callLookupRpbAuthorities, "/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Sachsystematik", callLookupRpbNotations, "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Raumsystematik", callLookupRpbNotations, "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("hbz-Verbundkatalog", callLookupLobid, "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
             ]}
           />
           </div>
