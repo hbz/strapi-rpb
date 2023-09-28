@@ -97,6 +97,29 @@ export default function Index({
     }
   }
 
+  const callLookupRpbNotations = async (type, query) => {
+    try {
+      const response = await fetch(`/api/${type}?pagination[limit]=3&filters[prefLabel][$containsi]=${query}`, {
+        method: 'GET',
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+      const result = await response.json();
+
+      return result.data.map(r => {return {
+        name: r.attributes.prefLabel,
+        category:{id: "0", name: "cat-name-0"},
+        description: r.attributes.uri.split(/#/).pop(),
+        id: r.attributes.uri,
+        image: "http://rpb.lobid.org/assets/images/wappen.png"}});
+
+    } catch (err) {
+      setErr(err.message);
+    }
+  }
+
   return (
     <Stack spacing={1}>
         <TextInput
@@ -179,6 +202,52 @@ export default function Index({
                     },
                     noResults() {
                         return 'Keine RPB-Normdaten für diese Anfrage gefunden.';
+                    },
+                    item({ item, components, html }) {
+                        return <SearchItem item={item} components={components} html={html}/>;
+                    }
+                }
+              },
+              {
+                sourceId: "rpb-notations",
+                getItems() {
+                  return callLookupRpbNotations("rpb-notations", query);
+                },
+                onSelect: function(event) {
+                  console.log("rpb-notations item")
+                  console.log(event.item)
+                  event.setQuery(event.item.name);
+                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
+              },
+                templates: {
+                    header({ html }) {
+                    return html`<span class="aa-SourceHeaderTitle">RPB-Sachsystematik</span><div class="aa-SourceHeaderLine" />`;
+                    },
+                    noResults() {
+                        return 'Keine RPB-Sachsystematik-Einträge für diese Anfrage gefunden.';
+                    },
+                    item({ item, components, html }) {
+                        return <SearchItem item={item} components={components} html={html}/>;
+                    }
+                }
+              },
+              {
+                sourceId: "rpb-spatials",
+                getItems() {
+                  return callLookupRpbNotations("rpb-spatials", query);
+                },
+                onSelect: function(event) {
+                  console.log("rpb-notations item")
+                  console.log(event.item)
+                  event.setQuery(event.item.name);
+                  onChange({ target: { name, value: event.item.id, type: attribute.type } })
+              },
+                templates: {
+                    header({ html }) {
+                    return html`<span class="aa-SourceHeaderTitle">RPB-Raumsystematik</span><div class="aa-SourceHeaderLine" />`;
+                    },
+                    noResults() {
+                        return 'Keine RPB-Raumsystematik-Einträge für diese Anfrage gefunden.';
                     },
                     item({ item, components, html }) {
                         return <SearchItem item={item} components={components} html={html}/>;
