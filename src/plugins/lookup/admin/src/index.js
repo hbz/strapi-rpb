@@ -40,11 +40,11 @@ export default {
       type: "string", 
       intlLabel: {
         id: "lookup.lookup.label",
-        defaultMessage: "Lookup",
+        defaultMessage: "Lookup / ID-Suche",
       },
       intlDescription: {
         id: "lookup.lookup.description",
-        defaultMessage: "Look something up",
+        defaultMessage: "Feld mit Suchvorschlägen für ID-Auswahl",
       },
       icon: PluginIcon,
       components: {
@@ -58,14 +58,6 @@ export default {
               defaultMessage: "Quellen",
             },
             items: [
-              {
-                intlLabel: {
-                  id: "lookup.sources.GND",
-                  defaultMessage: "GND",
-                },
-                name: "options.source.GND",
-                type: "checkbox",
-              },
               {
                 intlLabel: {
                   id: "lookup.sources.RPPD",
@@ -96,6 +88,14 @@ export default {
                   defaultMessage: "RPB-Raumsystematik",
                 },
                 name: "options.source.RPB-Raumsystematik",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND",
+                  defaultMessage: "GND",
+                },
+                name: "options.source.GND",
                 type: "checkbox",
               },
               {

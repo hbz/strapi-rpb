@@ -266,10 +266,6 @@
         }
       },
       "component": "rpb.bestand-component"
-    },
-    "f99n": {
-      "type": "customField",
-      "customField": "plugin::lookup.lookup"
     }
   }
 }
