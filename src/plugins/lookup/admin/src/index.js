@@ -51,6 +51,66 @@ export default {
         Input: async () => import(/* webpackChunkName: "input-component" */ "./components/Autocomplete"),
       },
       options: {
+        base: [
+          {
+            sectionTitle: {
+              id: "lookup.sources",
+              defaultMessage: "Quellen",
+            },
+            items: [
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND",
+                  defaultMessage: "GND",
+                },
+                name: "options.source.GND",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPPD",
+                  defaultMessage: "RPPD",
+                },
+                name: "options.source.RPPD",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Normdaten",
+                  defaultMessage: "RPB-Normdaten",
+                },
+                name: "options.source.RPB-Normdaten",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Sachsystematik",
+                  defaultMessage: "RPB-Sachsystematik",
+                },
+                name: "options.source.RPB-Sachsystematik",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Raumsystematik",
+                  defaultMessage: "RPB-Raumsystematik",
+                },
+                name: "options.source.RPB-Raumsystematik",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.hbz-Verbundkatalog",
+                  defaultMessage: "hbz-Verbundkatalog",
+                },
+                name: "options.source.hbz-Verbundkatalog",
+                type: "checkbox",
+              },
+            ],
+          },
+        ],
+        advanced: [],
+        validator: (args) => ({}),
       },
     });
   },

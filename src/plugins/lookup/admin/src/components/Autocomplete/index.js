@@ -176,7 +176,7 @@ export default function Index({
               getSource("RPB-Sachsystematik", callLookupRpbNotations, "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Raumsystematik", callLookupRpbNotations, "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("hbz-Verbundkatalog", callLookupLobid, "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
-            ]}
+            ].filter((e) => attribute.options.source[e.sourceId])}
           />
           </div>
     </Stack>
