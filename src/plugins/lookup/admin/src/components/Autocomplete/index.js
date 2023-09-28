@@ -21,9 +21,9 @@ export default function Index({
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
 
-  const callLookupGnd = async (query) => {
+  const callLookupLobid = async (path, query, logo) => {
     try {
-      const response = await fetch(`/lookup/gnd`, {
+      const response = await fetch(path, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function Index({
         category: {id: "0", name: "cat-name-0"},
         description: r.category,
         id: r.id,
-        image: r.image || "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2"}});
+        image: r.image || logo}});
 
     } catch (err) {
       setErr(err.message);
@@ -142,7 +142,7 @@ export default function Index({
               {
                 sourceId: "gnd",
                 getItems() {
-                  return callLookupGnd(query);
+                  return callLookupLobid("/lookup/gnd", query, "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2");
                 },
                 onSelect: function(event) {
                     console.log("GND item")
@@ -253,6 +253,29 @@ export default function Index({
                         return <SearchItem item={item} components={components} html={html}/>;
                     }
                 }
+              },
+              {
+                sourceId: "resources",
+                getItems() {
+                  return callLookupLobid("/lookup/resources", query, "https://www.hbz-nrw.de/favicon.ico");
+                },
+                onSelect: function(event) {
+                    console.log("resources item")
+                    console.log(event.item)
+                    event.setQuery(event.item.name);
+                    onChange({ target: { name, value: event.item.id, type: attribute.type } })
+                },
+                templates: {
+                    header({ html }) {
+                        return html`<span class="aa-SourceHeaderTitle">hbz-Verbundkatalog</span><div class="aa-SourceHeaderLine" />`;
+                    },
+                    noResults() {
+                        return 'Keine Einträge im hbz-Verbundkatalog für diese Anfrage gefunden.';
+                    },
+                    item({ item, components, html }) {
+                        return <SearchItem item={item} components={components} html={html}/>;
+                    },
+                  },
               },
             ]}
           />

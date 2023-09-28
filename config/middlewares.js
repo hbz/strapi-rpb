@@ -15,6 +15,7 @@ module.exports = [
             'upload.wikimedia.org',
             'rpb.lobid.org',
             'lobid.org',
+            'www.hbz-nrw.de',
             'gnd.network',
             '127.0.0.1:1339',
           ],

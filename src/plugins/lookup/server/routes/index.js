@@ -7,4 +7,12 @@ module.exports = [
       policies: [],
     },
   },
+  {
+    method: 'POST',
+    path: '/resources',
+    handler: 'lookupController.resources',
+    config: {
+      policies: [],
+    },
+  },
 ];
