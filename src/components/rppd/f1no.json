@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rppd_f1nos",
+  "info": {
+    "displayName": "f1no"
+  },
+  "options": {},
+  "attributes": {
+    "f1no": {
+      "type": "string"
+    }
+  }
+}
