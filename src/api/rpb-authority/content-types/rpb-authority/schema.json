@@ -12,27 +12,45 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "f00": {
+    "f00_": {
       "type": "string",
       "unique": true,
       "required": true
     },
-    "type": {
+    "f99z": {
       "type": "enumeration",
       "enum": [
-        "Person",
-        "Körperschaft",
-        "Konferenz oder Veranstaltung",
-        "Werk",
         "Geografikum",
-        "Schlagwort",
-        "Familie"
+        "Körperschaft",
+        "Person",
+        "Sachschlagwort",
+        "Veranstaltung",
+        "Werk",
+        "N/A"
       ],
       "required": true
     },
     "f3na": {
-      "type": "string",
+      "type": "text",
       "required": true
+    },
+    "f3n": {
+      "displayName": "f3n",
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb-sw.f3n"
+    },
+    "f3r": {
+      "displayName": "f3r",
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb-sw.f3r"
+    },
+    "f3nz": {
+      "type": "text"
+    },
+    "source": {
+      "type": "string"
     }
   }
 }
