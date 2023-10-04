@@ -267,7 +267,7 @@
       "type": "enumeration",
       "enum": [
         "nur RPB",
-        "auch BiblioVino",
+        "RPB und BiblioVino",
         "nur BiblioVino"
       ],
       "default": "nur RPB",
