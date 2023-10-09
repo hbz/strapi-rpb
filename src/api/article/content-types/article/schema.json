@@ -35,15 +35,6 @@
       "type": "boolean",
       "default": false
     },
-    "f18_": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "boolean",
-      "default": false
-    },
     "f40": {
       "type": "component",
       "repeatable": true,
@@ -266,6 +257,21 @@
         }
       },
       "component": "rpb.bestand-component"
+    },
+    "f18_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "nur RPB",
+        "RPB und BiblioVino",
+        "nur BiblioVino"
+      ],
+      "default": "nur RPB",
+      "required": true
     }
   }
 }
