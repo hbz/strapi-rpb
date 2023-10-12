@@ -15,7 +15,9 @@
     "@strapi/plugin-users-permissions": "4.11.2",
     "@strapi/plugin-i18n": "4.11.2",
     "pg": "8.8.0",
-    "@notum-cz/strapi-plugin-content-versioning": "^0.4.7"
+    "@notum-cz/strapi-plugin-content-versioning": "^0.4.7",
+    "@algolia/autocomplete-js": "1.11.1",
+    "@algolia/autocomplete-theme-classic": "1.11.1"
   },
   "author": {
     "name": "A Strapi developer"
