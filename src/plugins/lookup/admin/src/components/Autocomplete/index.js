@@ -66,7 +66,7 @@ export default function Index({
         name: r.attributes.f1na,
         category:{id: "0", name: "cat-name-0"},
         description: "Person",
-        id: r.attributes.f00_,
+        id: "http://rppd.lobid.org/" + r.attributes.f00_,
         image: logo}});
 
     } catch (err) {
@@ -89,7 +89,7 @@ export default function Index({
         name: r.attributes.f3na,
         category:{id: "0", name: "cat-name-0"},
         description: r.attributes.f99z,
-        id: r.attributes.f00_,
+        id: "http://rpb.lobid.org/sw/" + r.attributes.f00_,
         image: logo}});
 
     } catch (err) {
