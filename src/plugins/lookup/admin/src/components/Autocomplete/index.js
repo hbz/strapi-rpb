@@ -170,10 +170,10 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, "/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Normdaten", callLookupRpbAuthorities, "/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Sachsystematik", callLookupRpbNotations, "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Raumsystematik", callLookupRpbNotations, "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPPD", callLookupRppd, "/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Normdaten", callLookupRpbAuthorities, "/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Sachsystematik", callLookupRpbNotations, "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Raumsystematik", callLookupRpbNotations, "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("GND", callLookupLobid, "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
               getSource("hbz-Verbundkatalog", callLookupLobid, "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
             ].filter((e) => attribute.options.source[e.sourceId])}
