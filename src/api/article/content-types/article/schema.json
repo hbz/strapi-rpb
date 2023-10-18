@@ -272,6 +272,14 @@
       ],
       "default": "nur RPB",
       "required": true
+    },
+    "f77_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
     }
   }
 }
