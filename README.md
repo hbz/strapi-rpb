@@ -46,3 +46,5 @@ To see changes made to the `lookup` plugin in your admin UI, run (in the project
 
     $ cd -
     $ strapi build
+
+The plugin will be installed by `Dockerfile` already therefore you don't have to run these commands actually.
