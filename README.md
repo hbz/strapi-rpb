@@ -37,11 +37,6 @@ To open a bash in your container (e.g. to use `strapi` CLI commands), run:
 
     $ docker exec -it strapi-rpb bash
 
-The plugin is a node application in `src/plugins/lookup`, i.e. you can run `npm` commands there:
-
-    $ cd src/plugins/lookup
-    $ npm install
-
 To see changes made to the `lookup` plugin in your admin UI, run (in the project root directory):
 
     $ cd -
