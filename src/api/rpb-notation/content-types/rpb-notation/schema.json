@@ -4,7 +4,8 @@
   "info": {
     "singularName": "rpb-notation",
     "pluralName": "rpb-notations",
-    "displayName": "rpb-notationen"
+    "displayName": "rpb-notationen",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,10 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "prefLabel": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "uri": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "regex": "^http://purl.org/lobid/rpb#n.*$"
     }
   }
 }
