@@ -28,7 +28,7 @@ services:
       - ./.env:/opt/app/.env
       #- ./public/uploads:/opt/app/public/uploads
     ports:
-      - 1339:1337
+      - 1337:1337
       - 8000:8000
     networks:
       - strapi-rpb
