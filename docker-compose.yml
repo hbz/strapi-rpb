@@ -5,6 +5,7 @@ services:
     container_name: strapi-rpb
     build:
       dockerfile: ./Dockerfile.dev
+      network: host
     image: strapi-rpb:latest
     restart: unless-stopped
     env_file: .env
