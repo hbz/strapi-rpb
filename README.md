@@ -25,7 +25,7 @@ For development on your local machine you can use Docker compose:
 
     $ docker compose up
 
-to spin up the two docker containers. The strapi app is accessible at `http://localhost:1339/`. The standard port 1337 strapi normally uses is mapped to 1339 on the host, see `docker-compose.yml`.
+to spin up the two docker containers. The strapi app is accessible at `http://localhost:1337/`.
 
 You first need to create an admin user via the GUI or [via the CLI](https://docs.strapi.io/dev-docs/cli#strapi-admincreate-user).
 

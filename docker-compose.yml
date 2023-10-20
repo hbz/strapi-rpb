@@ -5,6 +5,7 @@ services:
     container_name: strapi-rpb
     build:
       dockerfile: ./Dockerfile.dev
+      network: host
     image: strapi-rpb:latest
     restart: unless-stopped
     env_file: .env
@@ -27,7 +28,8 @@ services:
       - ./.env:/opt/app/.env
       #- ./public/uploads:/opt/app/public/uploads
     ports:
-      - 1339:1337
+      - 1337:1337
+      - 8000:8000
     networks:
       - strapi-rpb
     depends_on:
