@@ -15,7 +15,7 @@
     "prefLabel": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "uri": {
       "type": "string",

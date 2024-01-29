@@ -66,7 +66,7 @@ export default function Index({
         name: r.attributes.f1na,
         category:{id: "0", name: "cat-name-0"},
         description: "Person",
-        id: r.attributes.f00_,
+        id: "http://rppd.lobid.org/" + r.attributes.f00_,
         image: logo}});
 
     } catch (err) {
@@ -89,7 +89,7 @@ export default function Index({
         name: r.attributes.f3na,
         category:{id: "0", name: "cat-name-0"},
         description: r.attributes.f99z,
-        id: r.attributes.f00_,
+        id: "http://rpb.lobid.org/sw/" + r.attributes.f00_,
         image: logo}});
 
     } catch (err) {
@@ -170,10 +170,10 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, "http://localhost:1337/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Normdaten", callLookupRpbAuthorities, "http://localhost:1337/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Sachsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Raumsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "http://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPPD", callLookupRppd, "http://localhost:1337/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Normdaten", callLookupRpbAuthorities, "http://localhost:1337/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Sachsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Raumsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("GND", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
               getSource("hbz-Verbundkatalog", callLookupLobid, "http://localhost:1337/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
             ].filter((e) => attribute.options.source[e.sourceId])}
