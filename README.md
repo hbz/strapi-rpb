@@ -25,11 +25,11 @@ For development on your local machine you can use Docker compose:
 
     $ docker compose up
 
-to spin up the two docker containers. The strapi app is accessible at `http://localhost:1337/`.
+to spin up the two docker containers. The strapi app is accessible at `http://localhost:8000/`.
 
 You first need to create an admin user via the GUI or [via the CLI](https://docs.strapi.io/dev-docs/cli#strapi-admincreate-user).
 
-In order to access the content-types through the [REST API](https://docs.strapi.io/dev-docs/api/rest) you need to set the appropriate permissions. Go to `http://localhost:1339/admin/settings/users-permissions/roles`, click on the respective role and set the permissions for each content-type. For more details please have a look at the [docs of the Users & Permissions plugin](https://docs.strapi.io/dev-docs/plugins/users-permissions).
+In order to access the content-types through the [REST API](https://docs.strapi.io/dev-docs/api/rest) you need to set the appropriate permissions. Go to `http://localhost:8000/admin/settings/users-permissions/roles`, click on the respective role and set the permissions for each content-type. For more details please have a look at the [docs of the Users & Permissions plugin](https://docs.strapi.io/dev-docs/plugins/users-permissions).
 
 ### Plugin
 
