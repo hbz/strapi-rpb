@@ -41,3 +41,19 @@ To see changes made to the `lookup` plugin in your admin UI, run (in the project
 
     $ cd -
     $ strapi build
+
+### Config
+
+Some config (e.g. field labels) is actually stored in the DB, not in repo files.
+
+It can be dumped to a file inside the container and copied to the local repo with:
+
+    docker compose exec strapi-rpb strapi config:dump -f config.json
+    docker compose cp strapi-rpb:./opt/app/config.json .
+
+Reverse for restoring from the file:
+
+    docker compose cp config.json strapi-rpb:./opt/app/
+    docker compose exec strapi-rpb strapi config:restore -f config.json
+
+The current config dump in checked into the repo as `config.json`.
