@@ -56,4 +56,8 @@ Reverse for restoring from the file:
     docker compose cp config.json strapi-rpb:./opt/app/
     docker compose exec strapi-rpb strapi config:restore -f config.json
 
-The current config dump in checked into the repo as `config.json`.
+The current config dump is checked into the repo as `config.json`. *Caution:* credentials (eg. API Tokens) will also be dumped into this file. Be sure your config contains non-sensitiv data only. In doubt you should not commit your config.
+
+When running the restore command you can choose from different strategies: replace (default), merge, keep.
+
+Read more in the [Strapi docs](https://docs.strapi.io/dev-docs/cli#strapi-configurationdump).
