@@ -15,4 +15,12 @@ module.exports = [
       policies: [],
     },
   },
+  {
+    method: 'POST',
+    path: '/rpb',
+    handler: 'lookupController.rpb',
+    config: {
+      policies: [],
+    },
+  },
 ];

@@ -36,5 +36,21 @@ module.exports = ({ strapi }) => ({
     }
 
   },
+  async lookupRpb(prompt, filter) {
+    try {
+      const response = await axios(
+        {
+          url: `http://quaoar1.hbz-nrw.de:1990/resources/search?q=${prompt}&filter=${filter}&format=json:title&size=3`,
+          method: 'GET',
+        })
+
+      return response.data;
+    }
+    catch (err) {
+      console.log("Error on rpb query")
+      console.log(err)
+    }
+
+  },
 
 });

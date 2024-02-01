@@ -175,6 +175,7 @@ export default function Index({
               getSource("RPB-Normdaten", callLookupRpbAuthorities, "http://localhost:1337/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Sachsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Raumsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Titeldaten", callLookupLobid, "http://localhost:1337/lookup/rpb", "https://www.hbz-nrw.de/favicon.ico", query),
               getSource("GND", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
               getSource("GND-Schlagwörter", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "SubjectHeading"),
               getSource("GND-Geografika", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "PlaceOrGeographicName"),

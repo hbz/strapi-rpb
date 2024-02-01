@@ -130,6 +130,14 @@ export default {
                 name: "options.source.hbz-Verbundkatalog",
                 type: "checkbox",
               },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Titeldaten",
+                  defaultMessage: "RPB-Titeldaten",
+                },
+                name: "options.source.RPB-Titeldaten",
+                type: "checkbox",
+              },
             ],
           },
         ],
