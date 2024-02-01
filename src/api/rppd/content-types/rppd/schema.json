@@ -176,7 +176,14 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Raumsystematik": true,
+          "GND-Geografika": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     },
     "f1nq": {
       "pluginOptions": {
@@ -184,7 +191,14 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Raumsystematik": true,
+          "GND-Geografika": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     },
     "f1no": {
       "displayName": "f1no",

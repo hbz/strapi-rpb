@@ -156,7 +156,7 @@ export default function Index({
     <Stack spacing={1}>
         <TextInput
           placeholder="ID"
-          label={name}
+          label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           onChange={(e) =>
             onChange({

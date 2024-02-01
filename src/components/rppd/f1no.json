@@ -1,12 +1,20 @@
 {
   "collectionName": "components_rppd_f1nos",
   "info": {
-    "displayName": "f1no"
+    "displayName": "f1no",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "f1no": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Raumsystematik": true,
+          "GND-Geografika": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     }
   }
 }

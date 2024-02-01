@@ -6,7 +6,14 @@
   "options": {},
   "attributes": {
     "f1nt": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPPD": true,
+          "GND-Personen": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     }
   }
 }
