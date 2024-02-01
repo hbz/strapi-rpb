@@ -5,12 +5,12 @@ module.exports = ({ strapi }) => ({
     ctx.body = await strapi
       .plugin('lookup')
       .service('lookup')
-      .lookupGnd(ctx.request.body.prompt);
+      .lookupGnd(ctx.request.body.prompt, ctx.request.body.filter);
   },
   async resources(ctx) {
     ctx.body = await strapi
       .plugin('lookup')
       .service('lookup')
-      .lookupResources(ctx.request.body.prompt);
+      .lookupResources(ctx.request.body.prompt, ctx.request.body.filter);
   },
 });

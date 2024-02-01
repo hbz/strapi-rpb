@@ -4,11 +4,11 @@ const axios = require('axios');
 
 module.exports = ({ strapi }) => ({
 
-  async lookupGnd(prompt) {
+  async lookupGnd(prompt, filter) {
     try {
       const response = await axios(
         {
-          url: `http://lobid.org/gnd/search?q=${prompt}&format=json:suggest&size=3`,
+          url: `http://lobid.org/gnd/search?q=${prompt}&filter=${filter}&format=json:suggest&size=3`,
           method: 'GET',
         })
 
@@ -20,11 +20,11 @@ module.exports = ({ strapi }) => ({
     }
 
   },
-  async lookupResources(prompt) {
+  async lookupResources(prompt, filter) {
     try {
       const response = await axios(
         {
-          url: `http://lobid.org/resources/search?q=${prompt}&format=json:title&size=3`,
+          url: `http://lobid.org/resources/search?q=${prompt}&filter=${filter}&format=json:title&size=3`,
           method: 'GET',
         })
 

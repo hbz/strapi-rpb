@@ -21,7 +21,7 @@ export default function Index({
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
 
-  const callLookupLobid = async (path, query, logo) => {
+  const callLookupLobid = async (path, query, filter, logo) => {
     try {
       const response = await fetch(path, {
         method: 'POST',
@@ -31,6 +31,7 @@ export default function Index({
         },
         body: JSON.stringify({
           'prompt': `${query}`,
+          'filter': `${filter}`,
         })
       });
 
@@ -51,7 +52,7 @@ export default function Index({
     }
   }
 
-  const callLookupRppd = async (path, query, logo) => {
+  const callLookupRppd = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}${query}`, {
         method: 'GET',
@@ -74,7 +75,7 @@ export default function Index({
     }
   }
 
-  const callLookupRpbAuthorities = async (path, query, logo) => {
+  const callLookupRpbAuthorities = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}${query}`, {
         method: 'GET',
@@ -97,7 +98,7 @@ export default function Index({
     }
   }
 
-  const callLookupRpbNotations = async (path, query, logo) => {
+  const callLookupRpbNotations = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}${query}`, {
         method: 'GET',
@@ -120,12 +121,12 @@ export default function Index({
     }
   }
 
-  const getSource = (id, lookupFun, path, logo, query) => {
+  const getSource = (id, lookupFun, path, logo, query, filter = "*") => {
     try {
       return {
         sourceId: id,
         getItems() {
-          return lookupFun(path, query, logo);
+          return lookupFun(path, query, filter, logo);
         },
         onSelect: function(event) {
             console.log(`${id} item`)
@@ -175,6 +176,9 @@ export default function Index({
               getSource("RPB-Sachsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Raumsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("GND", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
+              getSource("GND-Schlagwörter", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "SubjectHeading"),
+              getSource("GND-Geografika", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "PlaceOrGeographicName"),
+              getSource("GND-Personen", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "Person"),
               getSource("hbz-Verbundkatalog", callLookupLobid, "http://localhost:1337/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
             ].filter((e) => attribute.options.source[e.sourceId])}
           />
