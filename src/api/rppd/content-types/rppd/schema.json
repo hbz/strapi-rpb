@@ -264,6 +264,14 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "f98_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text"
     }
   }
 }
