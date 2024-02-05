@@ -17,7 +17,6 @@ module.exports = [
             'lobid.org',
             'www.hbz-nrw.de',
             'gnd.network',
-            '127.0.0.1:1337',
           ],
           'media-src': ["'self'", 'data:', 'blob:'],
           upgradeInsecureRequests: null,
