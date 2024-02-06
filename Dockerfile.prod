@@ -9,6 +9,10 @@ COPY package.json ./
 RUN npm install -g node-gyp
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install --only=production
 ENV PATH /opt/node_modules/.bin:$PATH
+WORKDIR /opt/app/src/plugins/lookup
+COPY src/plugins/lookup/package.json ./
+RUN npm install
+ENV PATH /opt/app/src/plugins/lookup/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .
 RUN npm run build
