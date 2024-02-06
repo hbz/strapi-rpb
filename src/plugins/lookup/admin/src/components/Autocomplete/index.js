@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { TextInput } from '@strapi/design-system/TextInput';
 import { Stack } from '@strapi/design-system/Stack';
@@ -21,6 +21,7 @@ export default function Index({
   const { formatMessage } = useIntl();
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
+  const [details, setDetails] = useState(null);
 
   const callLookupLobid = async (path, query, filter, logo) => {
     try {
@@ -153,12 +154,29 @@ export default function Index({
     }
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`http://lobid.org/gnd/search?format=json&q=id:"${value}"`);
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      if(result.member.length > 0) {
+        setDetails(result.member[0].preferredName);
+      }
+    };
+
+    fetchData();
+  }, [value]);
+
   return (
     <Stack spacing={1}>
         <TextInput
           placeholder="ID"
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
+          disabled
+          hint={details || "Keine Details für: " + value}
           onChange={(e) =>
             onChange({
               target: { name, value: e.target.value, type: attribute.type },
