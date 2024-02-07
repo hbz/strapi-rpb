@@ -175,7 +175,7 @@ export default function Index({
           placeholder="ID"
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
-          disabled
+          disabled={!attribute.options.source.editable}
           hint={details || "Keine Details für: " + value}
           onChange={(e) =>
             onChange({

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_rpb_werke_components",
   "info": {
-    "displayName": "WerkeComponent"
+    "displayName": "WerkeComponent",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,8 @@
       "type": "customField",
       "options": {
         "source": {
-          "hbz-Verbundkatalog": true
+          "hbz-Verbundkatalog": true,
+          "editable": true
         }
       },
       "customField": "plugin::lookup.lookup"
