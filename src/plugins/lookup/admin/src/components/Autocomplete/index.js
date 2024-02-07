@@ -176,7 +176,7 @@ export default function Index({
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           disabled={!attribute.options.source.editable}
-          hint={details || "Keine Details für: " + value}
+          hint={details || (value && "Keine Details für: " + value)}
           onChange={(e) =>
             onChange({
               target: { name, value: e.target.value, type: attribute.type },
@@ -184,7 +184,7 @@ export default function Index({
           }
           value={value}
         />
-      <div style={{'--aa-input-border-color-rgb': 'rgb(220, 220, 228)'}}>
+      <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
           <Autocomplete
             openOnFocus={false}
             detachedMediaQuery=''
