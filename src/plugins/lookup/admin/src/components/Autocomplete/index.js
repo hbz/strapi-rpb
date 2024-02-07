@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { TextInput } from '@strapi/design-system/TextInput';
+import { Link } from '@strapi/design-system/v2';
 import { Stack } from '@strapi/design-system/Stack';
 import { auth } from '@strapi/helper-plugin';
 
@@ -156,13 +157,15 @@ export default function Index({
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://lobid.org/gnd/search?format=json&q=id:"${value}"`);
-      if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
-      }
-      const result = await response.json();
-      if(result.member.length > 0) {
-        setDetails(result.member[0].preferredName);
+     if(value && value.startsWith("https://d-nb.info/gnd/")) {
+        const response = await fetch(`http://lobid.org/gnd/search?format=json&q=id:"${value}"`);
+        if (!response.ok) {
+          throw new Error(`Error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        if(result.member.length > 0) {
+          setDetails(result.member[0].preferredName);
+        }
       }
     };
 
@@ -176,7 +179,6 @@ export default function Index({
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           disabled={!attribute.options.source.editable}
-          hint={details || (value && "Keine Details für: " + value)}
           onChange={(e) =>
             onChange({
               target: { name, value: e.target.value, type: attribute.type },
@@ -184,6 +186,9 @@ export default function Index({
           }
           value={value}
         />
+      {value && value.startsWith("http") &&
+        <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
+      }
       <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
           <Autocomplete
             openOnFocus={false}
