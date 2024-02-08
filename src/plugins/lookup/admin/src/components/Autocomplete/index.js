@@ -157,8 +157,9 @@ export default function Index({
 
   useEffect(() => {
     const fetchData = async () => {
+     setDetails(null)
      if(value && value.startsWith("https://d-nb.info/gnd/")) {
-        const response = await fetch(`http://lobid.org/gnd/search?format=json&q=id:"${value}"`);
+        const response = await fetch(`https://lobid.org/gnd/search?format=json&q=id:"${value}"`);
         if (!response.ok) {
           throw new Error(`Error! status: ${response.status}`);
         }
