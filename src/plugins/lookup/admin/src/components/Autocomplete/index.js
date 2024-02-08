@@ -159,15 +159,24 @@ export default function Index({
 
   useEffect(() => {
     const fetchData = async () => {
-     setDetails(null)
-     if(value && value.startsWith("https://d-nb.info/gnd/")) {
-        const response = await fetch(`https://lobid.org/gnd/search?format=json&q=id:"${value}"`);
-        if (!response.ok) {
-          throw new Error(`Error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        if(result.member.length > 0) {
-          setDetails(result.member[0].preferredName);
+      setDetails(null)
+      const supportedIdPrefixes = {
+        "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${value}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(value)}.json`, test: (r) => r, process: (r) => r.title},
+        "http://rpb.lobid.org": {url: `http://quaoar1.hbz-nrw.de:1990/resources/search?q=rpbId:${lastSegment(value)}&format=json&size=1`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
+        "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[f00_][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.f3na}
+      };
+      for (const idPrefix in supportedIdPrefixes) {
+        if(value && value.startsWith(idPrefix)) {
+          const response = await fetch(supportedIdPrefixes[idPrefix].url);
+          if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`);
+          }
+          const result = await response.json();
+          if(supportedIdPrefixes[idPrefix].test(result)) {
+            setDetails(supportedIdPrefixes[idPrefix].process(result));
+          }
         }
       }
     };
