@@ -24,6 +24,8 @@ export default function Index({
   const [err, setErr] = useState(''); 
   const [details, setDetails] = useState(null);
 
+  const lastSegment = (uri) => uri && uri.substring(uri.lastIndexOf("/") + 1)
+
   const callLookupLobid = async (path, query, filter, logo) => {
     try {
       const response = await fetch(path, {
@@ -47,7 +49,7 @@ export default function Index({
         name: r.label,
         category: {id: "0", name: "cat-name-0"},
         description: r.category,
-        id: r.id,
+        id: path.endsWith("rpb") ? "http://rpb.lobid.org/" + lastSegment(r.id) : r.id,
         image: r.image || logo}});
 
     } catch (err) {
