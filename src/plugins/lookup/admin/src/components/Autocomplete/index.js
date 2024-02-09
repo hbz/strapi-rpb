@@ -164,7 +164,7 @@ export default function Index({
         "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${value}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
         "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
         "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(value)}.json`, test: (r) => r, process: (r) => r.title},
-        "http://rpb.lobid.org": {url: `http://quaoar1.hbz-nrw.de:1990/resources/search?q=rpbId:${lastSegment(value)}&format=json&size=1`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
+        "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(value)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
         "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[f00_][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.f3na}
       };
       for (const idPrefix in supportedIdPrefixes) {
