@@ -10,7 +10,9 @@ COPY --chown="node:node" ./package.json ./
 ENV PATH /opt/node_modules/.bin:$PATH
 RUN npm install
 WORKDIR /opt/app/src/plugins/lookup
+COPY src/plugins/lookup/package.json ./
 RUN npm install
+ENV PATH /opt/app/src/plugins/lookup/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY --chown="node:node" ./ .
 RUN npm run build
