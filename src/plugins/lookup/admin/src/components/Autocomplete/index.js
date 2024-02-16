@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { TextInput } from '@strapi/design-system/TextInput';
+import { Link } from '@strapi/design-system/v2';
 import { Stack } from '@strapi/design-system/Stack';
 import { auth } from '@strapi/helper-plugin';
 
@@ -21,6 +22,9 @@ export default function Index({
   const { formatMessage } = useIntl();
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
+  const [details, setDetails] = useState(null);
+
+  const lastSegment = (uri) => uri && uri.substring(uri.lastIndexOf("/") + 1)
 
   const callLookupLobid = async (path, query, filter, logo) => {
     try {
@@ -45,7 +49,7 @@ export default function Index({
         name: r.label,
         category: {id: "0", name: "cat-name-0"},
         description: r.category,
-        id: r.id,
+        id: path.endsWith("rpb") ? "http://rpb.lobid.org/" + lastSegment(r.id) : r.id,
         image: r.image || logo}});
 
     } catch (err) {
@@ -153,12 +157,40 @@ export default function Index({
     }
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setDetails(null)
+      const supportedIdPrefixes = {
+        "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${value}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(value)}.json`, test: (r) => r, process: (r) => r.title},
+        "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(value)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
+        "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[f00_][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.f3na}
+      };
+      for (const idPrefix in supportedIdPrefixes) {
+        if(value && value.startsWith(idPrefix)) {
+          const response = await fetch(supportedIdPrefixes[idPrefix].url);
+          if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`);
+          }
+          const result = await response.json();
+          if(supportedIdPrefixes[idPrefix].test(result)) {
+            setDetails(supportedIdPrefixes[idPrefix].process(result));
+          }
+        }
+      }
+    };
+
+    fetchData();
+  }, [value]);
+
   return (
     <Stack spacing={1}>
         <TextInput
           placeholder="ID"
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
+          disabled={!attribute.options.source.editable}
           onChange={(e) =>
             onChange({
               target: { name, value: e.target.value, type: attribute.type },
@@ -166,7 +198,10 @@ export default function Index({
           }
           value={value}
         />
-      <div style={{'--aa-input-border-color-rgb': 'rgb(220, 220, 228)'}}>
+      {value && value.startsWith("http") &&
+        <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
+      }
+      <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
           <Autocomplete
             openOnFocus={false}
             detachedMediaQuery=''

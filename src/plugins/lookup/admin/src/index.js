@@ -55,6 +55,22 @@ export default {
           {
             sectionTitle: {
               id: "lookup.sources",
+              defaultMessage: "Textfeld",
+            },
+            items: [
+              {
+                intlLabel: {
+                  id: "lookup.sources.editable",
+                  defaultMessage: "Editierbar",
+                },
+                name: "options.source.editable",
+                type: "checkbox",
+              },
+            ],
+          },
+          {
+            sectionTitle: {
+              id: "lookup.sources",
               defaultMessage: "Quellen",
             },
             items: [
