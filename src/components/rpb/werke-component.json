@@ -6,7 +6,13 @@
   "options": {},
   "attributes": {
     "f1nu": {
-      "type": "text"
+      "type": "customField",
+      "options": {
+        "source": {
+          "hbz-Verbundkatalog": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     }
   }
 }

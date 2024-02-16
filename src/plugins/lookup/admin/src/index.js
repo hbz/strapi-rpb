@@ -100,10 +100,42 @@ export default {
               },
               {
                 intlLabel: {
+                  id: "lookup.sources.GND-Schlagwörter",
+                  defaultMessage: "GND-Schlagwörter",
+                },
+                name: "options.source.GND-Schlagwörter",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND-Geografika",
+                  defaultMessage: "GND-Geografika",
+                },
+                name: "options.source.GND-Geografika",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND-Personen",
+                  defaultMessage: "GND-Personen",
+                },
+                name: "options.source.GND-Personen",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
                   id: "lookup.sources.hbz-Verbundkatalog",
                   defaultMessage: "hbz-Verbundkatalog",
                 },
                 name: "options.source.hbz-Verbundkatalog",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Titeldaten",
+                  defaultMessage: "RPB-Titeldaten",
+                },
+                name: "options.source.RPB-Titeldaten",
                 type: "checkbox",
               },
             ],

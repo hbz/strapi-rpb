@@ -16,12 +16,13 @@ export default function Index({
   value,
   intlLabel,
   attribute,
+  
 }) {
   const { formatMessage } = useIntl();
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
 
-  const callLookupLobid = async (path, query, logo) => {
+  const callLookupLobid = async (path, query, filter, logo) => {
     try {
       const response = await fetch(path, {
         method: 'POST',
@@ -31,6 +32,7 @@ export default function Index({
         },
         body: JSON.stringify({
           'prompt': `${query}`,
+          'filter': `${filter}`,
         })
       });
 
@@ -51,7 +53,7 @@ export default function Index({
     }
   }
 
-  const callLookupRppd = async (path, query, logo) => {
+  const callLookupRppd = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}${query}`, {
         method: 'GET',
@@ -74,7 +76,7 @@ export default function Index({
     }
   }
 
-  const callLookupRpbAuthorities = async (path, query, logo) => {
+  const callLookupRpbAuthorities = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}${query}`, {
         method: 'GET',
@@ -97,7 +99,7 @@ export default function Index({
     }
   }
 
-  const callLookupRpbNotations = async (path, query, logo) => {
+  const callLookupRpbNotations = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}${query}`, {
         method: 'GET',
@@ -120,12 +122,12 @@ export default function Index({
     }
   }
 
-  const getSource = (id, lookupFun, path, logo, query) => {
+  const getSource = (id, lookupFun, path, logo, query, filter = "*") => {
     try {
       return {
         sourceId: id,
         getItems() {
-          return lookupFun(path, query, logo);
+          return lookupFun(path, query, filter, logo);
         },
         onSelect: function(event) {
             console.log(`${id} item`)
@@ -155,7 +157,7 @@ export default function Index({
     <Stack spacing={1}>
         <TextInput
           placeholder="ID"
-          label={name}
+          label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           onChange={(e) =>
             onChange({
@@ -170,12 +172,16 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, "http://localhost:1337/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Normdaten", callLookupRpbAuthorities, "http://localhost:1337/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Sachsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Raumsystematik", callLookupRpbNotations, "http://localhost:1337/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("GND", callLookupLobid, "http://localhost:1337/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
-              getSource("hbz-Verbundkatalog", callLookupLobid, "http://localhost:1337/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
+              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Raumsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Titeldaten", callLookupLobid, strapi.backendURL + "/lookup/rpb", "https://www.hbz-nrw.de/favicon.ico", query),
+              getSource("GND", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
+              getSource("GND-Schlagwörter", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "SubjectHeading"),
+              getSource("GND-Geografika", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "PlaceOrGeographicName"),
+              getSource("GND-Personen", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "Person"),
+              getSource("hbz-Verbundkatalog", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
             ].filter((e) => attribute.options.source[e.sourceId])}
           />
           </div>

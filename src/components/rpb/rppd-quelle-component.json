@@ -7,8 +7,14 @@
   "options": {},
   "attributes": {
     "f1nx": {
-      "type": "text",
-      "required": false
+      "type": "customField",
+      "options": {
+        "source": {
+          "hbz-Verbundkatalog": true,
+          "RPB-Titeldaten": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     },
     "f1nx_rpb": {
       "type": "string"

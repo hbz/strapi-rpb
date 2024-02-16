@@ -154,9 +154,9 @@
       },
       "type": "enumeration",
       "enum": [
-        "mmm",
-        "www",
-        "ddd"
+        "männlich",
+        "weiblich",
+        "divers"
       ]
     },
     "f1nw": {
@@ -176,7 +176,14 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Raumsystematik": true,
+          "GND-Geografika": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     },
     "f1nq": {
       "pluginOptions": {
@@ -184,7 +191,14 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Raumsystematik": true,
+          "GND-Geografika": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     },
     "f1no": {
       "displayName": "f1no",
@@ -247,6 +261,31 @@
           "versioned": true
         }
       }
+    },
+    "f1wz": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
+    },
+    "f12_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "f98_": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "text"
     }
   }
 }
