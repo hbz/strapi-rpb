@@ -108,6 +108,14 @@ export default {
               },
               {
                 intlLabel: {
+                  id: "lookup.sources.RPB-Fachgebiete",
+                  defaultMessage: "RPB-Fachgebiete",
+                },
+                name: "options.source.RPB-Fachgebiete",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
                   id: "lookup.sources.GND",
                   defaultMessage: "GND",
                 },

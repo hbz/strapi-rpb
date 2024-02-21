@@ -10,7 +10,7 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Normdaten": true
+          "RPB-Fachgebiete": true
         }
       },
       "customField": "plugin::lookup.lookup"
