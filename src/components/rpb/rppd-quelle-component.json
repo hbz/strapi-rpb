@@ -16,9 +16,6 @@
         }
       },
       "customField": "plugin::lookup.lookup"
-    },
-    "f1nx_rpb": {
-      "type": "string"
     }
   }
 }
