@@ -10,7 +10,7 @@
       "type": "customField",
       "options": {
         "source": {
-          "GND-Schlagwörter": true
+          "GND-Berufe": true
         }
       },
       "customField": "plugin::lookup.lookup"
