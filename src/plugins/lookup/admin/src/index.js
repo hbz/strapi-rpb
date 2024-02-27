@@ -70,8 +70,8 @@ export default {
           },
           {
             sectionTitle: {
-              id: "lookup.sources",
-              defaultMessage: "Quellen",
+              id: "lookup.sources.rlp",
+              defaultMessage: "RLP-Normdaten",
             },
             items: [
               {
@@ -108,6 +108,22 @@ export default {
               },
               {
                 intlLabel: {
+                  id: "lookup.sources.RPB-Fachgebiete",
+                  defaultMessage: "RPB-Fachgebiete",
+                },
+                name: "options.source.RPB-Fachgebiete",
+                type: "checkbox",
+              },
+            ],
+          },
+          {
+            sectionTitle: {
+              id: "lookup.sources.gnd",
+              defaultMessage: "GND-Normdaten",
+            },
+            items: [
+              {
+                intlLabel: {
                   id: "lookup.sources.GND",
                   defaultMessage: "GND",
                 },
@@ -138,6 +154,14 @@ export default {
                 name: "options.source.GND-Personen",
                 type: "checkbox",
               },
+            ],
+          },
+          {
+            sectionTitle: {
+              id: "lookup.sources.titles",
+              defaultMessage: "Titeldaten",
+            },
+            items: [
               {
                 intlLabel: {
                   id: "lookup.sources.hbz-Verbundkatalog",

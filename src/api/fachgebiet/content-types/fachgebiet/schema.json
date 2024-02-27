@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fachgebiet",
+  "info": {
+    "singularName": "fachgebiet",
+    "pluralName": "fachgebiete",
+    "displayName": "Fachgebiet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "prefLabel": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "uri": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "regex": "^https://w3id.org/lobid/rpb-fachgebiete/n.*$"
+    }
+  }
+}
