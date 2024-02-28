@@ -28,6 +28,7 @@ export default function Index({
   const uriFragment = (uri) => uri && uri.substring(uri.lastIndexOf("#") + 1)
 
   const callLookupLobid = async (path, query, filter, logo) => {
+    const q = query.startsWith("http") ? `"${query}"` : query.replace(/([()\[\]!?:/])/g, "\\$1");
     try {
       const response = await fetch(path, {
         method: 'POST',
@@ -36,7 +37,7 @@ export default function Index({
           'Authorization': `Bearer ${auth.getToken()}`,
         },
         body: JSON.stringify({
-          'prompt': query.startsWith("http") ? `"${query}"` : `${query}`,
+          'prompt': `${q}`,
           'filter': `${filter}`,
         })
       });
