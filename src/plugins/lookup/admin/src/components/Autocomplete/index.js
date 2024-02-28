@@ -36,7 +36,7 @@ export default function Index({
           'Authorization': `Bearer ${auth.getToken()}`,
         },
         body: JSON.stringify({
-          'prompt': `${query}`,
+          'prompt': query.startsWith("http") ? `"${query}"` : `${query}`,
           'filter': `${filter}`,
         })
       });
@@ -60,7 +60,10 @@ export default function Index({
 
   const callLookupRppd = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}${query}`, {
+      const response = await fetch(`${path}?pagination[limit]=3
+&filters[$or][0][f1na][$containsi]=${query}
+&filters[$or][1][f00_][$endsWithi]=${query}
+&filters[$or][2][f82b][$endsWithi]=${query}`, {
         method: 'GET',
       });
 
@@ -83,7 +86,9 @@ export default function Index({
 
   const callLookupRpbAuthorities = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}${query}`, {
+      const response = await fetch(`${path}?pagination[limit]=3
+&filters[$or][0][f3na][$containsi]=${query}
+&filters[$or][1][f00_][$endsWithi]=${query}`, {
         method: 'GET',
       });
 
@@ -106,7 +111,9 @@ export default function Index({
 
   const callLookupRpbNotations = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}${query}`, {
+      const response = await fetch(`${path}?pagination[limit]=3
+&filters[$or][0][prefLabel][$containsi]=${query}
+&filters[$or][1][uri][$endsWithi]=${query}`, {
         method: 'GET',
       });
 
@@ -211,11 +218,11 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/rppds?pagination[limit]=3&filters[f1na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Raumsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
-              getSource("RPB-Fachgebiete", callLookupRpbNotations, strapi.backendURL + "/api/fachgebiete?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/rppds", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Raumsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-spatials", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPB-Fachgebiete", callLookupRpbNotations, strapi.backendURL + "/api/fachgebiete", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Titeldaten", callLookupLobid, strapi.backendURL + "/lookup/rpb", "https://www.hbz-nrw.de/favicon.ico", query),
               getSource("GND", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
               getSource("GND-Schlagwörter", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:SubjectHeading"),
