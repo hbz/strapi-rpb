@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "f82b": {
+    "gndIdentifier": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -27,7 +27,7 @@
       "required": false,
       "unique": true
     },
-    "f00_": {
+    "rppdId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
