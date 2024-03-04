@@ -37,7 +37,7 @@
       "required": true,
       "unique": true
     },
-    "f11_": {
+    "consentGiven": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -46,7 +46,7 @@
       "type": "boolean",
       "default": true
     },
-    "f13_": {
+    "doNotCrawl": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -55,7 +55,7 @@
       "type": "boolean",
       "default": false
     },
-    "f14_": {
+    "doNotIndex": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -64,7 +64,7 @@
       "type": "boolean",
       "default": false
     },
-    "f15_": {
+    "doNotFeature": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -270,7 +270,7 @@
       },
       "type": "string"
     },
-    "f12_": {
+    "doDelete": {
       "pluginOptions": {
         "versions": {
           "versioned": true
