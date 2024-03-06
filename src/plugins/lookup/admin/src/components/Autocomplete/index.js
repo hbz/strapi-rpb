@@ -201,6 +201,7 @@ export default function Index({
             })
           }
           value={value}
+          hint={description && description.defaultMessage || ""}
         />
       {value && value.startsWith("http") &&
         <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
