@@ -227,8 +227,8 @@
       },
       "type": "string"
     },
-    "f1nt": {
-      "displayName": "f1nt",
+    "relatedPerson": {
+      "displayName": "relatedPerson",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -236,7 +236,7 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nt"
+      "component": "rppd.related-person"
     },
     "f1ne": {
       "pluginOptions": {
