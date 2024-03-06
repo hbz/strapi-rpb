@@ -124,7 +124,7 @@
       },
       "component": "rppd.variant-name"
     },
-    "f1nd": {
+    "otherName": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -132,7 +132,7 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nd"
+      "component": "rppd.other-name"
     },
     "f1nn": {
       "displayName": "f1nn",

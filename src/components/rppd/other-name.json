@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rppd_other_names",
+  "info": {
+    "displayName": "otherName",
+    "description": "Andere Namensformen; Quelle: #1nd"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    }
+  }
+}
