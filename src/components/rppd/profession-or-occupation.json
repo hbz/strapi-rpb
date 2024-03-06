@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_rppd_f1nns",
+  "collectionName": "components_rppd_professions_or_occupations",
   "info": {
-    "displayName": "f1nn",
-    "description": ""
+    "displayName": "professionOrOccupation",
+    "description": "Berufe/Stellungen; Quelle: #1nn"
   },
   "options": {},
   "attributes": {
-    "f1nn": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {

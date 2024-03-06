@@ -134,8 +134,8 @@
       },
       "component": "rppd.other-name"
     },
-    "f1nn": {
-      "displayName": "f1nn",
+    "professionOrOccupation": {
+      "displayName": "professionOrOccupation",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -143,7 +143,7 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nn",
+      "component": "rppd.profession-or-occupation",
       "required": false
     },
     "f1nv": {
