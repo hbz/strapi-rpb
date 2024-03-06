@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_rpb_rppd_quelle_components",
+  "collectionName": "components_rppd_sources",
   "info": {
-    "displayName": "RppdQuelleComponent",
-    "description": ""
+    "displayName": "source",
+    "description": "Quelle der RPPD-Informationen; Quelle: #1nx"
   },
   "options": {},
   "attributes": {
-    "f1nx": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {

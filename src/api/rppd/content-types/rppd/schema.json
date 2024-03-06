@@ -83,7 +83,7 @@
       },
       "component": "rppd.publication"
     },
-    "f1nx": {
+    "source": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -91,7 +91,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.rppd-quelle-component",
+      "component": "rppd.source",
       "required": false
     },
     "f1z1": {
