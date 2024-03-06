@@ -159,8 +159,8 @@
         "divers"
       ]
     },
-    "f1nw": {
-      "displayName": "f1nw",
+    "gndSubjectCategory": {
+      "displayName": "gndSubjectCategory",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -168,7 +168,7 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nw"
+      "component": "rppd.gnd-subject-category"
     },
     "f1ns": {
       "pluginOptions": {
