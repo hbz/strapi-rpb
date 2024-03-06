@@ -113,8 +113,8 @@
       "type": "string",
       "required": true
     },
-    "f1nc": {
-      "displayName": "f1nc",
+    "variantName": {
+      "displayName": "variantName",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -122,7 +122,7 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nc"
+      "component": "rppd.variant-name"
     },
     "f1nd": {
       "type": "component",
