@@ -200,8 +200,8 @@
       },
       "customField": "plugin::lookup.lookup"
     },
-    "f1no": {
-      "displayName": "f1no",
+    "placeOfActivity": {
+      "displayName": "placeOfActivity",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -209,7 +209,7 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1no"
+      "component": "rppd.place-of-activity"
     },
     "f1np": {
       "pluginOptions": {
