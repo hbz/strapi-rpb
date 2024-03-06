@@ -94,7 +94,7 @@
       "component": "rppd.source",
       "required": false
     },
-    "f1z1": {
+    "biographicalOrHistoricalInformation": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -102,7 +102,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.biogramme"
+      "component": "rppd.biographical-or-historical-information"
     },
     "f1na": {
       "pluginOptions": {

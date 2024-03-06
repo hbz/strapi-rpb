@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_rppd_biographical_or_historical_informations",
+  "info": {
+    "displayName": "biographicalOrHistoricalInformation",
+    "description": "Biogramm(e); Quelle: #1z1"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
