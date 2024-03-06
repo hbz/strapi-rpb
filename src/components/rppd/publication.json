@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_rpb_werke_components",
+  "collectionName": "components_rppd_publications",
   "info": {
-    "displayName": "WerkeComponent",
-    "description": ""
+    "displayName": "publication",
+    "description": "Werke; Quelle: #1nu"
   },
   "options": {},
   "attributes": {
-    "f1nu": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {

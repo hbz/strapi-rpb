@@ -73,7 +73,7 @@
       "type": "boolean",
       "default": false
     },
-    "f1nu": {
+    "publication": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -81,7 +81,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.werke-component"
+      "component": "rppd.publication"
     },
     "f1nx": {
       "type": "component",
