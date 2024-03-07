@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * rppd controller
+ * person controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::rppd.rppd');
+module.exports = createCoreController('api::person.person');

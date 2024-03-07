@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * rppd router
+ * person router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::rppd.rppd');
+module.exports = createCoreRouter('api::person.person');

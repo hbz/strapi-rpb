@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_rppd_gnd_subject_categories",
+  "collectionName": "components_person_publications",
   "info": {
-    "displayName": "gndSubjectCategory",
-    "description": "Fachgebiete; Quelle: #1nw"
+    "displayName": "publication",
+    "description": "Werke; Quelle: #1nu"
   },
   "options": {},
   "attributes": {
@@ -10,7 +10,8 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Fachgebiete": true
+          "hbz-Verbundkatalog": true,
+          "editable": true
         }
       },
       "customField": "plugin::lookup.lookup"

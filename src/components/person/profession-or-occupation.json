@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_rppd_related_persons",
+  "collectionName": "components_person_professions_or_occupations",
   "info": {
-    "displayName": "relatedPerson",
-    "description": "Persönliche Beziehungen; Quelle: #1nt"
+    "displayName": "professionOrOccupation",
+    "description": "Berufe/Stellungen; Quelle: #1nn"
   },
   "options": {},
   "attributes": {
@@ -10,8 +10,7 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPPD": true,
-          "GND-Personen": true
+          "GND-Schlagwörter": true
         }
       },
       "customField": "plugin::lookup.lookup"
