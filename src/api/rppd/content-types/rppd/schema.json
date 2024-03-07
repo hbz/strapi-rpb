@@ -104,7 +104,7 @@
       },
       "component": "rppd.biographical-or-historical-information"
     },
-    "f1na": {
+    "preferredName": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -146,7 +146,7 @@
       "component": "rppd.profession-or-occupation",
       "required": false
     },
-    "f1nv": {
+    "gender": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -170,7 +170,7 @@
       },
       "component": "rppd.gnd-subject-category"
     },
-    "f1ns": {
+    "placeOfDeath": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -185,7 +185,7 @@
       },
       "customField": "plugin::lookup.lookup"
     },
-    "f1nq": {
+    "placeOfBirth": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -211,7 +211,7 @@
       },
       "component": "rppd.place-of-activity"
     },
-    "f1np": {
+    "dateOfBirth": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -219,7 +219,7 @@
       },
       "type": "string"
     },
-    "f1nr": {
+    "dateOfDeath": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -238,7 +238,7 @@
       },
       "component": "rppd.related-person"
     },
-    "f1ne": {
+    "depictionId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -246,7 +246,7 @@
       },
       "type": "string"
     },
-    "n1ne": {
+    "depiction": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -262,7 +262,7 @@
         }
       }
     },
-    "f1wz": {
+    "periodOfActivity": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -279,7 +279,7 @@
       "type": "boolean",
       "default": false
     },
-    "f98_": {
+    "internalNote": {
       "pluginOptions": {
         "versions": {
           "versioned": true
