@@ -5,6 +5,6 @@ module.exports = ({ strapi }) => {
   strapi.customFields.register({
     name: 'lookup',
     plugin: 'lookup',
-    type: 'string',
+    type: 'text',
   });
 };
