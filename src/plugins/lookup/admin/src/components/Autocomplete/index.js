@@ -212,7 +212,7 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/rppds?pagination[limit]=3&filters[preferredName][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/persons?pagination[limit]=3&filters[preferredName][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities?pagination[limit]=3&filters[f3na][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Raumsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-spatials?pagination[limit]=3&filters[prefLabel][$containsi]=", "https://rpb.lobid.org/assets/images/wappen.png", query),
