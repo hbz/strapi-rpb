@@ -37,7 +37,7 @@ export default {
     app.customFields.register({
       name: "lookup",
       pluginId: "lookup", 
-      type: "string", 
+      type: "text",
       intlLabel: {
         id: "lookup.lookup.label",
         defaultMessage: "Lookup / ID-Suche",
@@ -152,6 +152,14 @@ export default {
                   defaultMessage: "GND-Personen",
                 },
                 name: "options.source.GND-Personen",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND-Berufe",
+                  defaultMessage: "GND-Berufe",
+                },
+                name: "options.source.GND-Berufe",
                 type: "checkbox",
               },
             ],
