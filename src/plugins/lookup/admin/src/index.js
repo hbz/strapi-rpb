@@ -154,6 +154,14 @@ export default {
                 name: "options.source.GND-Personen",
                 type: "checkbox",
               },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND-Berufe",
+                  defaultMessage: "GND-Berufe",
+                },
+                name: "options.source.GND-Berufe",
+                type: "checkbox",
+              },
             ],
           },
           {
