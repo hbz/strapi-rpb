@@ -8,6 +8,7 @@
   "attributes": {
     "value": {
       "type": "customField",
+      "required": true,
       "options": {
         "source": {
           "hbz-Verbundkatalog": true,
