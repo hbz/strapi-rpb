@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "rppds",
+  "collectionName": "persons",
   "info": {
-    "singularName": "rppd",
-    "pluralName": "rppds",
-    "displayName": "RPPD",
+    "singularName": "person",
+    "pluralName": "persons",
+    "displayName": "Person",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "f82b": {
+    "gndIdentifier": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -27,7 +27,7 @@
       "required": false,
       "unique": true
     },
-    "f00_": {
+    "rppdId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -37,7 +37,7 @@
       "required": true,
       "unique": true
     },
-    "f11_": {
+    "consentGiven": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -46,7 +46,7 @@
       "type": "boolean",
       "default": true
     },
-    "f13_": {
+    "doNotCrawl": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -55,7 +55,7 @@
       "type": "boolean",
       "default": false
     },
-    "f14_": {
+    "doNotIndex": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -64,7 +64,7 @@
       "type": "boolean",
       "default": false
     },
-    "f15_": {
+    "doNotFeature": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -73,7 +73,7 @@
       "type": "boolean",
       "default": false
     },
-    "f1nu": {
+    "publication": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -81,9 +81,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.werke-component"
+      "component": "person.publication"
     },
-    "f1nx": {
+    "source": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -91,10 +91,10 @@
           "versioned": true
         }
       },
-      "component": "rpb.rppd-quelle-component",
+      "component": "person.source",
       "required": false
     },
-    "f1z1": {
+    "biographicalOrHistoricalInformation": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -102,9 +102,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.biogramme"
+      "component": "person.biographical-or-historical-information"
     },
-    "f1na": {
+    "preferredName": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -113,8 +113,8 @@
       "type": "string",
       "required": true
     },
-    "f1nc": {
-      "displayName": "f1nc",
+    "variantName": {
+      "displayName": "variantName",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -122,9 +122,9 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nc"
+      "component": "person.variant-name"
     },
-    "f1nd": {
+    "otherName": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -132,10 +132,10 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nd"
+      "component": "person.other-name"
     },
-    "f1nn": {
-      "displayName": "f1nn",
+    "professionOrOccupation": {
+      "displayName": "professionOrOccupation",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -143,10 +143,10 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nn",
+      "component": "person.profession-or-occupation",
       "required": false
     },
-    "f1nv": {
+    "gender": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -159,8 +159,8 @@
         "divers"
       ]
     },
-    "f1nw": {
-      "displayName": "f1nw",
+    "gndSubjectCategory": {
+      "displayName": "gndSubjectCategory",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -168,9 +168,9 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nw"
+      "component": "person.gnd-subject-category"
     },
-    "f1ns": {
+    "placeOfDeath": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -185,7 +185,7 @@
       },
       "customField": "plugin::lookup.lookup"
     },
-    "f1nq": {
+    "placeOfBirth": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -200,8 +200,8 @@
       },
       "customField": "plugin::lookup.lookup"
     },
-    "f1no": {
-      "displayName": "f1no",
+    "placeOfActivity": {
+      "displayName": "placeOfActivity",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -209,9 +209,9 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1no"
+      "component": "person.place-of-activity"
     },
-    "f1np": {
+    "dateOfBirth": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -219,7 +219,7 @@
       },
       "type": "string"
     },
-    "f1nr": {
+    "dateOfDeath": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -227,8 +227,8 @@
       },
       "type": "string"
     },
-    "f1nt": {
-      "displayName": "f1nt",
+    "relatedPerson": {
+      "displayName": "relatedPerson",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -236,9 +236,9 @@
           "versioned": true
         }
       },
-      "component": "rppd.f1nt"
+      "component": "person.related-person"
     },
-    "f1ne": {
+    "depictionId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -246,7 +246,7 @@
       },
       "type": "string"
     },
-    "n1ne": {
+    "depiction": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -262,7 +262,7 @@
         }
       }
     },
-    "f1wz": {
+    "periodOfActivity": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -270,7 +270,7 @@
       },
       "type": "string"
     },
-    "f12_": {
+    "doDelete": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -279,7 +279,7 @@
       "type": "boolean",
       "default": false
     },
-    "f98_": {
+    "internalNote": {
       "pluginOptions": {
         "versions": {
           "versioned": true

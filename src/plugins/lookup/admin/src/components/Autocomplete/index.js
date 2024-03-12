@@ -62,9 +62,9 @@ export default function Index({
   const callLookupRppd = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}?pagination[limit]=3
-&filters[$or][0][f1na][$containsi]=${query}
-&filters[$or][1][f00_][$endsWithi]=${query}
-&filters[$or][2][f82b][$endsWithi]=${query}`, {
+&filters[$or][0][preferredName][$containsi]=${query}
+&filters[$or][1][rppdId][$endsWithi]=${query}
+&filters[$or][2][gndIdentifier][$endsWithi]=${query}`, {
         method: 'GET',
       });
 
@@ -74,10 +74,10 @@ export default function Index({
       const result = await response.json();
 
       return result.data.map(r => {return {
-        name: r.attributes.f1na,
+        name: r.attributes.preferredName,
         category:{id: "0", name: "cat-name-0"},
         description: "Person",
-        id: "http://rppd.lobid.org/" + r.attributes.f00_,
+        id: "http://rppd.lobid.org/" + r.attributes.rppdId,
         image: logo}});
 
     } catch (err) {
@@ -209,6 +209,7 @@ export default function Index({
             })
           }
           value={value}
+          hint={description && description.defaultMessage || ""}
         />
       {value && value.startsWith("http") &&
         <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
@@ -219,7 +220,7 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/rppds", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/persons", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Raumsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-spatials", "https://rpb.lobid.org/assets/images/wappen.png", query),

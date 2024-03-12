@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * rppd service
+ * person service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::rppd.rppd');
+module.exports = createCoreService('api::person.person');

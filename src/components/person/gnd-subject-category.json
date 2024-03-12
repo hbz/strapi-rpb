@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_rppd_f1nws",
+  "collectionName": "components_person_gnd_subject_categories",
   "info": {
-    "displayName": "f1nw",
-    "description": ""
+    "displayName": "gndSubjectCategory",
+    "description": "Fachgebiete; Quelle: #1nw"
   },
   "options": {},
   "attributes": {
-    "f1nw": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {

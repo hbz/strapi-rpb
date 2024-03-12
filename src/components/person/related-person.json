@@ -1,11 +1,12 @@
 {
-  "collectionName": "components_rppd_f1nts",
+  "collectionName": "components_person_related_persons",
   "info": {
-    "displayName": "f1nt"
+    "displayName": "relatedPerson",
+    "description": "Persönliche Beziehungen; Quelle: #1nt"
   },
   "options": {},
   "attributes": {
-    "f1nt": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {

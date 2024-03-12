@@ -1,17 +1,16 @@
 {
-  "collectionName": "components_rpb_rppd_quelle_components",
+  "collectionName": "components_person_publications",
   "info": {
-    "displayName": "RppdQuelleComponent",
-    "description": ""
+    "displayName": "publication",
+    "description": "Werke; Quelle: #1nu"
   },
   "options": {},
   "attributes": {
-    "f1nx": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {
           "hbz-Verbundkatalog": true,
-          "RPB-Titeldaten": true,
           "editable": true
         }
       },

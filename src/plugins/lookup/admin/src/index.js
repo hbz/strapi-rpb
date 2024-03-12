@@ -37,7 +37,7 @@ export default {
     app.customFields.register({
       name: "lookup",
       pluginId: "lookup", 
-      type: "string", 
+      type: "text",
       intlLabel: {
         id: "lookup.lookup.label",
         defaultMessage: "Lookup / ID-Suche",

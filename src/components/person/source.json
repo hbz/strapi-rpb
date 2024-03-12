@@ -1,16 +1,17 @@
 {
-  "collectionName": "components_rpb_werke_components",
+  "collectionName": "components_person_sources",
   "info": {
-    "displayName": "WerkeComponent",
-    "description": ""
+    "displayName": "source",
+    "description": "Quelle der RPPD-Informationen; Quelle: #1nx"
   },
   "options": {},
   "attributes": {
-    "f1nu": {
+    "value": {
       "type": "customField",
       "options": {
         "source": {
           "hbz-Verbundkatalog": true,
+          "RPB-Titeldaten": true,
           "editable": true
         }
       },
