@@ -61,3 +61,9 @@ The current config dump is checked into the repo as `config.json`. *Caution:* cr
 When running the restore command you can choose from different strategies: replace (default), merge, keep.
 
 Read more in the [Strapi docs](https://docs.strapi.io/dev-docs/cli#strapi-configurationdump).
+
+### Deployment
+
+To deploy changes, go to the repo directory, pull the changes, and rebuild the container (`sudo docker compose down ; sudo docker compose -f docker-compose-prod.yml up -d --build`).
+
+For details on our setup see https://dienst-wiki.hbz-nrw.de/display/SEM/RPB (internal).

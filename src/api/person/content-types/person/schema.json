@@ -286,6 +286,14 @@
         }
       },
       "type": "text"
+    },
+    "dateModified": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "date"
     }
   }
 }
