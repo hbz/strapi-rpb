@@ -51,34 +51,8 @@ export default function Index({
         name: r.label,
         category: {id: "0", name: "cat-name-0"},
         description: r.category,
-        id: path.endsWith("rpb") ? "http://rpb.lobid.org/" + lastSegment(r.id) : r.id,
+        id: path.endsWith("rpb") ? "http://rpb.lobid.org/" + lastSegment(r.id) : path.endsWith("rppd") ? "http://rppd.lobid.org/" + lastSegment(r.id) : r.id,
         image: r.image || logo}});
-
-    } catch (err) {
-      setErr(err.message);
-    }
-  }
-
-  const callLookupRppd = async (path, query, filter, logo) => {
-    try {
-      const response = await fetch(`${path}?pagination[limit]=3
-&filters[$or][0][preferredName][$containsi]=${query}
-&filters[$or][1][rppdId][$endsWithi]=${query}
-&filters[$or][2][gndIdentifier][$endsWithi]=${query}`, {
-        method: 'GET',
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
-      }
-      const result = await response.json();
-
-      return result.data.map(r => {return {
-        name: r.attributes.preferredName,
-        category:{id: "0", name: "cat-name-0"},
-        description: "Person",
-        id: "http://rppd.lobid.org/" + r.attributes.rppdId,
-        image: logo}});
 
     } catch (err) {
       setErr(err.message);
@@ -171,7 +145,7 @@ export default function Index({
       setDetails(null)
       const supportedIdPrefixes = {
         "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${value}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
-        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"+OR+gndIdentifier:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
         "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(value)}.json`, test: (r) => r, process: (r) => r.title},
         "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(value)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
         "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[f00_][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.f3na},
@@ -222,7 +196,7 @@ export default function Index({
             detachedMediaQuery=''
             placeholder="Nachschlagen"
             getSources={({ query }) => [
-              getSource("RPPD", callLookupRppd, strapi.backendURL + "/api/persons", "https://rpb.lobid.org/assets/images/wappen.png", query),
+              getSource("RPPD", callLookupLobid, strapi.backendURL + "/lookup/rppd", "https://rpb.lobid.org/assets/images/wappen.png", query.replace("http://rppd.lobid.org/", "")),
               getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Raumsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-spatials", "https://rpb.lobid.org/assets/images/wappen.png", query),

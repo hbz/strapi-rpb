@@ -52,5 +52,21 @@ module.exports = ({ strapi }) => ({
     }
 
   },
+  async lookupRppd(prompt, filter) {
+    try {
+      const response = await axios(
+        {
+          url: `http://rppd.lobid.org/search?q=${prompt}&filter=${filter}&format=json:suggest&size=3`,
+          method: 'GET',
+        })
+
+      return response.data;
+    }
+    catch (err) {
+      console.log("Error on RPPD query")
+      console.log(err)
+    }
+
+  },
 
 });

@@ -23,4 +23,12 @@ module.exports = [
       policies: [],
     },
   },
+  {
+    method: 'POST',
+    path: '/rppd',
+    handler: 'lookupController.rppd',
+    config: {
+      policies: [],
+    },
+  },
 ];
