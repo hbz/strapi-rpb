@@ -19,4 +19,10 @@ module.exports = ({ strapi }) => ({
       .service('lookup')
       .lookupRpb(ctx.request.body.prompt, ctx.request.body.filter);
   },
+  async rppd(ctx) {
+    ctx.body = await strapi
+      .plugin('lookup')
+      .service('lookup')
+      .lookupRppd(ctx.request.body.prompt, ctx.request.body.filter);
+  },
 });
