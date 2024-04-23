@@ -15,6 +15,9 @@
         }
       },
       "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string"
     }
   }
 }
