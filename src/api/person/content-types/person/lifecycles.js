@@ -4,7 +4,6 @@ module.exports = {
         const { v4: uuidv4 } = require("uuid");
         data.rppdId = data.rppdId || uuidv4();
     },
-    // TODO: only look up if label is missing and we're saving, see https://docs.strapi.io/dev-docs/backend-customization/models#lifecycle-hooks
     async afterFindOne(event) {
 
         const fetch = require("node-fetch");
@@ -13,6 +12,7 @@ module.exports = {
         const uriFragment = (uri) => uri && uri.substring(uri.lastIndexOf("#") + 1);
 
         // TODO: move to config, reuse from plugin, see https://docs.strapi.io/dev-docs/configurations/guides/access-configuration-values
+        // Moving it to e.g. server.js and using from here works fine, but can't access that config from plugin
         const supportedIdPrefixes = (value) => ({
             "https://d-nb.info/gnd/": { url: `https://lobid.org/gnd/search?format=json&q=id:"${value}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName },
             "http://rppd.lobid.org/": { url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"+OR+gndIdentifier:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName },
