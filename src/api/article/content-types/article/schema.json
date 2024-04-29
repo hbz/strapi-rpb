@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "f00_": {
+    "rpbId": {
       "pluginOptions": {
         "versions": {
           "versioned": true

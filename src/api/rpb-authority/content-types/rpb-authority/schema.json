@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "f00_": {
+    "rpbId": {
       "type": "string",
       "unique": true,
       "required": true
