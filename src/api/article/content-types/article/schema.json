@@ -108,7 +108,7 @@
       },
       "type": "string"
     },
-    "f39_": {
+    "responsibilityStatement": {
       "pluginOptions": {
         "versions": {
           "versioned": true
