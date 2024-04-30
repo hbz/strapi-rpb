@@ -49,7 +49,7 @@
       },
       "component": "rpb.is-part-of-relation"
     },
-    "f14_": {
+    "doNotIndex": {
       "pluginOptions": {
         "versions": {
           "versioned": true
