@@ -231,7 +231,7 @@
       },
       "type": "string"
     },
-    "f77_": {
+    "extent": {
       "pluginOptions": {
         "versions": {
           "versioned": true

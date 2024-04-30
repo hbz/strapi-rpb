@@ -273,7 +273,7 @@
       "default": "nur RPB",
       "required": true
     },
-    "f77_": {
+    "extent": {
       "pluginOptions": {
         "versions": {
           "versioned": true
