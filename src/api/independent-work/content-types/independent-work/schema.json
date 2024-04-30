@@ -86,7 +86,7 @@
       },
       "type": "text"
     },
-    "f20_": {
+    "title": {
       "pluginOptions": {
         "versions": {
           "versioned": true

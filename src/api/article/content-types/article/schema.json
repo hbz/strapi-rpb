@@ -63,7 +63,7 @@
       },
       "type": "string"
     },
-    "f20_": {
+    "title": {
       "pluginOptions": {
         "versions": {
           "versioned": true
