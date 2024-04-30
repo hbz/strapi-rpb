@@ -28,9 +28,10 @@ module.exports = {
 
         const lookupFields = ["gndSubjectCategory", "placeOfActivity", "professionOrOccupation", "publication", "relatedPerson", "source"];
 
-        for (const field of lookupFields.filter((f) => result.hasOwnProperty(f))) {
+        for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f))) {
             for (const component of result[field]) {
                 component.label = await labelFor(component.value);
+                component.label = component.label.length > 250 ? component.label.substring(0, 249) + "..." : component.label;
             }
         }
 
