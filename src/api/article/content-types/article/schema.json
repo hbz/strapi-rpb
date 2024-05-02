@@ -197,7 +197,7 @@
       "component": "rpb.f70",
       "required": true
     },
-    "f70b": {
+    "volume": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -205,7 +205,7 @@
       },
       "type": "string"
     },
-    "f70h": {
+    "issue": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -213,7 +213,7 @@
       },
       "type": "string"
     },
-    "f70j": {
+    "year": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -221,7 +221,7 @@
       },
       "type": "string"
     },
-    "f70s": {
+    "pages": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -230,7 +230,7 @@
       "type": "text",
       "required": true
     },
-    "f70z": {
+    "alternativeNumbering": {
       "pluginOptions": {
         "versions": {
           "versioned": true
