@@ -116,7 +116,7 @@
       },
       "type": "text"
     },
-    "f76a": {
+    "publicationDate": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -125,7 +125,7 @@
       "type": "string",
       "required": true
     },
-    "f76b": {
+    "publicationYear": {
       "pluginOptions": {
         "versions": {
           "versioned": true
