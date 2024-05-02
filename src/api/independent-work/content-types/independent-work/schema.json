@@ -78,7 +78,7 @@
       },
       "component": "rpb.corporation-component"
     },
-    "f21_": {
+    "preferredTitle": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -95,7 +95,7 @@
       "type": "text",
       "required": true
     },
-    "n20a": {
+    "otherTitleInformation": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -123,7 +123,7 @@
       },
       "component": "rpb.weitere-titel"
     },
-    "f28_": {
+    "alternativeSpelling": {
       "pluginOptions": {
         "versions": {
           "versioned": true
