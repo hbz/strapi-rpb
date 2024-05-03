@@ -301,7 +301,7 @@
       },
       "type": "string"
     },
-    "f18_": {
+    "inCollection": {
       "pluginOptions": {
         "versions": {
           "versioned": true

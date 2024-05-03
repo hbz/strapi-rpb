@@ -258,7 +258,7 @@
       },
       "component": "rpb.bestand-component"
     },
-    "f18_": {
+    "inCollection": {
       "pluginOptions": {
         "versions": {
           "versioned": true
