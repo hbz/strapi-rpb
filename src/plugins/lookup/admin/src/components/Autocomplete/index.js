@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { TextInput } from '@strapi/design-system/TextInput';
 import { Link } from '@strapi/design-system/v2';
+import { Button, Flex } from '@strapi/design-system';
 import { Stack } from '@strapi/design-system/Stack';
 import { auth } from '@strapi/helper-plugin';
 
@@ -182,14 +183,22 @@ export default function Index({
               target: { name, value: e.target.value, type: attribute.type },
             })
           }
-          value={value}
+          value={value && value.trim()}
           hint={description && description.defaultMessage || ""}
           error={error}
           required={attribute.required}
         />
-      {value && value.startsWith("http") &&
-        <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
-      }
+      <Flex gap={1}>
+        {value && value.startsWith("http") &&
+          <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
+        }
+        {value && value.trim() && !attribute.options.source.editable &&
+          <Button 
+            size="s"
+            variant="secondary"
+            onClick={() => onChange({target: { name, value: " ", type: attribute.type }})}>Löschen</Button>
+        }
+      </Flex>
       <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
           <Autocomplete
             openOnFocus={false}
