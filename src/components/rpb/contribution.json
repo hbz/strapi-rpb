@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "n40a": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "http://id.loc.gov/vocabulary/relators/aut",
@@ -28,7 +28,7 @@
       "required": true,
       "default": "Verfasser"
     },
-    "f40_": {
+    "value": {
       "type": "string",
       "required": true
     }

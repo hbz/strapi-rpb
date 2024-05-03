@@ -58,7 +58,7 @@
       "type": "boolean",
       "default": false
     },
-    "f40": {
+    "person": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
