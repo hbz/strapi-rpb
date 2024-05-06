@@ -157,7 +157,7 @@
       "type": "string",
       "required": true
     },
-    "f85": {
+    "isPartOf": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -165,7 +165,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.gesamttitel-component"
+      "component": "rpb.is-part-of"
     },
     "f90a": {
       "type": "component",
