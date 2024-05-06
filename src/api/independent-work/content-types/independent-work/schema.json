@@ -68,7 +68,7 @@
       },
       "component": "rpb.contribution"
     },
-    "f60": {
+    "corporateBody": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {

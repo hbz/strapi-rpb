@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "n60a": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "http://id.loc.gov/vocabulary/relators/org",
@@ -14,7 +14,7 @@
         "http://id.loc.gov/vocabulary/relators/hnr"
       ]
     },
-    "f60_": {
+    "value": {
       "type": "string"
     }
   }
