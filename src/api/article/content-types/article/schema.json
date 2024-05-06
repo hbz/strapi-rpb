@@ -145,7 +145,7 @@
       },
       "component": "rpb.gesamttitel-component"
     },
-    "f81": {
+    "note": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -153,7 +153,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.anmerkungen-component"
+      "component": "rpb.note"
     },
     "f31": {
       "type": "component",

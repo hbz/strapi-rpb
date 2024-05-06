@@ -239,7 +239,7 @@
       },
       "type": "text"
     },
-    "f81": {
+    "note": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -247,7 +247,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.anmerkungen-component"
+      "component": "rpb.note"
     },
     "f90": {
       "type": "component",

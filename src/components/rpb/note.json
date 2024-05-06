@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_notes",
+  "info": {
+    "displayName": "note",
+    "description": "Anmerkungen; Quelle: #81_"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}
