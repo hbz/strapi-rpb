@@ -80,7 +80,7 @@
       },
       "type": "string"
     },
-    "f24": {
+    "parallelTitle": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -88,9 +88,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.nebensachtitel-23"
+      "component": "rpb.parallel-title"
     },
-    "f27": {
+    "alternativeTitle": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -98,7 +98,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.weitere-titel"
+      "component": "rpb.alternative-title"
     },
     "alternativeSpelling": {
       "pluginOptions": {

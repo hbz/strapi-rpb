@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_alternative_titles",
+  "info": {
+    "displayName": "alternativeTitle",
+    "description": "Abweichende Titel; Quelle: #27~"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}
