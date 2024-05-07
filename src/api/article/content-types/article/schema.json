@@ -247,7 +247,7 @@
       },
       "component": "rpb.url"
     },
-    "f90a": {
+    "item": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -255,7 +255,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.bestand-component"
+      "component": "rpb.item"
     },
     "inCollection": {
       "pluginOptions": {
