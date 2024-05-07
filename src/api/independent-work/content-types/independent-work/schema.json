@@ -249,7 +249,7 @@
       },
       "component": "rpb.note"
     },
-    "f90": {
+    "url": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -257,7 +257,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.url-component"
+      "component": "rpb.url"
     },
     "f20u": {
       "pluginOptions": {

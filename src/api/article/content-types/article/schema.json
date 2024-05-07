@@ -237,7 +237,7 @@
       },
       "type": "string"
     },
-    "f90": {
+    "url": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -245,7 +245,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.url-component"
+      "component": "rpb.url"
     },
     "f90a": {
       "type": "component",
