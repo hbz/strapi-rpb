@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_bibliographic-citations",
+  "info": {
+    "displayName": "bibliographicCitation",
+    "description": "Quelle; Quelle: #70~"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}

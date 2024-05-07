@@ -185,8 +185,7 @@
       },
       "component": "rpb.subject-component-list"
     },
-    "f70": {
-      "displayName": "f70",
+    "bibliographicCitation": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -194,7 +193,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.f70",
+      "component": "rpb.bibliographic-citation",
       "required": true
     },
     "volume": {
