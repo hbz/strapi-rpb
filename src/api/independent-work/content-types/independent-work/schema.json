@@ -177,7 +177,7 @@
       },
       "component": "rpb.bestand-component"
     },
-    "f31": {
+    "spatial": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -185,7 +185,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.rpb-spatial-link-component"
+      "component": "rpb.spatial"
     },
     "f74_": {
       "pluginOptions": {
