@@ -165,7 +165,7 @@
       },
       "component": "rpb.rpb-spatial-link-component"
     },
-    "f30": {
+    "subject": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -173,7 +173,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.f30"
+      "component": "rpb.subject"
     },
     "f32": {
       "type": "component",

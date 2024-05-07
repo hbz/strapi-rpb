@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rpb_subjects",
+  "info": {
+    "displayName": "subject"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    }
+  }
+}
