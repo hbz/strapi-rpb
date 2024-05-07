@@ -175,7 +175,7 @@
       },
       "component": "rpb.subject"
     },
-    "f32": {
+    "subjectComponentList": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -183,7 +183,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.f32"
+      "component": "rpb.subject-component-list"
     },
     "f70": {
       "displayName": "f70",
