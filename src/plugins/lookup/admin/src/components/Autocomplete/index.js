@@ -62,7 +62,7 @@ export default function Index({
 
   const callLookupRpbAuthorities = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}?pagination[limit]=3
+      const response = await fetch(`${path}?pagination[limit]=10
 &filters[$or][0][f3na][$containsi]=${query}
 &filters[$or][1][f00_][$endsWithi]=${query}`, {
         method: 'GET',
@@ -87,7 +87,7 @@ export default function Index({
 
   const callLookupRpbNotations = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}?pagination[limit]=3
+      const response = await fetch(`${path}?pagination[limit]=10
 &filters[$or][0][prefLabel][$containsi]=${query}
 &filters[$or][1][uri][$endsWithi]=${query}`, {
         method: 'GET',
