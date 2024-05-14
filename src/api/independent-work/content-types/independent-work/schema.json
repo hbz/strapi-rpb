@@ -187,7 +187,7 @@
       },
       "component": "rpb.spatial"
     },
-    "f74_": {
+    "publicationLocation": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -195,7 +195,7 @@
       },
       "type": "text"
     },
-    "f75_": {
+    "publishedBy": {
       "pluginOptions": {
         "versions": {
           "versioned": true
