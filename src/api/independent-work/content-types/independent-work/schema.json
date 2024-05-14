@@ -223,7 +223,7 @@
       },
       "component": "rpb.subject-component-list"
     },
-    "f71_": {
+    "edition": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -266,14 +266,6 @@
         }
       },
       "type": "text"
-    },
-    "f71k": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "string"
     },
     "f86_": {
       "pluginOptions": {
