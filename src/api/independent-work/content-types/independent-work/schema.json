@@ -259,14 +259,6 @@
       },
       "component": "rpb.url"
     },
-    "f20u": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "text"
-    },
     "f86_": {
       "pluginOptions": {
         "versions": {
