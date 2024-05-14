@@ -39,7 +39,7 @@
         "Band"
       ]
     },
-    "f01": {
+    "volumeIn": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -47,7 +47,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.is-part-of-relation"
+      "component": "rpb.volume-in"
     },
     "doNotIndex": {
       "pluginOptions": {
