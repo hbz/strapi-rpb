@@ -75,7 +75,7 @@ export default function Index({
       return result.data.map(r => {return {
         name: r.attributes.f3na,
         category:{id: "0", name: "cat-name-0"},
-        description: r.attributes.f99z,
+        description: r.attributes.type,
         id: "http://rpb.lobid.org/sw/" + r.attributes.rpbId,
         image: logo}});
 

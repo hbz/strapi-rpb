@@ -17,7 +17,7 @@
       "unique": true,
       "required": true
     },
-    "f99z": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "Geografikum",
