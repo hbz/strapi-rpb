@@ -267,7 +267,7 @@
       },
       "type": "string"
     },
-    "f87": {
+    "isbn": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -275,7 +275,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.isbn-component"
+      "component": "rpb.isbn"
     },
     "endDate": {
       "pluginOptions": {
