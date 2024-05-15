@@ -259,7 +259,7 @@
       },
       "component": "rpb.url"
     },
-    "f86_": {
+    "otherId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
