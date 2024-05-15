@@ -76,7 +76,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.corporation-component"
+      "component": "rpb.corporate-body"
     },
     "preferredTitle": {
       "pluginOptions": {

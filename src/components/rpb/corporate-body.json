@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_rpb_corporation_components",
+  "collectionName": "components_rpb_corporate-bodies",
   "info": {
-    "displayName": "CorporationComponent",
-    "description": ""
+    "displayName": "corporateBody",
+    "description": "Körperschaft; Quelle: #60~, #601 ff."
   },
   "options": {},
   "attributes": {
