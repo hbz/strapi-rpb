@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { TextInput } from '@strapi/design-system/TextInput';
 import { Link } from '@strapi/design-system/v2';
+import { Button, Flex } from '@strapi/design-system';
 import { Stack } from '@strapi/design-system/Stack';
 import { auth } from '@strapi/helper-plugin';
 
@@ -61,7 +62,7 @@ export default function Index({
 
   const callLookupRpbAuthorities = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}?pagination[limit]=3
+      const response = await fetch(`${path}?pagination[limit]=10
 &filters[$or][0][preferredName][$containsi]=${query}
 &filters[$or][1][rpbId][$endsWithi]=${query}`, {
         method: 'GET',
@@ -86,7 +87,7 @@ export default function Index({
 
   const callLookupRpbNotations = async (path, query, filter, logo) => {
     try {
-      const response = await fetch(`${path}?pagination[limit]=3
+      const response = await fetch(`${path}?pagination[limit]=10
 &filters[$or][0][prefLabel][$containsi]=${query}
 &filters[$or][1][uri][$endsWithi]=${query}`, {
         method: 'GET',
@@ -182,14 +183,22 @@ export default function Index({
               target: { name, value: e.target.value, type: attribute.type },
             })
           }
-          value={value}
+          value={value && value.trim()}
           hint={description && description.defaultMessage || ""}
           error={error}
           required={attribute.required}
         />
-      {value && value.startsWith("http") &&
-        <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
-      }
+      <Flex gap={1}>
+        {value && value.startsWith("http") &&
+          <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
+        }
+        {value && value.trim() && !attribute.options.source.editable &&
+          <Button 
+            size="s"
+            variant="secondary"
+            onClick={() => onChange({target: { name, value: " ", type: attribute.type }})}>Löschen</Button>
+        }
+      </Flex>
       <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
           <Autocomplete
             openOnFocus={false}
@@ -204,7 +213,7 @@ export default function Index({
               getSource("RPB-Titeldaten", callLookupLobid, strapi.backendURL + "/lookup/rpb", "https://www.hbz-nrw.de/favicon.ico", query),
               getSource("GND", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query),
               getSource("GND-Schlagwörter", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:SubjectHeading"),
-              getSource("GND-Geografika", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:PlaceOrGeographicName"),
+              getSource("GND-Geografika", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:(PlaceOrGeographicName AND NOT BuildingOrMemorial)"),
               getSource("GND-Personen", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:Person"),
               getSource("GND-Berufe", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, `gndSubjectCategory.id:"https://d-nb.info/standards/vocab/gnd/gnd-sc#9.4ab" AND type:SubjectHeading`),
               getSource("hbz-Verbundkatalog", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
