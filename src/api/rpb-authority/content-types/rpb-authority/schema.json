@@ -30,7 +30,7 @@
       ],
       "required": true
     },
-    "f3na": {
+    "preferredName": {
       "type": "text",
       "required": true
     },
