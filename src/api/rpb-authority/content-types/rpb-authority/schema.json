@@ -46,7 +46,7 @@
       "repeatable": true,
       "component": "rpb-sw.f3r"
     },
-    "f3nz": {
+    "otherInformation": {
       "type": "text"
     },
     "source": {
