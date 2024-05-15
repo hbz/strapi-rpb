@@ -34,17 +34,17 @@
       "type": "text",
       "required": true
     },
-    "f3n": {
-      "displayName": "f3n",
+    "variantName": {
+      "displayName": "variantName",
       "type": "component",
       "repeatable": true,
-      "component": "rpb-sw.f3n"
+      "component": "rpb-sw.variant-name"
     },
-    "f3r": {
-      "displayName": "f3r",
+    "relatedEntity": {
+      "displayName": "relatedEntity",
       "type": "component",
       "repeatable": true,
-      "component": "rpb-sw.f3r"
+      "component": "rpb-sw.related-entity"
     },
     "otherInformation": {
       "type": "text"
