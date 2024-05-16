@@ -29,8 +29,18 @@
       "default": "Verfasser"
     },
     "value": {
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPPD": true,
+          "GND-Personen": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
       "type": "string",
-      "required": true
+      "private": true
     }
   }
 }
