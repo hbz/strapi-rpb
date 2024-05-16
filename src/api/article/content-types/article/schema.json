@@ -43,7 +43,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.contribution"
+      "component": "rpb.person"
     },
     "corporateBody": {
       "type": "component",

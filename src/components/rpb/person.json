@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_rpb_contributions",
+  "collectionName": "components_rpb_persons",
   "info": {
-    "displayName": "PersonComponent",
-    "description": ""
+    "displayName": "person",
+    "description": "Person; Quelle: #40~, #401 ff."
   },
   "options": {},
   "attributes": {
