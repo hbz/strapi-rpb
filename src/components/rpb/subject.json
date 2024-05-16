@@ -6,7 +6,18 @@
   "options": {},
   "attributes": {
     "value": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Sachsystematik": true,
+          "GND-Schlagwörter": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string",
+      "private": true
     }
   }
 }
