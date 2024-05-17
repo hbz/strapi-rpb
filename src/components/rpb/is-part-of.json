@@ -7,7 +7,19 @@
   "options": {},
   "attributes": {
     "value": {
-      "type": "text"
+      "type": "customField",
+      "options": {
+        "source": {
+          "hbz-Verbundkatalog": true,
+          "RPB-Titeldaten": true,
+          "editable": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string",
+      "private": true
     }
   }
 }

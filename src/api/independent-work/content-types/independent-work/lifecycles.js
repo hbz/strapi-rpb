@@ -1,7 +1,7 @@
 module.exports = {
     async afterFindOne(event) {
         const helper = require('../../../labelHelper');
-        const lookupFields = ["person", "spatial", "subject", "subjectComponentList"];
+        const lookupFields = ["person", "spatial", "subject", "subjectComponentList", "isPartOf"];
         const { result } = event;
         for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f))) {
             for (const component of helper.componentsFor(field, result)) {
