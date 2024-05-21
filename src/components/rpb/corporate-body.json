@@ -15,7 +15,17 @@
       ]
     },
     "value": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "GND-Körperschaften": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string",
+      "private": true
     }
   }
 }
