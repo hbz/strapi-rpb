@@ -38,5 +38,8 @@ module.exports = {
     componentsFor: (field, result) => {
         return (field === "subjectComponentList" ? result[field].flatMap(e => e["subject"]) : result[field])
             .filter((c) => c && c.value);
-    }
+    },
+    trimmed: (value) => {
+        return value.length > 250 ? value.substring(0, 249) + "..." : value;
+    },
 };
