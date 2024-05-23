@@ -33,7 +33,7 @@
       "options": {
         "source": {
           "editable": true,
-          "RPPD": true,
+          "RPB-Normdaten": true,
           "GND-Personen": true
         }
       },
