@@ -9,8 +9,7 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Sachsystematik": true,
-          "GND-Schlagwörter": true
+          "RPB-Sachsystematik": true
         }
       },
       "customField": "plugin::lookup.lookup"

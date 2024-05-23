@@ -10,8 +10,7 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Raumsystematik": true,
-          "GND-Geografika": true
+          "RPB-Raumsystematik": true
         }
       },
       "customField": "plugin::lookup.lookup"

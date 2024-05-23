@@ -18,6 +18,7 @@
       "type": "customField",
       "options": {
         "source": {
+          "editable": true,
           "GND-Körperschaften": true
         }
       },

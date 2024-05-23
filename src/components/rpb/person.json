@@ -32,6 +32,7 @@
       "type": "customField",
       "options": {
         "source": {
+          "editable": true,
           "RPPD": true,
           "GND-Personen": true
         }
