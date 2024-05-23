@@ -202,6 +202,14 @@ export default {
                 name: "options.source.hbz-Verbundkatalog-ohne-Aufsätze",
                 type: "checkbox",
               },
+              {
+                intlLabel: {
+                  id: "lookup.sources.hbz-Verbundkatalog-nur-Reihen",
+                  defaultMessage: "hbz-Verbundkatalog (nur Reihen)",
+                },
+                name: "options.source.hbz-Verbundkatalog-nur-Reihen",
+                type: "checkbox",
+              },
             ],
           },
         ],
