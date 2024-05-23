@@ -162,6 +162,14 @@ export default {
                 name: "options.source.GND-Berufe",
                 type: "checkbox",
               },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND-Körperschaften",
+                  defaultMessage: "GND-Körperschaften",
+                },
+                name: "options.source.GND-Körperschaften",
+                type: "checkbox",
+              },
             ],
           },
           {
