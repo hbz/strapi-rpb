@@ -194,6 +194,14 @@ export default {
                 name: "options.source.RPB-Titeldaten",
                 type: "checkbox",
               },
+              {
+                intlLabel: {
+                  id: "lookup.sources.hbz-Verbundkatalog-ohne-Aufsätze",
+                  defaultMessage: "hbz-Verbundkatalog (ohne Aufsätze)",
+                },
+                name: "options.source.hbz-Verbundkatalog-ohne-Aufsätze",
+                type: "checkbox",
+              },
             ],
           },
         ],
