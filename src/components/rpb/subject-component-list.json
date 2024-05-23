@@ -10,7 +10,7 @@
       "displayName": "subject",
       "type": "component",
       "repeatable": true,
-      "component": "rpb.subject"
+      "component": "rpb.subject-component"
     }
   }
 }
