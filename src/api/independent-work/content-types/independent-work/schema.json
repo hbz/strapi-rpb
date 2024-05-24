@@ -157,7 +157,7 @@
       "type": "string",
       "required": true
     },
-    "isPartOf": {
+    "inSeries": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -165,7 +165,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.is-part-of"
+      "component": "rpb.in-series"
     },
     "item": {
       "type": "component",
