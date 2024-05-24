@@ -11,9 +11,8 @@
       "required": true,
       "options": {
         "source": {
-          "hbz-Verbundkatalog": true,
-          "RPB-Titeldaten": true,
-          "editable": true
+          "editable": true,
+          "hbz-Verbundkatalog-ohne-Aufsätze": true
         }
       },
       "customField": "plugin::lookup.lookup"
