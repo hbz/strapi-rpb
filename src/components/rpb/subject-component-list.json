@@ -6,8 +6,8 @@
   },
   "options": {},
   "attributes": {
-    "subject": {
-      "displayName": "subject",
+    "subjectComponent": {
+      "displayName": "subjectComponent",
       "type": "component",
       "repeatable": true,
       "component": "rpb.subject-component"

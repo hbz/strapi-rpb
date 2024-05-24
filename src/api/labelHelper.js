@@ -36,7 +36,7 @@ module.exports = {
         return value;
     },
     componentsFor: (field, result) => {
-        return (field === "subjectComponentList" ? result[field].flatMap(e => e["subject"]) : result[field])
+        return (field === "subjectComponentList" ? result[field].flatMap(e => e["subjectComponent"]) : result[field])
             .filter((c) => c && c.value);
     },
     trimmed: (value) => {
