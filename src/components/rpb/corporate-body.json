@@ -19,7 +19,8 @@
       "options": {
         "source": {
           "editable": true,
-          "GND-Körperschaften": true
+          "GND-Körperschaften": true,
+          "RPB-Normdaten": true
         }
       },
       "customField": "plugin::lookup.lookup"

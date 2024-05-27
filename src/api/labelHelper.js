@@ -22,15 +22,18 @@ const fetchLabel = async (source) => {
         throw new Error(`Unexpected response; status ${response.status} for url ${source.url}`);
     }
     const json = await response.json();
-    return source.test(json) ? source.process(json) : source.url;
+    return source.test(json) ? source.process(json) : null;
 }
 
 module.exports = {
-    labelFor: (value) => {
+    labelFor: async (value) => {
         const prefixMapping = supportedIdPrefixes(value);
         for (const key in prefixMapping) {
             if (value && value.startsWith(key)) {
-                return fetchLabel(prefixMapping[key]);
+                const label = await fetchLabel(prefixMapping[key]);
+                if(label) {
+                    return label;
+                }
             }
         }
         return value;
