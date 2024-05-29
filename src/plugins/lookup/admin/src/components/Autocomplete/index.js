@@ -180,7 +180,10 @@ export default function Index({
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           disabled={!attribute.options.source.editable}
-          onChange={(e) => setFieldValue(e.target.value)}
+          onChange={(e) => {
+            setFieldValue(e.target.value);
+            onChange({target: { name, value: e.target.value, type: attribute.type }})
+          }}
           value={fieldValue && fieldValue.trim() ? fieldValue : ""}
           hint={description && description.defaultMessage || ""}
           error={error}
