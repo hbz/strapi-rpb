@@ -181,7 +181,7 @@ export default function Index({
           name="content"
           disabled={!attribute.options.source.editable}
           onChange={(e) => setFieldValue(e.target.value)}
-          value={fieldValue && fieldValue.trim()}
+          value={fieldValue && fieldValue.trim() ? fieldValue : ""}
           hint={description && description.defaultMessage || ""}
           error={error}
           required={attribute.required}
