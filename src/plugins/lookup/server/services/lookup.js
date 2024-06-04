@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-const suggestFields = "preferredName,dateOfBirth-dateOfDeath,placeOfBirth,placeOfActivity,placeOfDeath,professionOrOccupation";
+const suggestFields = "preferredName,*_dateOfBirth+_placeOfBirth,†_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation";
 
 module.exports = ({ strapi }) => ({
 
