@@ -200,19 +200,35 @@ export default {
         advanced: [
           {
             sectionTitle: {
-              id: "lookup.sources",
+              id: "lookup.textfield",
               defaultMessage: "Textfeld",
             },
             items: [
               {
                 intlLabel: {
-                  id: "lookup.sources.editable",
-                  defaultMessage: "Editierbar",
+                  id: "lookup.editable",
+                  defaultMessage: "Werte manuell editierbar",
                 },
                 name: "options.editable",
                 type: "checkbox",
               },
-            ],
+            ]
+          },
+          {
+            sectionTitle: {
+              id: "lookup.suggestions",
+              defaultMessage: "Vorschläge",
+            },
+            items: [
+              {
+                intlLabel: {
+                  id: "lookup.detached",
+                  defaultMessage: "Immer als Dialogfenster",
+                },
+                name: "options.detached",
+                type: "checkbox",
+              },
+            ]
           }
         ],
         validator: (args) => ({}),

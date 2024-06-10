@@ -11,7 +11,8 @@
       "options": {
         "source": {
           "RPB-Fachgebiete": true
-        }
+        },
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },

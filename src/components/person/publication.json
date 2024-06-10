@@ -12,7 +12,8 @@
         "source": {
           "hbz-Verbundkatalog": true
         },
-        "editable": true
+        "editable": true,
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },

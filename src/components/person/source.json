@@ -14,7 +14,8 @@
           "hbz-Verbundkatalog": true,
           "RPB-Titeldaten": true
         },
-        "editable": true
+        "editable": true,
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },

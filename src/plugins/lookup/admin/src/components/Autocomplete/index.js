@@ -203,7 +203,7 @@ export default function Index({
       <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
           <Autocomplete
             openOnFocus={false}
-            detachedMediaQuery=''
+            detachedMediaQuery={attribute.options.detached ? '' : '(max-width: 500px)'}
             placeholder="Nachschlagen"
             getSources={({ query }) => [
               getSource("RPPD", callLookupLobid, strapi.backendURL + "/lookup/rppd", "https://rpb.lobid.org/assets/images/wappen.png", query.replace("http://rppd.lobid.org/", "")),

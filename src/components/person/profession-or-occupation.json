@@ -11,7 +11,8 @@
       "options": {
         "source": {
           "GND-Berufe": true
-        }
+        },
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },
