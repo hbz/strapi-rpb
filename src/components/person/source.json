@@ -12,9 +12,9 @@
       "options": {
         "source": {
           "hbz-Verbundkatalog": true,
-          "RPB-Titeldaten": true,
-          "editable": true
-        }
+          "RPB-Titeldaten": true
+        },
+        "editable": true
       },
       "customField": "plugin::lookup.lookup"
     },

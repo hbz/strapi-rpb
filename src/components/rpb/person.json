@@ -32,10 +32,10 @@
       "type": "customField",
       "options": {
         "source": {
-          "editable": true,
           "RPB-Normdaten": true,
           "GND-Personen": true
-        }
+        },
+        "editable": true
       },
       "customField": "plugin::lookup.lookup"
     },

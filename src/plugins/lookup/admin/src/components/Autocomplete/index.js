@@ -179,7 +179,7 @@ export default function Index({
           placeholder="ID"
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
-          disabled={!attribute.options.source.editable}
+          disabled={!attribute.options.editable}
           onChange={(e) => {
             setFieldValue(e.target.value);
             onChange({target: { name, value: e.target.value, type: attribute.type }})
@@ -193,7 +193,7 @@ export default function Index({
         {fieldValue && fieldValue.startsWith("http") &&
           <Link isExternal target="_top" href={fieldValue}> {details || "s. Normdatenquelle"} </Link>
         }
-        {fieldValue && fieldValue.trim() && !attribute.options.source.editable &&
+        {fieldValue && fieldValue.trim() && !attribute.options.editable &&
           <Button 
             size="s"
             variant="secondary"
