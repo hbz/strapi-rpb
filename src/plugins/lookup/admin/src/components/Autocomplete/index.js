@@ -180,8 +180,11 @@ export default function Index({
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           disabled={!attribute.options.source.editable}
-          onChange={(e) => setFieldValue(e.target.value)}
-          value={fieldValue && fieldValue.trim()}
+          onChange={(e) => {
+            setFieldValue(e.target.value);
+            onChange({target: { name, value: e.target.value, type: attribute.type }})
+          }}
+          value={fieldValue && fieldValue.trim() ? fieldValue : ""}
           hint={description && description.defaultMessage || ""}
           error={error}
           required={attribute.required}
@@ -213,7 +216,7 @@ export default function Index({
               getSource("GND-Schlagwörter", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:SubjectHeading"),
               getSource("GND-Geografika", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:(PlaceOrGeographicName AND NOT BuildingOrMemorial)"),
               getSource("GND-Personen", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:Person"),
-              getSource("GND-Körperschaften", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:CorporateBody"),
+              getSource("GND-Körperschaften", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:(CorporateBody OR TerritorialCorporateBodyOrAdministrativeUnit OR ConferenceOrEvent OR SeriesOfConferenceOrEvent)"),
               getSource("GND-Berufe", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, `gndSubjectCategory.id:"https://d-nb.info/standards/vocab/gnd/gnd-sc#9.4ab" AND type:SubjectHeading`),
               getSource("hbz-Verbundkatalog", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
               getSource("hbz-Verbundkatalog-ohne-Aufsätze", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "NOT type:Article"),
