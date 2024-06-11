@@ -10,9 +10,10 @@
       "type": "customField",
       "options": {
         "source": {
-          "hbz-Verbundkatalog": true,
-          "editable": true
-        }
+          "hbz-Verbundkatalog": true
+        },
+        "editable": true,
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },

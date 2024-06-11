@@ -12,7 +12,8 @@
         "source": {
           "RPPD": true,
           "GND-Personen": true
-        }
+        },
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },

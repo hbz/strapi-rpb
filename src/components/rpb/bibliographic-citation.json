@@ -11,9 +11,9 @@
       "required": true,
       "options": {
         "source": {
-          "editable": true,
           "hbz-Verbundkatalog-ohne-Aufsätze": true
-        }
+        },
+        "editable": true
       },
       "customField": "plugin::lookup.lookup"
     },
