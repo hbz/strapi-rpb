@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_rpb_subject-component-lists",
+  "info": {
+    "displayName": "subjectComponentList",
+    "description": "Schlagwortkette; Quelle: #32~"
+  },
+  "options": {},
+  "attributes": {
+    "subject": {
+      "displayName": "subject",
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.subject"
+    }
+  }
+}

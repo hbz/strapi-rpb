@@ -63,8 +63,8 @@ export default function Index({
   const callLookupRpbAuthorities = async (path, query, filter, logo) => {
     try {
       const response = await fetch(`${path}?pagination[limit]=10
-&filters[$or][0][f3na][$containsi]=${query}
-&filters[$or][1][f00_][$endsWithi]=${query}`, {
+&filters[$or][0][preferredName][$containsi]=${query}
+&filters[$or][1][rpbId][$endsWithi]=${query}`, {
         method: 'GET',
       });
 
@@ -74,10 +74,10 @@ export default function Index({
       const result = await response.json();
 
       return result.data.map(r => {return {
-        name: r.attributes.f3na,
+        name: r.attributes.preferredName,
         category:{id: "0", name: "cat-name-0"},
-        description: r.attributes.f99z,
-        id: "http://rpb.lobid.org/sw/" + r.attributes.f00_,
+        description: r.attributes.type,
+        id: "http://rpb.lobid.org/sw/" + r.attributes.rpbId,
         image: logo}});
 
     } catch (err) {
@@ -149,7 +149,7 @@ export default function Index({
         "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"+OR+gndIdentifier:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
         "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(value)}.json`, test: (r) => r, process: (r) => r.title},
         "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(value)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
-        "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[f00_][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.f3na},
+        "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[rpbId][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.preferredName},
         "http://purl.org/lobid/rpb": {url: `${strapi.backendURL}/api/rpb-notations?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
         "https://rpb.lobid.org/spatial": {url: `${strapi.backendURL}/api/rpb-spatials?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
         "https://w3id.org/lobid/rpb-fachgebiete/": {url: `${strapi.backendURL}/api/fachgebiete?pagination[limit]=1&filters[uri][$eq]=${value}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_sw_variant-names",
+  "info": {
+    "displayName": "variantName",
+    "description": "Abweichender Name; Quelle: #3nb-#3ny"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}

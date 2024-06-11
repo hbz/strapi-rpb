@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_parallel_titles",
+  "info": {
+    "displayName": "parallelTitle",
+    "description": "Paralleltitel; Quelle: #24~"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}

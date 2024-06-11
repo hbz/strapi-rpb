@@ -12,12 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "f00_": {
+    "rpbId": {
       "type": "string",
       "unique": true,
       "required": true
     },
-    "f99z": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "Geografikum",
@@ -30,23 +30,23 @@
       ],
       "required": true
     },
-    "f3na": {
+    "preferredName": {
       "type": "text",
       "required": true
     },
-    "f3n": {
-      "displayName": "f3n",
+    "variantName": {
+      "displayName": "variantName",
       "type": "component",
       "repeatable": true,
-      "component": "rpb-sw.f3n"
+      "component": "rpb-sw.variant-name"
     },
-    "f3r": {
-      "displayName": "f3r",
+    "relatedEntity": {
+      "displayName": "relatedEntity",
       "type": "component",
       "repeatable": true,
-      "component": "rpb-sw.f3r"
+      "component": "rpb-sw.related-entity"
     },
-    "f3nz": {
+    "otherInformation": {
       "type": "text"
     },
     "source": {

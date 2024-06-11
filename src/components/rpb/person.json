@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_rpb_contributions",
+  "collectionName": "components_rpb_persons",
   "info": {
-    "displayName": "PersonComponent",
-    "description": ""
+    "displayName": "person",
+    "description": "Person; Quelle: #40~, #401 ff."
   },
   "options": {},
   "attributes": {
-    "n40a": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "http://id.loc.gov/vocabulary/relators/aut",
@@ -28,7 +28,7 @@
       "required": true,
       "default": "Verfasser"
     },
-    "f40_": {
+    "value": {
       "type": "string",
       "required": true
     }

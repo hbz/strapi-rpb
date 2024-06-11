@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_spatials",
+  "info": {
+    "displayName": "spatial",
+    "description": "Ortsnotation; Quelle: #31~"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    }
+  }
+}

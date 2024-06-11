@@ -1,17 +1,17 @@
 {
-  "collectionName": "components_rpb_url_components",
+  "collectionName": "components_rpb_urls",
   "info": {
-    "displayName": "URLComponent",
-    "description": ""
+    "displayName": "url",
+    "description": "URL; Quelle: #90[efg]"
   },
   "options": {},
   "attributes": {
-    "f90_": {
+    "value": {
       "type": "string",
       "regex": "(https?|ftp):\\/\\/(\\S+\\.)+\\S+(\\/\\S*)?|",
       "required": true
     },
-    "n90": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "Volltext",

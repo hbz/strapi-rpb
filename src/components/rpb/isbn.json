@@ -1,16 +1,16 @@
 {
-  "collectionName": "components_rpb_isbn_components",
+  "collectionName": "components_rpb_isbns",
   "info": {
-    "displayName": "ISBNComponent",
+    "displayName": "isbn",
     "icon": "book",
-    "description": ""
+    "description": "ISBN; Quelle: #87~, f871 ff."
   },
   "options": {},
   "attributes": {
-    "f87_": {
+    "value": {
       "type": "string"
     },
-    "n87": {
+    "valid": {
       "type": "boolean",
       "default": true
     }

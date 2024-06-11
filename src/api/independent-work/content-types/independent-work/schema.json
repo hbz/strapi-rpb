@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "f00_": {
+    "rpbId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -26,7 +26,7 @@
       "required": true,
       "unique": true
     },
-    "f36_": {
+    "type": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -39,7 +39,7 @@
         "Band"
       ]
     },
-    "f01": {
+    "volumeIn": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -47,9 +47,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.is-part-of-relation"
+      "component": "rpb.volume-in"
     },
-    "f14_": {
+    "doNotIndex": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -58,7 +58,7 @@
       "type": "boolean",
       "default": false
     },
-    "f40": {
+    "person": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -66,9 +66,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.contribution"
+      "component": "rpb.person"
     },
-    "f60": {
+    "corporateBody": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -76,9 +76,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.corporation-component"
+      "component": "rpb.corporate-body"
     },
-    "f21_": {
+    "preferredTitle": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -86,7 +86,7 @@
       },
       "type": "text"
     },
-    "f20_": {
+    "title": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -95,7 +95,7 @@
       "type": "text",
       "required": true
     },
-    "n20a": {
+    "otherTitleInformation": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -103,7 +103,7 @@
       },
       "type": "string"
     },
-    "f24": {
+    "parallelTitle": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -111,9 +111,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.nebensachtitel-23"
+      "component": "rpb.parallel-title"
     },
-    "f27": {
+    "alternativeTitle": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -121,9 +121,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.weitere-titel"
+      "component": "rpb.alternative-title"
     },
-    "f28_": {
+    "alternativeSpelling": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -131,7 +131,7 @@
       },
       "type": "string"
     },
-    "f39_": {
+    "responsibilityStatement": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -139,7 +139,7 @@
       },
       "type": "text"
     },
-    "f76a": {
+    "publicationDate": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -148,7 +148,7 @@
       "type": "string",
       "required": true
     },
-    "f76b": {
+    "publicationYear": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -157,7 +157,7 @@
       "type": "string",
       "required": true
     },
-    "f85": {
+    "isPartOf": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -165,9 +165,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.gesamttitel-component"
+      "component": "rpb.is-part-of"
     },
-    "f90a": {
+    "item": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -175,9 +175,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.bestand-component"
+      "component": "rpb.item"
     },
-    "f31": {
+    "spatial": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -185,9 +185,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.rpb-spatial-link-component"
+      "component": "rpb.spatial"
     },
-    "f74_": {
+    "publicationLocation": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -195,7 +195,7 @@
       },
       "type": "text"
     },
-    "f75_": {
+    "publishedBy": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -203,7 +203,7 @@
       },
       "type": "text"
     },
-    "f30": {
+    "subject": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -211,9 +211,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.f30"
+      "component": "rpb.subject"
     },
-    "f32": {
+    "subjectComponentList": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -221,9 +221,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.f32"
+      "component": "rpb.subject-component-list"
     },
-    "f71_": {
+    "edition": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -231,7 +231,7 @@
       },
       "type": "string"
     },
-    "f77_": {
+    "extent": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -239,7 +239,7 @@
       },
       "type": "text"
     },
-    "f81": {
+    "note": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -247,9 +247,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.anmerkungen-component"
+      "component": "rpb.note"
     },
-    "f90": {
+    "url": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -257,17 +257,9 @@
           "versioned": true
         }
       },
-      "component": "rpb.url-component"
+      "component": "rpb.url"
     },
-    "f20u": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "text"
-    },
-    "f71k": {
+    "otherId": {
       "pluginOptions": {
         "versions": {
           "versioned": true
@@ -275,15 +267,7 @@
       },
       "type": "string"
     },
-    "f86_": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        }
-      },
-      "type": "string"
-    },
-    "f87": {
+    "isbn": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -291,7 +275,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.isbn-component"
+      "component": "rpb.isbn"
     },
     "endDate": {
       "pluginOptions": {
@@ -301,7 +285,7 @@
       },
       "type": "string"
     },
-    "f18_": {
+    "inCollection": {
       "pluginOptions": {
         "versions": {
           "versioned": true

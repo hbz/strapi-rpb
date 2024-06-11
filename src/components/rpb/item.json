@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_rpb_bestand_components",
+  "collectionName": "components_rpb_items",
   "info": {
-    "displayName": "BestandComponent",
-    "description": ""
+    "displayName": "item",
+    "description": "Bestandsangaben; Quelle: #90a"
   },
   "options": {},
   "attributes": {
-    "f90a": {
+    "value": {
       "type": "string"
     },
-    "n90a": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "KO",

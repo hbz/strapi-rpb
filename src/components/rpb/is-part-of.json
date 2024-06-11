@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_is_part_ofs",
+  "info": {
+    "displayName": "isPartOf",
+    "description": "Gesamttitel; Quelle: #85~"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}

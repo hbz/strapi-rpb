@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rpb_sw_related-entities",
+  "info": {
+    "displayName": "relatedEntity",
+    "description": "Relation; Quelle: #3ra-z"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "text"
+    }
+  }
+}
