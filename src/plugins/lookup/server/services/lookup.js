@@ -2,13 +2,15 @@
 
 const axios = require('axios');
 
+const suggestFields = "preferredName,*_dateOfBirth+_placeOfBirth,†_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation";
+
 module.exports = ({ strapi }) => ({
 
   async lookupGnd(prompt, filter) {
     try {
       const response = await axios(
         {
-          url: `http://lobid.org/gnd/search?q=${prompt}&filter=${filter}&format=json:suggest&size=10`,
+          url: `http://lobid.org/gnd/search?q=${prompt}&filter=${filter}&format=json:${suggestFields}&size=10`,
           method: 'GET',
         })
 
@@ -56,7 +58,7 @@ module.exports = ({ strapi }) => ({
     try {
       const response = await axios(
         {
-          url: `http://rppd.lobid.org/search?q=${prompt}&filter=${filter}&format=json:suggest&size=10`,
+          url: `http://rppd.lobid.org/search?q=${prompt}&filter=${filter}&format=json:${suggestFields}&size=10`,
           method: 'GET',
         })
 
