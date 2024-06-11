@@ -7,7 +7,19 @@
   "options": {},
   "attributes": {
     "value": {
-      "type": "text"
+      "type": "customField",
+      "required": true,
+      "options": {
+        "source": {
+          "editable": true,
+          "hbz-Verbundkatalog-ohne-Aufsätze": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string",
+      "private": true
     }
   }
 }

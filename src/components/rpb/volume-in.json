@@ -14,7 +14,13 @@
       "type": "integer"
     },
     "value": {
-      "type": "text"
+      "type": "customField",
+      "options": {
+        "source": {
+          "hbz-Verbundkatalog-ohne-Aufsätze": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     }
   }
 }
