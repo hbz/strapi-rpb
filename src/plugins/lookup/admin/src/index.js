@@ -54,22 +54,6 @@ export default {
         base: [
           {
             sectionTitle: {
-              id: "lookup.sources",
-              defaultMessage: "Textfeld",
-            },
-            items: [
-              {
-                intlLabel: {
-                  id: "lookup.sources.editable",
-                  defaultMessage: "Editierbar",
-                },
-                name: "options.source.editable",
-                type: "checkbox",
-              },
-            ],
-          },
-          {
-            sectionTitle: {
               id: "lookup.sources.rlp",
               defaultMessage: "RLP-Normdaten",
             },
@@ -213,7 +197,40 @@ export default {
             ],
           },
         ],
-        advanced: [],
+        advanced: [
+          {
+            sectionTitle: {
+              id: "lookup.textfield",
+              defaultMessage: "Textfeld",
+            },
+            items: [
+              {
+                intlLabel: {
+                  id: "lookup.editable",
+                  defaultMessage: "Werte manuell editierbar",
+                },
+                name: "options.editable",
+                type: "checkbox",
+              },
+            ]
+          },
+          {
+            sectionTitle: {
+              id: "lookup.suggestions",
+              defaultMessage: "Vorschläge",
+            },
+            items: [
+              {
+                intlLabel: {
+                  id: "lookup.detached",
+                  defaultMessage: "Immer als Dialogfenster",
+                },
+                name: "options.detached",
+                type: "checkbox",
+              },
+            ]
+          }
+        ],
         validator: (args) => ({}),
       },
     });

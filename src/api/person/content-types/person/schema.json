@@ -181,7 +181,8 @@
         "source": {
           "RPB-Raumsystematik": true,
           "GND-Geografika": true
-        }
+        },
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },
@@ -196,7 +197,8 @@
         "source": {
           "RPB-Raumsystematik": true,
           "GND-Geografika": true
-        }
+        },
+        "detached": true
       },
       "customField": "plugin::lookup.lookup"
     },
