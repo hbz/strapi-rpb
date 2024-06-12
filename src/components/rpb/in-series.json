@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_rpb_spatials",
+  "collectionName": "components_rpb_in_series",
   "info": {
-    "displayName": "spatial",
-    "description": "Ortsnotation; Quelle: #31~"
+    "displayName": "inSeries",
+    "description": "Gesamttitel; Quelle: #85~"
   },
   "options": {},
   "attributes": {
@@ -10,7 +10,7 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Raumsystematik": true
+          "hbz-Verbundkatalog-nur-Reihen": true
         }
       },
       "customField": "plugin::lookup.lookup"

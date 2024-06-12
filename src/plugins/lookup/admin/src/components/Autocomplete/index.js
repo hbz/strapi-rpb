@@ -23,7 +23,8 @@ export default function Index({
   const { formatMessage } = useIntl();
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
-  const [details, setDetails] = useState(null);
+  const [fieldValue, setFieldValue] = useState(value || '');
+  const [details, setDetails] = useState('');
 
   const lastSegment = (uri) => uri && uri.substring(uri.lastIndexOf("/") + 1)
   const uriFragment = (uri) => uri && uri.substring(uri.lastIndexOf("#") + 1)
@@ -121,6 +122,7 @@ export default function Index({
             console.log(`${id} item`)
             console.log(event.item)
             event.setQuery(event.item.name);
+            setFieldValue(event.item.id);
             onChange({ target: { name, value: event.item.id, type: attribute.type } })
         },
         templates: {
@@ -143,19 +145,19 @@ export default function Index({
 
   useEffect(() => {
     const fetchData = async () => {
-      setDetails(null)
+      setDetails('');
       const supportedIdPrefixes = {
-        "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${value}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
-        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(value)}"+OR+gndIdentifier:"${lastSegment(value)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
-        "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(value)}.json`, test: (r) => r, process: (r) => r.title},
-        "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(value)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
-        "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[rpbId][$eq]=${lastSegment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.preferredName},
-        "http://purl.org/lobid/rpb": {url: `${strapi.backendURL}/api/rpb-notations?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
-        "https://rpb.lobid.org/spatial": {url: `${strapi.backendURL}/api/rpb-spatials?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(value)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
-        "https://w3id.org/lobid/rpb-fachgebiete/": {url: `${strapi.backendURL}/api/fachgebiete?pagination[limit]=1&filters[uri][$eq]=${value}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel}
+        "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${fieldValue}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(fieldValue)}"+OR+gndIdentifier:"${lastSegment(fieldValue)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(fieldValue)}.json`, test: (r) => r, process: (r) => r.title},
+        "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(fieldValue)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
+        "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[rpbId][$eq]=${lastSegment(fieldValue)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.preferredName},
+        "http://purl.org/lobid/rpb": {url: `${strapi.backendURL}/api/rpb-notations?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(fieldValue)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
+        "https://rpb.lobid.org/spatial": {url: `${strapi.backendURL}/api/rpb-spatials?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(fieldValue)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
+        "https://w3id.org/lobid/rpb-fachgebiete/": {url: `${strapi.backendURL}/api/fachgebiete?pagination[limit]=1&filters[uri][$eq]=${fieldValue}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel}
       };
       for (const idPrefix in supportedIdPrefixes) {
-        if(value && value.startsWith(idPrefix)) {
+        if(fieldValue && fieldValue.startsWith(idPrefix)) {
           const response = await fetch(supportedIdPrefixes[idPrefix].url);
           if (!response.ok) {
             throw new Error(`Error! status: ${response.status}`);
@@ -169,7 +171,7 @@ export default function Index({
     };
 
     fetchData();
-  }, [value]);
+  }, [fieldValue]);
 
   return (
     <Stack spacing={1}>
@@ -178,25 +180,24 @@ export default function Index({
           label={intlLabel ? formatMessage(intlLabel) : name}
           name="content"
           disabled={!attribute.options.source.editable}
-          onChange={(e) =>
-            onChange({
-              target: { name, value: e.target.value, type: attribute.type },
-            })
-          }
-          value={value && value.trim()}
+          onChange={(e) => {
+            setFieldValue(e.target.value);
+            onChange({target: { name, value: e.target.value, type: attribute.type }})
+          }}
+          value={fieldValue && fieldValue.trim() ? fieldValue : ""}
           hint={description && description.defaultMessage || ""}
           error={error}
           required={attribute.required}
         />
       <Flex gap={1}>
-        {value && value.startsWith("http") &&
-          <Link isExternal target="_top" href={value}> {details || "s. Normdatenquelle"} </Link>
+        {fieldValue && fieldValue.startsWith("http") &&
+          <Link isExternal target="_top" href={fieldValue}> {details || "s. Normdatenquelle"} </Link>
         }
-        {value && value.trim() && !attribute.options.source.editable &&
+        {fieldValue && fieldValue.trim() && !attribute.options.source.editable &&
           <Button 
             size="s"
             variant="secondary"
-            onClick={() => onChange({target: { name, value: " ", type: attribute.type }})}>Löschen</Button>
+            onClick={() => setFieldValue(' ')}>Löschen</Button>
         }
       </Flex>
       <div style={{'--aa-input-background-color-rgb': '240, 240, 255', '--aa-input-border-color-rgb': '240, 240, 255'}}>
@@ -215,8 +216,11 @@ export default function Index({
               getSource("GND-Schlagwörter", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:SubjectHeading"),
               getSource("GND-Geografika", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:(PlaceOrGeographicName AND NOT BuildingOrMemorial)"),
               getSource("GND-Personen", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:Person"),
+              getSource("GND-Körperschaften", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, "type:(CorporateBody OR TerritorialCorporateBodyOrAdministrativeUnit OR ConferenceOrEvent OR SeriesOfConferenceOrEvent)"),
               getSource("GND-Berufe", callLookupLobid, strapi.backendURL + "/lookup/gnd", "https://gnd.network/Webs/gnd/SharedDocs/Downloads/DE/materialien_GNDlogoOhneSchrift_png.png?__blob=publicationFile&v=2", query, `gndSubjectCategory.id:"https://d-nb.info/standards/vocab/gnd/gnd-sc#9.4ab" AND type:SubjectHeading`),
               getSource("hbz-Verbundkatalog", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
+              getSource("hbz-Verbundkatalog-ohne-Aufsätze", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "NOT type:Article"),
+              getSource("hbz-Verbundkatalog-nur-Reihen", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "type:Series"),
             ].filter((e) => attribute.options.source[e.sourceId])}
           />
           </div>

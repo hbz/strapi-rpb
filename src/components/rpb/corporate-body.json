@@ -15,7 +15,19 @@
       ]
     },
     "value": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "editable": true,
+          "GND-Körperschaften": true,
+          "RPB-Normdaten": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string",
+      "private": true
     }
   }
 }

@@ -162,6 +162,14 @@ export default {
                 name: "options.source.GND-Berufe",
                 type: "checkbox",
               },
+              {
+                intlLabel: {
+                  id: "lookup.sources.GND-Körperschaften",
+                  defaultMessage: "GND-Körperschaften",
+                },
+                name: "options.source.GND-Körperschaften",
+                type: "checkbox",
+              },
             ],
           },
           {
@@ -184,6 +192,22 @@ export default {
                   defaultMessage: "RPB-Titeldaten",
                 },
                 name: "options.source.RPB-Titeldaten",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.hbz-Verbundkatalog-ohne-Aufsätze",
+                  defaultMessage: "hbz-Verbundkatalog (ohne Aufsätze)",
+                },
+                name: "options.source.hbz-Verbundkatalog-ohne-Aufsätze",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.hbz-Verbundkatalog-nur-Reihen",
+                  defaultMessage: "hbz-Verbundkatalog (nur Reihen)",
+                },
+                name: "options.source.hbz-Verbundkatalog-nur-Reihen",
                 type: "checkbox",
               },
             ],

@@ -29,8 +29,19 @@
       "default": "Verfasser"
     },
     "value": {
+      "type": "customField",
+      "options": {
+        "source": {
+          "editable": true,
+          "RPB-Normdaten": true,
+          "GND-Personen": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
       "type": "string",
-      "required": true
+      "private": true
     }
   }
 }

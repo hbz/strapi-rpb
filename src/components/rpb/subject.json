@@ -6,7 +6,17 @@
   "options": {},
   "attributes": {
     "value": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "source": {
+          "RPB-Sachsystematik": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "label": {
+      "type": "string",
+      "private": true
     }
   }
 }

@@ -193,8 +193,7 @@
           "versioned": true
         }
       },
-      "component": "rpb.bibliographic-citation",
-      "required": true
+      "component": "rpb.bibliographic-citation"
     },
     "volume": {
       "pluginOptions": {

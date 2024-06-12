@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_rpb_spatials",
+  "collectionName": "components_rpb_subject_components",
   "info": {
-    "displayName": "spatial",
-    "description": "Ortsnotation; Quelle: #31~"
+    "displayName": "subjectComponent"
   },
   "options": {},
   "attributes": {
@@ -10,7 +9,9 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Raumsystematik": true
+          "editable": true,
+          "GND": true,
+          "RPB-Normdaten": true
         }
       },
       "customField": "plugin::lookup.lookup"
