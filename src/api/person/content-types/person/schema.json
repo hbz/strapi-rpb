@@ -296,6 +296,14 @@
         }
       },
       "type": "date"
+    },
+    "created": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
     }
   }
 }
