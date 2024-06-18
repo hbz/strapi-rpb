@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@strapi/design-system';
+import { Typography, Link } from '@strapi/design-system';
 import { useCMEditViewDataManager } from "@strapi/helper-plugin";
 
 const config = {
@@ -15,6 +15,22 @@ const bootstrap = (app) => {
         <br/>&#9998; {date(useCMEditViewDataManager().initialData.updatedAt) || '--'}
       </Typography>
     ),
+  });
+
+  app.injectContentManagerComponent('editView', 'informations', {
+    name: 'additional-links',
+    Component: () => ["article", "person", "independent-work"].find(t => useCMEditViewDataManager().slug.includes(t)) ? (
+      <p>
+        <br/><Link target="_blank" href={
+          `${strapi.backendURL}/api/${useCMEditViewDataManager().slug.split('.').pop()}s?filters[id][$eq]=${useCMEditViewDataManager().initialData.id}&populate=*`
+          }>JSON</Link>
+        <br/><Link target="_blank" href={
+          useCMEditViewDataManager().initialData.rppdId ?
+          `https://rppd.lobid.org/${useCMEditViewDataManager().initialData.rppdId}` :
+          `https://rpb.lbz-rlp.de/${useCMEditViewDataManager().initialData.rpbId}`
+          }>OPAC</Link>
+      </p>
+    ) : (<p/>),
   });
 };
 
