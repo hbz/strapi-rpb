@@ -9,9 +9,9 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "http://id.loc.gov/vocabulary/relators/org",
-        "http://id.loc.gov/vocabulary/relators/isb",
-        "http://id.loc.gov/vocabulary/relators/hnr"
+        "HE Urheber",
+        "NE hrsg. Körperschaft",
+        "Gefeierte Körperschaft"
       ]
     },
     "value": {
