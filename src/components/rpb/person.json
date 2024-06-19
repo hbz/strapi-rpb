@@ -23,7 +23,8 @@
         "Red.",
         "Sonstige",
         "Ausführender",
-        "Gefeierter"
+        "Gefeierter",
+        "Fotograf"
       ],
       "required": true,
       "default": "Verfasser"

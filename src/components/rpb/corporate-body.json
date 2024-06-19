@@ -11,7 +11,11 @@
       "enum": [
         "HE Urheber",
         "NE hrsg. Körperschaft",
-        "Gefeierte Körperschaft"
+        "Gefeierte Körperschaft",
+        "Veranstalter",
+        "Geistiger Schöpfer",
+        "Auftraggeber",
+        "Sonstige"
       ]
     },
     "value": {
