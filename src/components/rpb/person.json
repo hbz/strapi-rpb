@@ -9,25 +9,23 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "Verfasser",
-        "Herausgeber",
-        "Mitwirkender",
-        "Bearb.",
-        "Begr.",
-        "Sammler",
-        "Librettist",
-        "Übersetzer",
-        "Illustrator",
-        "Verfasser von ergänzendem Text",
-        "Komponist",
-        "Red.",
+        "Verfasser/in",
+        "Herausgeber/in",
+        "Illustrator/in",
+        "Übersetzer/in",
+        "Fotograf/in",
+        "Gefeierte Person",
+        "Komponist/in",
+        "Mitwirkung",
         "Sonstige",
-        "Ausführender",
-        "Gefeierter",
-        "Fotograf"
+        "Libretto",
+        "Sammler/in",
+        "Performer/in",
+        "Begründer/in eines Werks",
+        "Verfasser/in von ergänzendem Text"
       ],
-      "required": true,
-      "default": "Verfasser"
+      "required": false,
+      "default": "Verfasser/in"
     },
     "value": {
       "type": "customField",

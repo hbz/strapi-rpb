@@ -9,14 +9,15 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "HE Urheber",
-        "NE hrsg. Körperschaft",
-        "Gefeierte Körperschaft",
+        "Herausgebendes Organ",
         "Veranstalter",
+        "Gefeierte Körperschaft",
         "Geistiger Schöpfer",
         "Auftraggeber",
         "Sonstige"
-      ]
+      ],
+      "required": false,
+      "default": "Herausgebendes Organ"
     },
     "value": {
       "type": "customField",
