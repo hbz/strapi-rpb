@@ -46,6 +46,7 @@ services:
     volumes:
       #- strapi-rpb-data:/var/lib/postgresql/data/ #using a volume
       - ./data/postgresql/data:/var/lib/postgresql/data/ # if you want to use a bind folder
+      - ./backup:/opt/app/backup
     ports:
       - 5434:5432
     networks:

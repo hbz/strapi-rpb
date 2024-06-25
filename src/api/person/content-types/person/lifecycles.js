@@ -1,9 +1,18 @@
+const saveToDisk = (event) => {
+    const filename = `backup/${event.result.updatedAt}_${event.result.id}.json`;
+    const content = JSON.stringify({data: event.result});
+    require("fs").writeFile(filename, content, function(error) {
+        console.log(error ? error : "Saved to: " + filename);
+    }); 
+}
 module.exports = {
     beforeCreate(event) {
         const { data } = event.params;
         const { v4: uuidv4 } = require("uuid");
         data.rppdId = data.rppdId || uuidv4();
     },
+    afterCreate(event) { saveToDisk(event); },
+    afterUpdate(event) { saveToDisk(event); },
     async afterFindOne(event) {
         const helper = require('../../../labelHelper');
         const lookupFields = ["gndSubjectCategory", "placeOfActivity", "professionOrOccupation", "publication", "relatedPerson", "source"];
