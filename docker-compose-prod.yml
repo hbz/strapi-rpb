@@ -26,6 +26,7 @@ services:
       - ./yarn.lock:/opt/yarn.lock
       - ./.env:/opt/app/.env
       - ./public:/opt/app/public
+      - ./backup:/opt/app/backup
     ports:
       - 1339:1337
     networks:
@@ -46,7 +47,6 @@ services:
     volumes:
       #- strapi-rpb-data:/var/lib/postgresql/data/ #using a volume
       - ./data/postgresql/data:/var/lib/postgresql/data/ # if you want to use a bind folder
-      - ./backup:/opt/app/backup
     ports:
       - 5434:5432
     networks:
