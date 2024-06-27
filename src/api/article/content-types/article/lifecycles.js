@@ -8,6 +8,12 @@ module.exports = {
                 component.label = await helper.labelFor(component.value);
                 component.label = component.label && component.label.length > 250 ? component.label.substring(0, 249) + "..." : component.label;
             }
+            if(field === "subjectComponentList") {
+                for (const component of result[field]) {
+                    component.label = component.subjectComponent.map(c => c["label"]).join(" | ");
+                    component.label = component.label && helper.trimmed(component.label);
+                }
+            }
         }
     },
 };
