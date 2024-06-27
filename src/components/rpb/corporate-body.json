@@ -9,10 +9,15 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "http://id.loc.gov/vocabulary/relators/org",
-        "http://id.loc.gov/vocabulary/relators/isb",
-        "http://id.loc.gov/vocabulary/relators/hnr"
-      ]
+        "Herausgebendes Organ",
+        "Veranstalter",
+        "Gefeierte Körperschaft",
+        "Geistiger Schöpfer",
+        "Auftraggeber",
+        "Sonstige"
+      ],
+      "required": false,
+      "default": "Herausgebendes Organ"
     },
     "value": {
       "type": "customField",
