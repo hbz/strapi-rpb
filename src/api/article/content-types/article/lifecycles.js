@@ -3,7 +3,8 @@ const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
 
 module.exports = {
-    afterCreate(event) { backupHelper.saveToDisk(event); },
+    //TODO: enable after last import (import triggers this)
+    //afterCreate(event) { backupHelper.saveToDisk(event); },
     afterUpdate(event) { backupHelper.saveToDisk(event); },
     async afterFindOne(event) {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
