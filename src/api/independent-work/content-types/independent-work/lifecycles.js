@@ -1,12 +1,18 @@
+const labelHelper = require('../../../labelHelper');
+const backupHelper = require('../../../backupHelper');
+
 module.exports = {
+    //TODO: enable after last import (import triggers this)
+    //afterCreate(event) { backupHelper.saveToDisk(event); },
+    afterUpdate(event) { backupHelper.saveToDisk(event); },
     async afterFindOne(event) {
-        const helper = require('../../../labelHelper');
-        const lookupFields = ["person", "corporateBody", "spatial", "subject", "subjectComponentList", "inSeries"];
+        const lookupFields = ["person", "corporateBody", "spatial", "subject",
+            "subjectComponentList.subjectComponent", "subjectComponentList", "inSeries"];
         const { result } = event;
-        for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f))) {
-            for (const component of helper.componentsFor(field, result)) {
-                component.label = await helper.labelFor(component.value);
-                component.label = component.label && helper.trimmed(component.label);
+        for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
+            for (const component of labelHelper.componentsFor(field, result)) {
+                component.label = await labelHelper.labelFor(component);
+                component.label = component.label && labelHelper.trimmed(component.label);
             }
         }
     },

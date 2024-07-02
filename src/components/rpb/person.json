@@ -9,24 +9,23 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "http://id.loc.gov/vocabulary/relators/aut",
-        "http://id.loc.gov/vocabulary/relators/pbl",
-        "http://id.loc.gov/vocabulary/relators/ctb",
-        "http://id.loc.gov/vocabulary/relators/edt",
-        "http://id.loc.gov/vocabulary/relators/ccp",
-        "http://id.loc.gov/vocabulary/relators/col",
-        "http://id.loc.gov/vocabulary/relators/lbt",
-        "http://id.loc.gov/vocabulary/relators/trl",
-        "http://id.loc.gov/vocabulary/relators/ill",
-        "http://id.loc.gov/vocabulary/relators/wst",
-        "http://id.loc.gov/vocabulary/relators/cmp",
-        "http://id.loc.gov/vocabulary/relators/red",
-        "http://id.loc.gov/vocabulary/relators/oth",
-        "http://id.loc.gov/vocabulary/relators/act",
-        "http://id.loc.gov/vocabulary/relators/hnr"
+        "Verfasser/in",
+        "Herausgeber/in",
+        "Illustrator/in",
+        "Übersetzer/in",
+        "Fotograf/in",
+        "Gefeierte Person",
+        "Komponist/in",
+        "Mitwirkung",
+        "Sonstige",
+        "Libretto",
+        "Sammler/in",
+        "Performer/in",
+        "Begründer/in eines Werks",
+        "Verfasser/in von ergänzendem Text"
       ],
-      "required": true,
-      "default": "Verfasser"
+      "required": false,
+      "default": "Verfasser/in"
     },
     "value": {
       "type": "customField",
