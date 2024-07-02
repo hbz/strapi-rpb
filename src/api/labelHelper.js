@@ -26,21 +26,27 @@ const fetchLabel = async (source) => {
 }
 
 module.exports = {
-    labelFor: async (value) => {
-        const prefixMapping = supportedIdPrefixes(value);
-        for (const key in prefixMapping) {
-            if (value && value.startsWith(key)) {
-                const label = await fetchLabel(prefixMapping[key]);
-                if(label) {
-                    return label;
+    labelFor: async (component) => {
+        if (component.subjectComponent) {
+            return component.subjectComponent.map(c => c["label"]).join(" | ");
+        } else if (component.value) {
+            const value = component.value;
+            const prefixMapping = supportedIdPrefixes(value);
+            for (const key in prefixMapping) {
+                if (value && value.startsWith(key)) {
+                    const label = await fetchLabel(prefixMapping[key]);
+                    if (label) {
+                        return label;
+                    }
                 }
             }
+            return value;
         }
-        return value;
     },
     componentsFor: (field, result) => {
-        return (field === "subjectComponentList" ? result[field].flatMap(e => e["subjectComponent"]) : result[field])
-            .filter((c) => c && c.value);
+        const [mainField, subField] = field.split(".");
+        const components = subField ? result[mainField].flatMap(e => e[subField]) : result[field];
+        return components.filter((c) => c && (c.value || c.subjectComponent));
     },
     trimmed: (value) => {
         return value.length > 250 ? value.substring(0, 249) + "..." : value;
