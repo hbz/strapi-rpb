@@ -13,8 +13,8 @@ module.exports = {
         const lookupFields = ["gndSubjectCategory", "placeOfActivity", "professionOrOccupation", "publication", "relatedPerson", "source"];
         const { result } = event;
         for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f))) {
-            for (const component of result[field]) {
-                component.label = await labelHelper.labelFor(component.value);
+            for (const component of labelHelper.componentsFor(field, result)) {
+                component.label = await labelHelper.labelFor(component);
                 component.label = component.label && labelHelper.trimmed(component.label);
             }
         }
