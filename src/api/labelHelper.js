@@ -41,6 +41,8 @@ module.exports = {
                 }
             }
             return value;
+        } else {
+            console.log("No label found for component: ", component);
         }
     },
     componentsFor: (field, result) => {
