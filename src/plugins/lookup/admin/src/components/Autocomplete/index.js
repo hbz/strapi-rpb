@@ -66,7 +66,7 @@ export default function Index({
         `filters[$or][0][$and][${i}][preferredName][$containsi]=${token}`).join("&"),
         `filters[$or][1][$or][0][rpbId][$endsWithi]=${query}`];
     try {
-      const response = await fetch(`${path}?pagination[limit]=10&${tokenFilters}&${idFilter}`, {
+      const response = await fetch(`${path}?populate=*&pagination[limit]=10&${tokenFilters}&${idFilter}`, {
         method: 'GET',
       });
 
@@ -78,7 +78,9 @@ export default function Index({
       return result.data.map(r => {return {
         name: r.attributes.preferredName,
         category:{id: "0", name: "cat-name-0"},
-        description: r.attributes.type,
+        description: r.attributes.relatedEntity.length > 0 
+            ? `${r.attributes.type} | ${r.attributes.relatedEntity.map((e) => e.value).join("; ")}`
+            : `${r.attributes.type}`,
         id: "http://rpb.lobid.org/sw/" + r.attributes.rpbId,
         image: logo}});
 
