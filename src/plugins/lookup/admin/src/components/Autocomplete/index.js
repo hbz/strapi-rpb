@@ -62,10 +62,11 @@ export default function Index({
   }
 
   const callLookupRpbAuthorities = async (path, query, filter, logo) => {
+    const [tokenFilters, idFilter] = [query.split("%20").map((token, i) =>
+        `filters[$or][0][$and][${i}][preferredName][$containsi]=${token}`).join("&"),
+        `filters[$or][1][$or][0][rpbId][$endsWithi]=${query}`];
     try {
-      const response = await fetch(`${path}?pagination[limit]=10
-&filters[$or][0][preferredName][$containsi]=${query}
-&filters[$or][1][rpbId][$endsWithi]=${query}`, {
+      const response = await fetch(`${path}?populate=*&pagination[limit]=10&${tokenFilters}&${idFilter}`, {
         method: 'GET',
       });
 
@@ -77,7 +78,9 @@ export default function Index({
       return result.data.map(r => {return {
         name: r.attributes.preferredName,
         category:{id: "0", name: "cat-name-0"},
-        description: r.attributes.type,
+        description: r.attributes.relatedEntity.length > 0 
+            ? `${r.attributes.type} | ${r.attributes.relatedEntity.map((e) => e.value).join("; ")}`
+            : `${r.attributes.type}`,
         id: "http://rpb.lobid.org/sw/" + r.attributes.rpbId,
         image: logo}});
 
