@@ -129,7 +129,7 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "responsibilityStatement": {
       "pluginOptions": {
@@ -229,7 +229,7 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "extent": {
       "pluginOptions": {
