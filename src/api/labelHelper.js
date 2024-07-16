@@ -48,7 +48,7 @@ module.exports = {
     componentsFor: (field, result) => {
         const [mainField, subField] = field.split(".");
         const components = subField ? result[mainField].flatMap(e => e[subField]) : result[field];
-        return components.filter((c) => c && (c.value || c.subjectComponent));
+        return [components].flat().filter((c) => c && (c.value || c.subjectComponent));
     },
     trimmed: (value) => {
         return value.length > 250 ? value.substring(0, 249) + "..." : value;
