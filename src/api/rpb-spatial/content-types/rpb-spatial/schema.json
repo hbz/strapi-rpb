@@ -22,6 +22,9 @@
       "regex": "^https://rpb.lobid.org/spatial#n.*$",
       "required": true,
       "unique": true
+    },
+    "definition": {
+      "type": "text"
     }
   }
 }

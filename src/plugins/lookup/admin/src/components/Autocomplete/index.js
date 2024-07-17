@@ -105,7 +105,7 @@ export default function Index({
       return result.data.map(r => {return {
         name: r.attributes.prefLabel,
         category:{id: "0", name: "cat-name-0"},
-        description: r.attributes.uri.split(/#/).pop(),
+        description: (r.attributes.definition && r.attributes.definition.replace("Einzelne Landkreise, Verbandsgemeinden, Orte und Ortsteile (n6) > ", "")) || r.attributes.uri.split(/#/).pop(),
         id: r.attributes.uri,
         image: logo}});
 
