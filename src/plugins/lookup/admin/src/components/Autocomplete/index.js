@@ -6,7 +6,7 @@ import { Button, Flex } from '@strapi/design-system';
 import { Stack } from '@strapi/design-system/Stack';
 import { auth } from '@strapi/helper-plugin';
 
-import { Autocomplete } from './autocomplete';
+import { Autocomplete, debounce } from './autocomplete';
 import SearchItem from './searchItem';
 import "@algolia/autocomplete-theme-classic";
 
@@ -212,7 +212,7 @@ export default function Index({
             openOnFocus={false}
             detachedMediaQuery={attribute.options.detached ? '' : '(max-width: 500px)'}
             placeholder="Nachschlagen"
-            getSources={({ query }) => [
+            getSources={({ query }) => debounce([
               getSource("RPPD", callLookupLobid, strapi.backendURL + "/lookup/rppd", "https://rpb.lobid.org/assets/images/wappen.png", query.replace("http://rppd.lobid.org/", "")),
               getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations", "https://rpb.lobid.org/assets/images/wappen.png", query),
@@ -228,7 +228,7 @@ export default function Index({
               getSource("hbz-Verbundkatalog", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
               getSource("hbz-Verbundkatalog-ohne-Aufsätze", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "NOT type:Article"),
               getSource("hbz-Verbundkatalog-nur-Reihen", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "type:Series"),
-            ].filter((e) => attribute.options.source[e.sourceId])}
+            ].filter((e) => attribute.options.source[e.sourceId]))}
           />
           </div>
     </Stack>
