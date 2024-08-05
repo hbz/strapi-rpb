@@ -6,7 +6,7 @@ import { Button, Flex } from '@strapi/design-system';
 import { Stack } from '@strapi/design-system/Stack';
 import { auth } from '@strapi/helper-plugin';
 
-import { Autocomplete } from './autocomplete';
+import { Autocomplete, debounce } from './autocomplete';
 import SearchItem from './searchItem';
 import "@algolia/autocomplete-theme-classic";
 
@@ -61,12 +61,16 @@ export default function Index({
     }
   }
 
+  const filters = (tokens, toQueryParam) => tokens.map(toQueryParam).join("&")
+
   const callLookupRpbAuthorities = async (path, query, filter, logo) => {
-    const [tokenFilters, idFilter] = [query.split("%20").map((token, i) =>
-        `filters[$or][0][$and][${i}][preferredName][$containsi]=${token}`).join("&"),
-        `filters[$or][1][$or][0][rpbId][$endsWithi]=${query}`];
+    const tokens = query.split("%20");
+    const [preferredNameFilter, variantNameFilter, idFilter] = [
+      filters(tokens, (token, i) => `filters[$or][0][$and][${i}][$or][0][preferredName][$containsi]=${token}`),
+      filters(tokens, (token, i) => `filters[$or][1][$and][${i}][$or][1][variantName][value][$containsi]=${token}`),
+      `filters[$or][2][$or][0][rpbId][$endsWithi]=${query}`];
     try {
-      const response = await fetch(`${path}?populate=*&pagination[limit]=10&${tokenFilters}&${idFilter}`, {
+      const response = await fetch(`${path}?populate=*&pagination[limit]=10&${preferredNameFilter}&${variantNameFilter}&${idFilter}`, {
         method: 'GET',
       });
 
@@ -208,7 +212,7 @@ export default function Index({
             openOnFocus={false}
             detachedMediaQuery={attribute.options.detached ? '' : '(max-width: 500px)'}
             placeholder="Nachschlagen"
-            getSources={({ query }) => [
+            getSources={({ query }) => debounce([
               getSource("RPPD", callLookupLobid, strapi.backendURL + "/lookup/rppd", "https://rpb.lobid.org/assets/images/wappen.png", query.replace("http://rppd.lobid.org/", "")),
               getSource("RPB-Normdaten", callLookupRpbAuthorities, strapi.backendURL + "/api/rpb-authorities", "https://rpb.lobid.org/assets/images/wappen.png", query),
               getSource("RPB-Sachsystematik", callLookupRpbNotations, strapi.backendURL + "/api/rpb-notations", "https://rpb.lobid.org/assets/images/wappen.png", query),
@@ -224,7 +228,7 @@ export default function Index({
               getSource("hbz-Verbundkatalog", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query),
               getSource("hbz-Verbundkatalog-ohne-Aufsätze", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "NOT type:Article"),
               getSource("hbz-Verbundkatalog-nur-Reihen", callLookupLobid, strapi.backendURL + "/lookup/resources", "https://www.hbz-nrw.de/favicon.ico", query, "type:Series"),
-            ].filter((e) => attribute.options.source[e.sourceId])}
+            ].filter((e) => attribute.options.source[e.sourceId]))}
           />
           </div>
     </Stack>

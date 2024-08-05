@@ -32,6 +32,20 @@ const bootstrap = (app) => {
       </p>
     ) : (<p/>),
   });
+
+  app.injectContentManagerComponent('editView', 'informations', {
+    name: 'additional-links-authorities',
+    Component: () => ["rpb-authority"].find(t => useCMEditViewDataManager().slug.includes(t)) ? (
+      <p>
+        <br/><Link target="_blank" href={
+          `${strapi.backendURL}/api/rpb-authorities?filters[id][$eq]=${useCMEditViewDataManager().initialData.id}&populate=*`
+          }>JSON</Link>
+        <br/><Link target="_blank" href={
+          `https://rpb.lbz-rlp.de/search?subject="${encodeURIComponent(useCMEditViewDataManager().initialData.preferredName)}"`
+          }>OPAC</Link>
+      </p>
+    ) : (<p/>),
+  });
 };
 
 const date = (s) => {
