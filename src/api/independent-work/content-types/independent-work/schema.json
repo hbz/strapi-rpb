@@ -23,7 +23,7 @@
         }
       },
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
     "type": {
@@ -155,7 +155,7 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": false
     },
     "inSeries": {
       "type": "component",

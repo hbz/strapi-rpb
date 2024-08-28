@@ -23,7 +23,7 @@
         }
       },
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
     "doNotIndex": {
@@ -132,7 +132,7 @@
         }
       },
       "type": "string",
-      "required": true,
+      "required": false,
       "regex": "\\d{4}"
     },
     "isPartOf": {
