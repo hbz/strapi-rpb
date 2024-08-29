@@ -52,15 +52,14 @@ const bootstrap = (app) => {
     name: 'export',
     Component: () => {
       const state = useSelector((state) => state);
-      return <Button onClick={() => {
+      return <Button variant='tertiary' onClick={() => {
         const listView = state["content-manager_listView"];
         const contentType = listView.contentType.uid;
         const host = strapi.backendURL.substring(0, strapi.backendURL.lastIndexOf(":"));
         const baseUrl = host.includes("localhost") ? host + ":8000" : host;
         const links = listView.data.map(item => `${baseUrl}/admin/content-manager/collectionType/${contentType}/${item.id}`);
-        console.log("links", links);
-        alert(links.join("\n"));
-      }}>Exportieren</Button>;
+        window.open(`/admin/plugins/lookup/list/${encodeURIComponent(links)}`, '_blank', 'noopener');
+      }}>Linkliste</Button>;
     }
   });
 };
