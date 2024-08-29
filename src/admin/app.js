@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography, Link } from '@strapi/design-system';
+import { Typography, Link, Button } from '@strapi/design-system';
 import { useCMEditViewDataManager } from "@strapi/helper-plugin";
+import { useSelector } from "react-redux";
 
 const config = {
   locales: ['de'],
@@ -45,6 +46,22 @@ const bootstrap = (app) => {
           }>OPAC</Link>
       </p>
     ) : (<p/>),
+  });
+
+  app.injectContentManagerComponent('listView', 'actions', {
+    name: 'export',
+    Component: () => {
+      const state = useSelector((state) => state);
+      return <Button onClick={() => {
+        const listView = state["content-manager_listView"];
+        const contentType = listView.contentType.uid;
+        const host = strapi.backendURL.substring(0, strapi.backendURL.lastIndexOf(":"));
+        const baseUrl = host.includes("localhost") ? host + ":8000" : host;
+        const links = listView.data.map(item => `${baseUrl}/admin/content-manager/collectionType/${contentType}/${item.id}`);
+        console.log("links", links);
+        alert(links.join("\n"));
+      }}>Exportieren</Button>;
+    }
   });
 };
 
