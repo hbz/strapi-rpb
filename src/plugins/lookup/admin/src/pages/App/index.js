@@ -17,7 +17,7 @@ const App = () => {
     <div>
       <Switch>
         <Route path={`/plugins/${pluginId}`} component={HomePage} exact />
-        <Route path={`/plugins/${pluginId}/list/:links`} component={LinkList} />
+        <Route path={`/plugins/${pluginId}/list/:type/:ids`} component={LinkList} />
         <Route component={AnErrorOccurred} />
       </Switch>
     </div>

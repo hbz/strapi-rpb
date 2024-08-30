@@ -57,8 +57,8 @@ const bootstrap = (app) => {
         const contentType = listView.contentType.uid;
         const host = strapi.backendURL.substring(0, strapi.backendURL.lastIndexOf(":"));
         const baseUrl = host.includes("localhost") ? host + ":8000" : host;
-        const links = listView.data.map(item => `${baseUrl}/admin/content-manager/collectionType/${contentType}/${item.id}`);
-        window.open(`/admin/plugins/lookup/list/${encodeURIComponent(links)}`, '_blank', 'noopener');
+        const ids = listView.data.map(item => item.id);
+        window.open(`/admin/plugins/lookup/list/${contentType}/${ids}`, '_blank', 'noopener');
       }}>Linkliste</Button>;
     }
   });
