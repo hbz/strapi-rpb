@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography, Link } from '@strapi/design-system';
+import { Typography, Link, Button } from '@strapi/design-system';
 import { useCMEditViewDataManager } from "@strapi/helper-plugin";
+import { useSelector } from "react-redux";
 
 const config = {
   locales: ['de'],
@@ -45,6 +46,19 @@ const bootstrap = (app) => {
           }>OPAC</Link>
       </p>
     ) : (<p/>),
+  });
+
+  app.injectContentManagerComponent('listView', 'actions', {
+    name: 'export',
+    Component: () => {
+      const state = useSelector((state) => state);
+      return <Button variant='tertiary' onClick={() => {
+        const listView = state["content-manager_listView"];
+        const type = listView.contentType.uid;
+        const ids = listView.data.map(item => item.id);
+        window.open(`/admin/plugins/lookup/list/${type}/${ids}`, '_blank', 'noopener');
+      }}>Linkliste</Button>;
+    }
   });
 };
 

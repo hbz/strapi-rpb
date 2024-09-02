@@ -26,7 +26,7 @@ module.exports = ({ strapi }) => ({
     try {
       const response = await axios(
         {
-          url: `http://lobid.org/resources/search?q=${prompt}&filter=${filter}&format=json:title&size=10`,
+          url: `http://lobid.org/resources/search?name=${prompt}&filter=${filter}&format=json:title&size=10`,
           method: 'GET',
         })
 
