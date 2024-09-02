@@ -3,6 +3,11 @@ const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
 
 module.exports = {
+    beforeCreate(event) {
+        const { data } = event.params;
+        const { v4: uuidv4 } = require("uuid");
+        data.rpbId = data.rpbId || uuidv4();
+    },
     //TODO: enable after last import (import triggers this)
     //afterCreate(event) { backupHelper.saveToDisk(event); },
     afterUpdate(event) { backupHelper.saveToDisk(event); },
