@@ -15,7 +15,7 @@
     "rpbId": {
       "type": "string",
       "unique": true,
-      "required": true
+      "required": false
     },
     "type": {
       "type": "enumeration",

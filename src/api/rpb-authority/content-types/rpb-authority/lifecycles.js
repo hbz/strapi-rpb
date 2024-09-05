@@ -1,4 +1,9 @@
 module.exports = {
+    beforeCreate(event) {
+        const { data } = event.params;
+        const { v4: uuidv4 } = require("uuid");
+        data.rpbId = data.rpbId || uuidv4();
+    },
     async afterFindOne(event) {
         const helper = require('../../../labelHelper');
         const lookupFields = ["relatedEntity"];
