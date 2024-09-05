@@ -10,9 +10,9 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Normdaten": true,
           "GND": true
-        }
+        },
+        "editable": true
       },
       "customField": "plugin::lookup.lookup"
     },
