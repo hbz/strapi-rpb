@@ -93,29 +93,31 @@ export default function Index({
     }
   }
 
-  const callLookupRpbNotations = async (path, query, filter, logo) => {
+  const findNotations = async (path, operator, query) => {
     try {
       const response = await fetch(`${path}?pagination[limit]=10
-&filters[$or][0][prefLabel][$containsi]=${query}
+&filters[$or][0][prefLabel][${operator}]=${query}
 &filters[$or][1][uri][$endsWithi]=${query}`, {
         method: 'GET',
       });
-
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
       }
-      const result = await response.json();
+      return (await response.json()).data;
+    } catch (err) {
+      setErr(err.message);
+    }
+  }
 
-      return result.data.map(r => {return {
+  const callLookupRpbNotations = async (path, query, filter, logo) => {
+      const data = (await findNotations(path, "$eqi", query)).concat(await findNotations(path, "$containsi", query));
+      return data.map(r => {return {
         name: r.attributes.prefLabel,
         category:{id: "0", name: "cat-name-0"},
         description: (r.attributes.definition && r.attributes.definition.replace("Einzelne Landkreise, Verbandsgemeinden, Orte und Ortsteile (n6) > ", "")) || r.attributes.uri.split(/#/).pop(),
         id: r.attributes.uri,
         image: logo}});
 
-    } catch (err) {
-      setErr(err.message);
-    }
   }
 
   const getSource = (id, lookupFun, path, logo, query, filter = "*") => {
