@@ -196,9 +196,12 @@ export default function Index({
           error={error}
           required={attribute.required}
         />
-      <Flex gap={1}>
+      <Flex gap={3}>
         {fieldValue && fieldValue.startsWith("http") &&
           <Link isExternal target="_top" href={fieldValue}> {details || "s. Normdatenquelle"} </Link>
+        }
+        {fieldValue && fieldValue.includes("/gnd/") &&
+          <Link isExternal target="_top" href={`https://rpb.lbz-rlp.de/search?q="${encodeURIComponent(fieldValue)}"`}>OPAC</Link>
         }
         {fieldValue && fieldValue.trim() && !attribute.options.editable &&
           <Button 
