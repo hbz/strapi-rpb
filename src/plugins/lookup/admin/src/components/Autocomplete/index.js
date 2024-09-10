@@ -83,7 +83,7 @@ export default function Index({
         name: r.attributes.preferredName,
         category:{id: "0", name: "cat-name-0"},
         description: r.attributes.relatedEntity.length > 0 
-            ? `${r.attributes.type} | ${r.attributes.relatedEntity.map((e) => e.value).join("; ")}`
+            ? `${r.attributes.type} | ${r.attributes.relatedEntity.map((e) => e.label || e.value).join("; ")}`
             : `${r.attributes.type}`,
         id: "http://rpb.lobid.org/sw/" + r.attributes.rpbId,
         image: logo}});

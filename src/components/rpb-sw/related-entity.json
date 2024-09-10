@@ -10,15 +10,14 @@
       "type": "customField",
       "options": {
         "source": {
-          "RPB-Normdaten": true,
           "GND": true
-        }
+        },
+        "editable": true
       },
       "customField": "plugin::lookup.lookup"
     },
     "label": {
-      "type": "string",
-      "private": true
+      "type": "string"
     }
   }
 }
