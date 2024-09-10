@@ -42,7 +42,7 @@ const bootstrap = (app) => {
           `${strapi.backendURL}/api/rpb-authorities?filters[id][$eq]=${useCMEditViewDataManager().initialData.id}&populate=*`
           }>JSON</Link>
         <br/><Link target="_blank" href={
-          `https://rpb.lbz-rlp.de/search?subject="${encodeURIComponent(useCMEditViewDataManager().initialData.preferredName)}"`
+          `https://rpb.lbz-rlp.de/search?q="${encodeURIComponent(useCMEditViewDataManager().initialData.preferredName)}"`
           }>OPAC</Link>
       </p>
     ) : (<p/>),
