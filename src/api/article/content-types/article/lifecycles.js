@@ -1,12 +1,18 @@
-
 const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
 
 module.exports = {
-    beforeCreate(event) {
-        const { data } = event.params;
-        const { v4: uuidv4 } = require("uuid");
-        data.rpbId = data.rpbId || uuidv4();
+    async afterCreate(event) {
+        const { result } = event;
+        const type = "api::article.article";
+        const entriesWithRpbId = await strapi.entityService.findMany(type, {
+            filters: { rpbId: result.rpbId }
+        });
+        if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
+            await strapi.entityService.update(type, result.id, {
+                data: { rpbId: `a${result.id}` }
+            });
+        }
     },
     //TODO: enable after last import (import triggers this)
     //afterCreate(event) { backupHelper.saveToDisk(event); },
