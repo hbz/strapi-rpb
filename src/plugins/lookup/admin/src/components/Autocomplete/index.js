@@ -49,12 +49,19 @@ export default function Index({
       }
       const result = await response.json();
 
-      return result.map(r => {return {
-        name: r.label.replace(/, Stadt|, Kreisfreie Stadt|, große kreisangehörige Stadt/g, ""),
-        category: {id: "0", name: "cat-name-0"},
-        description: r.category,
-        id: path.endsWith("rpb") ? "http://rpb.lobid.org/" + lastSegment(r.id) : path.endsWith("rppd") ? "http://rppd.lobid.org/" + lastSegment(r.id) : r.id,
-        image: r.image || logo}});
+      return result.map(r => {
+        const delimiter = " | ";
+        const elements = r.label.split(delimiter);
+        const titleOnly = elements[0];
+        const details = elements.slice(1).join(delimiter);
+        return {
+          name: titleOnly.replace(/, Stadt|, Kreisfreie Stadt|, große kreisangehörige Stadt/g, ""),
+          category: {id: "0", name: "cat-name-0"},
+          description: `${details !== "" ? details + " | Typ: " : ""}${r.category}`,
+          id: path.endsWith("rpb") ? "http://rpb.lobid.org/" + lastSegment(r.id) : path.endsWith("rppd") ? "http://rppd.lobid.org/" + lastSegment(r.id) : r.id,
+          image: r.image || logo
+        }
+      });
 
     } catch (err) {
       setErr(err.message);
