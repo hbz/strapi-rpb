@@ -78,7 +78,7 @@
           "versioned": true
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "parallelTitle": {
       "type": "component",
