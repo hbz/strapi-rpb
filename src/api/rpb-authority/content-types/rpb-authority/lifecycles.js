@@ -12,10 +12,17 @@ const setLabels = async (results) => {
 }
 
 module.exports = {
-    beforeCreate(event) {
-        const { data } = event.params;
-        const { v4: uuidv4 } = require("uuid");
-        data.rpbId = data.rpbId || uuidv4();
+    async afterCreate(event) {
+        const { result } = event;
+        const type = "api::rpb-authority.rpb-authority";
+        const entriesWithRpbId = await strapi.entityService.findMany(type, {
+            filters: { rpbId: result.rpbId }
+        });
+        if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
+            await strapi.entityService.update(type, result.id, {
+                data: { rpbId: `n${result.id}` }
+            });
+        }
     },
     async afterFindOne(event) {
         await setLabels([event.result]);
