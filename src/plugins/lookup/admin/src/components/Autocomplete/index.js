@@ -118,7 +118,8 @@ export default function Index({
 
   const callLookupRpbNotations = async (path, query, filter, logo) => {
       const data = (await findNotations(path, "$eqi", query)).concat(await findNotations(path, "$containsi", query));
-      return data.map(r => {return {
+      const unique = [...new Set(data.map(o => JSON.stringify(o)))].map(s => JSON.parse(s));
+      return unique.map(r => {return {
         name: r.attributes.prefLabel,
         category:{id: "0", name: "cat-name-0"},
         description: (r.attributes.definition && r.attributes.definition.replace("Einzelne Landkreise, Verbandsgemeinden, Orte und Ortsteile (n6) > ", "")) || r.attributes.uri.split(/#/).pop(),
