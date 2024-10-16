@@ -299,6 +299,14 @@
       ],
       "default": "nur RPB",
       "required": true
+    },
+    "created": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        }
+      },
+      "type": "string"
     }
   }
 }
