@@ -15,7 +15,7 @@ const LinkList = () => {
       <h1>Linkliste</h1>
       <br/>
       {idsArray.map((id, i) => {
-        const link = `/admin/content-manager/collectionType/${type}/${id}`;
+        const link = `/admin/content-manager/collection-types/${type}/${id}`;
         return (<p>{ i + 1 } <a href={ link } target="_blank" rel="noopener">{ link }</a></p>)
       })}
     </div>
