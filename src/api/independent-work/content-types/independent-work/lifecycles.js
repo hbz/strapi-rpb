@@ -12,10 +12,10 @@ module.exports = {
             await strapi.entityService.update(type, result.id, {
                 data: { rpbId: `s${result.id}` }
             });
+        } else {
+            backupHelper.saveToDisk(event);
         }
     },
-    //TODO: enable after last import (import triggers this)
-    //afterCreate(event) { backupHelper.saveToDisk(event); },
     afterUpdate(event) { backupHelper.saveToDisk(event); },
     async afterFindOne(event) {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
