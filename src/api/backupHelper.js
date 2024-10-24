@@ -1,9 +1,9 @@
 module.exports = {
     saveToDisk: (event) => {
-        const filename = `backup/${event.result.updatedAt}_${event.model.singularName}_${event.result.id}.json`;
+        const filename = `backup/${event.model.collectionName}.ndjson`;
         const content = JSON.stringify({ data: event.result });
-        require("fs").writeFile(filename, content, function (error) {
-            console.log(error ? error : "Saved to: " + filename);
+        require("fs").appendFile(filename, content + "\n", function (error) {
+            error && console.log(error + ` (while saving to: ${filename})`);
         });
     }
 }
