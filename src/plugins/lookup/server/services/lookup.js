@@ -24,13 +24,17 @@ module.exports = ({ strapi }) => ({
   },
   async lookupResources(prompt, filter) {
     try {
-      const response = await axios(
+      const nameQueryResponse = await axios(
         {
           url: `http://lobid.org/resources/search?name=${prompt}&filter=${filter}&format=json:suggest&size=10`,
           method: 'GET',
-        })
-
-      return response.data;
+        });
+      const idQueryResponse = await axios(
+        {
+          url: `http://lobid.org/resources/search?id=${prompt}&filter=${filter}&format=json:suggest&size=10`,
+          method: 'GET',
+        });
+      return nameQueryResponse.data.concat(idQueryResponse.data);
     }
     catch (err) {
       console.log("Error on lobid-resources query")
