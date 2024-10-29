@@ -17,7 +17,9 @@ const populateAll = {
     },
     bibliographicCitation: true,
     url: true,
-    item: true
+    item: true,
+    updatedBy: true,
+    createdBy: true
 };
 
 module.exports = {

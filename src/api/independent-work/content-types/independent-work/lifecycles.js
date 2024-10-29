@@ -2,6 +2,7 @@ const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
 const type = "api::independent-work.independent-work";
 const populateAll = {
+    volumeIn: true,
     person: true,
     corporateBody: true,
     parallelTitle: true,
