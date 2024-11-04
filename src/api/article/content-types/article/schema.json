@@ -245,6 +245,9 @@
         }
       },
       "type": "string"
+    },
+    "hbzId": {
+      "type": "string"
     }
   }
 }
