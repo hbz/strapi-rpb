@@ -35,6 +35,8 @@ services:
       - strapi-rpb
     depends_on:
       - strapi-rpbDB
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
       
   strapi-rpbDB:
     container_name: strapi-rpbDB
