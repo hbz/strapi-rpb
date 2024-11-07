@@ -23,14 +23,12 @@ module.exports = ({ strapi }) => ({
 
   },
   async lookupResources(prompt, filter) {
+    const nzFilter = encodeURIComponent(`inCollection.id:"http://lobid.org/organisations/DE-655#!"`); // hbz network zone (nz)
+    const searchAs = (searchType) => `http://lobid.org/resources/search?${searchType}=${prompt}&filter=${filter}+AND+${nzFilter}&format=json:suggest&size=10`;
     try {
-      const response = await axios(
-        {
-          url: `http://lobid.org/resources/search?name=${prompt}&filter=${filter}&format=json:suggest&size=10`,
-          method: 'GET',
-        })
-
-      return response.data;
+      const idQueryResponse = await axios({ url: searchAs("id"), method: 'GET' });
+      const nameQueryResponse = await axios({ url: searchAs("name"), method: 'GET' });
+      return idQueryResponse.data.concat(nameQueryResponse.data);
     }
     catch (err) {
       console.log("Error on lobid-resources query")
