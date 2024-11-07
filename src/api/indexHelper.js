@@ -7,12 +7,9 @@ module.exports = {
         const response = await fetch(url, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ data: event.result }),
+            body: JSON.stringify(event.result),
         });
-        if (!response.ok) {
-            throw new Error(`Unexpected response; status ${response.status} for url ${url}`);
-        }
-        const json = await response.json();
-        console.log(`Indexing response for ${event.result.rpbId}:`, JSON.stringify(json));
+        console.log(`Indexing response for ${event.result.rpbId}:`,
+            response.status, response.statusText, await response.text());
     }
 }
