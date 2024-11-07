@@ -1,21 +1,44 @@
 const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
+const type = "api::independent-work.independent-work";
+const populateAll = {
+    volumeIn: true,
+    person: true,
+    corporateBody: true,
+    parallelTitle: true,
+    alternativeTitle: true,
+    inSeries: true,
+    item: true,
+    spatial: true,
+    subject: true,
+    note: true,
+    url: true,
+    isbn: true,
+    subjectComponentList: {
+        populate: {
+            subjectComponent: true,
+        }
+    },
+    updatedBy: true,
+    createdBy: true
+};
 
 module.exports = {
     async afterCreate(event) {
         const { result } = event;
-        const type = "api::independent-work.independent-work";
         const entriesWithRpbId = await strapi.entityService.findMany(type, {
-            filters: { rpbId: result.rpbId }
+            filters: { rpbId: result.rpbId },
+            populate: populateAll
         });
         if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
             await strapi.entityService.update(type, result.id, {
-                data: { rpbId: `s${result.id}` }
+                data: { rpbId: `s${result.id}` },
+                populate: populateAll
             });
+        } else {
+            backupHelper.saveToDisk({ model: { collectionName: event.model.collectionName }, result: entriesWithRpbId[0] });
         }
     },
-    //TODO: enable after last import (import triggers this)
-    //afterCreate(event) { backupHelper.saveToDisk(event); },
     afterUpdate(event) { backupHelper.saveToDisk(event); },
     async afterFindOne(event) {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
