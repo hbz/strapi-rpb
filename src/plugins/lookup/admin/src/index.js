@@ -262,7 +262,7 @@ export default {
           <br /><Link target="_blank" href={
             useCMEditViewDataManager().initialData.rppdId ?
               `https://rppd.lobid.org/${useCMEditViewDataManager().initialData.rppdId}` :
-              `https://rpb.lbz-rlp.de/${useCMEditViewDataManager().initialData.rpbId}`
+              `http://test.rpb.lobid.org/${useCMEditViewDataManager().initialData.rpbId}`
           }>OPAC</Link>
         </p>
       ) : (<p />),
@@ -276,7 +276,7 @@ export default {
             `${strapi.backendURL}/api/rpb-authorities?filters[id][$eq]=${useCMEditViewDataManager().initialData.id}&populate=*`
           }>JSON</Link>
           <br /><Link target="_blank" href={
-            `https://rpb.lbz-rlp.de/search?q="${encodeURIComponent(useCMEditViewDataManager().initialData.preferredName)}"`
+            `http://test.rpb.lobid.org/search?q="${encodeURIComponent(useCMEditViewDataManager().initialData.preferredName)}"`
           }>OPAC</Link>
         </p>
       ) : (<p />),
