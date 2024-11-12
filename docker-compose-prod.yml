@@ -23,7 +23,6 @@ services:
       - ./config.json:/opt/app/config.json
       - ./src:/opt/app/src
       - ./package.json:/opt/package.json
-      - ./yarn.lock:/opt/yarn.lock
       - ./.env:/opt/app/.env
       - ./public:/opt/app/public
       - ./backup:/opt/app/backup
