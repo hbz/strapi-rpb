@@ -6,11 +6,11 @@ ENV NODE_ENV=${NODE_ENV}
 RUN chown -R node:node /opt/
 USER node
 WORKDIR /opt/
-COPY --chown="node:node" ./package.json ./
+COPY --chown="node:node" ./package.json ./package-lock.json ./
 ENV PATH /opt/node_modules/.bin:$PATH
 RUN npm install
 WORKDIR /opt/app/src/plugins/lookup
-COPY src/plugins/lookup/package.json ./
+COPY --chown="node:node" src/plugins/lookup/package.json src/plugins/lookup/package-lock.json ./
 RUN npm install
 ENV PATH /opt/app/src/plugins/lookup/node_modules/.bin:$PATH
 WORKDIR /opt/app
