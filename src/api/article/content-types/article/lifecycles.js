@@ -1,5 +1,6 @@
 const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
+const indexHelper = require('../../../indexHelper');
 const type = "api::article.article";
 const populateAll = {
     person: true,
@@ -38,7 +39,10 @@ module.exports = {
             backupHelper.saveToDisk({ model: { collectionName: event.model.collectionName }, result: entriesWithRpbId[0] });
         }
     },
-    afterUpdate(event) { backupHelper.saveToDisk(event); },
+    async afterUpdate(event) {
+        backupHelper.saveToDisk(event);
+        indexHelper.index(event);
+    },
     async afterFindOne(event) {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
             "subjectComponentList.subjectComponent", "subjectComponentList", "isPartOf", "bibliographicCitation"];

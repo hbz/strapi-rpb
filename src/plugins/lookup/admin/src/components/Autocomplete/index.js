@@ -211,7 +211,7 @@ export default function Index({
           <Link isExternal target="_top" href={fieldValue}> {details || "s. Normdatenquelle"} </Link>
         }
         {fieldValue && fieldValue.includes("/gnd/") &&
-          <Link isExternal target="_top" href={`https://rpb.lbz-rlp.de/search?q=_all:"${encodeURIComponent(fieldValue)}"`}>OPAC</Link>
+          <Link isExternal target="_top" href={`http://test.rpb.lobid.org/search?q=_all:"${encodeURIComponent(fieldValue)}"`}>OPAC</Link>
         }
         {fieldValue && fieldValue.trim() && !attribute.options.editable &&
           <Button 
