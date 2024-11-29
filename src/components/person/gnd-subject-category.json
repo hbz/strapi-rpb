@@ -12,7 +12,7 @@
         "source": {
           "RPB-Fachgebiete": true
         },
-        "detached": true
+        "detached": false
       },
       "customField": "plugin::lookup.lookup"
     },
