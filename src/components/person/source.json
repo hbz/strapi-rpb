@@ -15,7 +15,7 @@
           "RPB-Titeldaten": true
         },
         "editable": true,
-        "detached": true
+        "detached": false
       },
       "customField": "plugin::lookup.lookup"
     },
