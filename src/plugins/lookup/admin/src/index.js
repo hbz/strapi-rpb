@@ -262,6 +262,8 @@ export default {
           <br /><Link target="_blank" href={
             useCMEditViewDataManager().initialData.rppdId ?
               `https://rppd.lobid.org/${useCMEditViewDataManager().initialData.rppdId}` :
+              useCMEditViewDataManager().initialData.inCollection && useCMEditViewDataManager().initialData.inCollection==='nur BiblioVino' ?
+              `http://test.wein.lobid.org/${useCMEditViewDataManager().initialData.rpbId}` :
               `http://test.rpb.lobid.org/${useCMEditViewDataManager().initialData.rpbId}`
           }>OPAC</Link>
         </p>
