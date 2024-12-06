@@ -32,7 +32,7 @@ module.exports = {
         });
         if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
             await strapi.entityService.update(type, result.id, {
-                data: { rpbId: `s${result.id}`, created: null },
+                data: { rpbId: `s${result.id}`, created: null, createdAt: new Date().toISOString() },
                 populate: populateAll
             });
         } else {
