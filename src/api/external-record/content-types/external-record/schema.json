@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "external_records",
+  "info": {
+    "singularName": "external-record",
+    "pluralName": "external-records",
+    "displayName": "Fremddatenübernahme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hbzId": {
+      "type": "string"
+    },
+    "hebisId": {
+      "type": "string"
+    },
+    "spatial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.spatial"
+    },
+    "subject": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.subject"
+    },
+    "subjectComponentList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.subject-component-list"
+    },
+    "note": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.note"
+    }
+  }
+}
