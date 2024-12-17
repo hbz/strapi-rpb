@@ -54,4 +54,22 @@ module.exports = {
             }
         }
     },
+    async beforeDeleteMany(event) {
+        for (id of event.params.where.$and[0].id.$in) {
+            await strapi.entityService.delete(type, id);
+        }
+    },
+    async afterDelete(event) {
+        const deletionEvent = {
+            model:{
+                collectionName: event.model.collectionName
+            },
+            result: {
+                rpbId: event.result.rpbId,
+                inCollection: event.result.inCollection
+            }
+        };
+        backupHelper.saveDeletionToDisk(deletionEvent);
+        indexHelper.delete(deletionEvent);
+    },
 };
