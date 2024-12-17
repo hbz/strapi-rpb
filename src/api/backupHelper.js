@@ -1,14 +1,15 @@
 module.exports = {
     saveToDisk: (event) => {
-        writeData(event, `backup/${event.model.collectionName}.ndjson`);
+        writeData("data", event);
     },
     saveDeletionToDisk: (event) => {
-        writeData(event, `backup/deleted_${event.model.collectionName}.ndjson`);
+        writeData("delete", event);
     }
 }
 
-function writeData(event, filename) {
-    const content = JSON.stringify({ data: event.result });
+function writeData(key, event) {
+    const filename = `backup/${event.model.collectionName}.ndjson`;
+    const content = JSON.stringify({ [key]: event.result });
     require("fs").appendFile(filename, content + "\n", function (error) {
         error && console.log(error + ` (while saving to: ${filename})`);
     });
