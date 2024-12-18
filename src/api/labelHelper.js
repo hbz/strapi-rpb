@@ -40,7 +40,7 @@ module.exports = {
                     }
                 }
             }
-            return value;
+            return component.numbering ? `${value} ; ${component.numbering}` : value;
         } else {
             console.log("No label found for component: ", component);
         }
