@@ -4,7 +4,7 @@
   "info": {
     "singularName": "external-record",
     "pluralName": "external-records",
-    "displayName": "Fremddatenübernahme",
+    "displayName": "Fremddaten",
     "description": ""
   },
   "options": {
@@ -37,6 +37,9 @@
       "type": "component",
       "repeatable": true,
       "component": "rpb.note"
+    },
+    "rpbId": {
+      "type": "string"
     }
   }
 }
