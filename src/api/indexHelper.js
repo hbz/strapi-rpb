@@ -1,17 +1,20 @@
 const fetch = require("node-fetch");
 
 module.exports = {
-    index: async (event) => {
-        const secret = strapi.config.get('admin.auth.secret', '');
-        for(const url of urls(event.result.inCollection)) {
-            const response = await fetch(`${url}/${event.result.rpbId}?secret=${secret}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(event.result),
-            });
-            console.log(`Indexing response for ${event.result.rpbId} to ${url}:`,
-                response.status, response.statusText, await response.text());
-        }
+    index: async (event) => { await sendAs('PUT', event); },
+    delete: async (event) => { await sendAs('DELETE', event); }
+}
+
+async function sendAs(method, event) {
+    const secret = strapi.config.get('admin.auth.secret', '');
+    for (const url of urls(event.result.inCollection)) {
+        const response = await fetch(`${url}/${event.result.rpbId}?secret=${secret}`, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(event.result),
+        });
+        console.log(`Indexing response for ${event.result.rpbId} to ${url}:`,
+            response.status, response.statusText, await response.text());
     }
 }
 
