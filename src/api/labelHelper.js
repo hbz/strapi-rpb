@@ -25,6 +25,10 @@ const fetchLabel = async (source) => {
     return source.test(json) ? source.process(json) : null;
 }
 
+const withNumbering = (component, string) => {
+    return component.numbering ? `${string} ; ${component.numbering}` : string
+}
+
 module.exports = {
     labelFor: async (component) => {
         if (component.subjectComponent) {
@@ -36,11 +40,11 @@ module.exports = {
                 if (value && value.startsWith(key)) {
                     const label = await fetchLabel(prefixMapping[key]);
                     if (label) {
-                        return label;
+                        return withNumbering(component, label);
                     }
                 }
             }
-            return value;
+            return withNumbering(component, value);
         } else {
             console.log("No label found for component: ", component);
         }
