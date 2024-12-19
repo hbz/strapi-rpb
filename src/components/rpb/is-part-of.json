@@ -12,9 +12,13 @@
         "source": {
           "hbz-Verbundkatalog-ohne-Aufsätze": true
         },
-	"editable": true
+        "editable": true
       },
       "customField": "plugin::lookup.lookup"
+    },
+    "numbering": {
+      "type": "string",
+      "private": true
     },
     "label": {
       "type": "string",
