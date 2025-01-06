@@ -254,7 +254,7 @@ export default {
 
     app.injectContentManagerComponent('editView', 'informations', {
       name: 'additional-links',
-      Component: () => ["article", "person", "independent-work"].find(t => useCMEditViewDataManager().slug.includes(t)) ? (
+      Component: () => ["article", "person", "independent-work", "external-record"].find(t => useCMEditViewDataManager().slug.includes(t)) ? (
         <p>
           <br /><Link target="_blank" href={
             `${strapi.backendURL}/api/${useCMEditViewDataManager().slug.split('.').pop()}s?filters[id][$eq]=${useCMEditViewDataManager().initialData.id}&populate=*`
