@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "hbzId": {
-      "type": "string"
-    },
     "hebisId": {
       "type": "string"
     },
@@ -40,6 +37,15 @@
     },
     "rpbId": {
       "type": "string"
+    },
+    "hbzId": {
+      "type": "customField",
+      "options": {
+        "source": {
+          "hbz-Verbundkatalog-ohne-Aufsätze": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
     }
   }
 }
