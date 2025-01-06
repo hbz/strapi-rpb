@@ -24,6 +24,15 @@
     "hebisId": {
       "type": "string"
     },
+    "inCollection": {
+      "type": "enumeration",
+      "enum": [
+        "nur RPB",
+        "RPB und BiblioVino",
+        "nur BiblioVino"
+      ],
+      "default": "nur RPB"
+    },
     "spatial": {
       "type": "component",
       "repeatable": true,
