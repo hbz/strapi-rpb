@@ -32,7 +32,8 @@ module.exports = {
         });
         if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
             await strapi.entityService.update(type, result.id, {
-                data: { rpbId: `a${result.id}`, created: null, createdAt:new Date().toISOString() },
+                data: { rpbId: `a${result.id}`, created: null, createdAt:new Date().toISOString(),
+                    bibliographicCitation: result.bibliographicCitation, person: result.person },
                 populate: populateAll
             });
         } else {
