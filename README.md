@@ -16,7 +16,7 @@ Alternatively, you may want to use the Docker Desktop environment which includes
 
 #### Add your user to `docker` group
 
-To execute docker commands without sudo, add your Unix user to the ocker` group, see https://docs.docker.com/engine/install/linux-postinstall/
+To execute docker commands without sudo, add your Unix user to the `docker` group, see https://docs.docker.com/engine/install/linux-postinstall/
 
 ### Clone repo
 
