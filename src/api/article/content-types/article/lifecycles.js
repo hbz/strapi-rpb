@@ -22,7 +22,14 @@ const populateAll = {
     updatedBy: true,
     createdBy: true
 };
-
+const updateLabels = async (result, lookupFields) => {
+    for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
+        for (const component of labelHelper.componentsFor(field, result)) {
+            component.label = await labelHelper.labelFor(component);
+            component.label = component.label && labelHelper.trimmed(component.label);
+        }
+    }
+}
 module.exports = {
     async afterCreate(event) {
         const { result } = event;
@@ -32,8 +39,7 @@ module.exports = {
         });
         if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
             await strapi.entityService.update(type, result.id, {
-                data: { rpbId: `a${result.id}`, created: null, createdAt:new Date().toISOString(),
-                    bibliographicCitation: result.bibliographicCitation, person: result.person },
+                data: { rpbId: `a${result.id}`, created: null, createdAt:new Date().toISOString() },
                 populate: populateAll
             });
         } else {
@@ -48,11 +54,11 @@ module.exports = {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
             "subjectComponentList.subjectComponent", "subjectComponentList", "isPartOf", "bibliographicCitation"];
         const { result } = event;
-        for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
-            for (const component of labelHelper.componentsFor(field, result)) {
-                component.label = await labelHelper.labelFor(component);
-                component.label = component.label && labelHelper.trimmed(component.label);
-            }
+        await updateLabels(result, lookupFields);
+    },
+    async afterFindMany(event) {
+        for (result of event.result) {
+            await updateLabels(result, ["person", "corporateBody", "bibliographicCitation"]);
         }
     },
     async beforeDeleteMany(event) {
