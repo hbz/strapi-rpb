@@ -1,5 +1,6 @@
 const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
+const indexHelper = require('../../../indexHelper');
 const type = "api::independent-work.independent-work";
 const populateAll = {
     volumeIn: true,
@@ -39,7 +40,10 @@ module.exports = {
             backupHelper.saveToDisk({ model: { collectionName: event.model.collectionName }, result: entriesWithRpbId[0] });
         }
     },
-    afterUpdate(event) { backupHelper.saveToDisk(event); },
+    afterUpdate(event) {
+        backupHelper.saveToDisk(event);
+        indexHelper.index(event);
+    },
     async afterFindOne(event) {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
             "subjectComponentList.subjectComponent", "subjectComponentList", "inSeries"];
@@ -50,5 +54,23 @@ module.exports = {
                 component.label = component.label && labelHelper.trimmed(component.label);
             }
         }
+    },
+    async beforeDeleteMany(event) {
+        for (id of event.params.where.$and[0].id.$in) {
+            await strapi.entityService.delete(type, id);
+        }
+    },
+    async afterDelete(event) {
+        const deletionEvent = {
+            model:{
+                collectionName: event.model.collectionName
+            },
+            result: {
+                rpbId: event.result.rpbId,
+                inCollection: event.result.inCollection
+            }
+        };
+        backupHelper.saveDeletionToDisk(deletionEvent);
+        indexHelper.delete(deletionEvent);
     },
 };
