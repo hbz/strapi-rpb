@@ -15,6 +15,10 @@
       },
       "customField": "plugin::lookup.lookup"
     },
+    "numbering": {
+      "type": "string",
+      "private": true
+    },
     "label": {
       "type": "string",
       "private": true
