@@ -23,6 +23,14 @@ const populateAll = {
     updatedBy: true,
     createdBy: true
 };
+const updateLabels = async (result, lookupFields) => {
+    for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
+        for (const component of labelHelper.componentsFor(field, result)) {
+            component.label = await labelHelper.labelFor(component);
+            component.label = component.label && labelHelper.trimmed(component.label);
+        }
+    }
+}
 
 module.exports = {
     async afterCreate(event) {
@@ -48,11 +56,11 @@ module.exports = {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
             "subjectComponentList.subjectComponent", "subjectComponentList", "inSeries"];
         const { result } = event;
-        for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
-            for (const component of labelHelper.componentsFor(field, result)) {
-                component.label = await labelHelper.labelFor(component);
-                component.label = component.label && labelHelper.trimmed(component.label);
-            }
+        await updateLabels(result, lookupFields);
+    },
+    async afterFindMany(event) {
+        for (result of event.result) {
+            await updateLabels(result, ["person", "corporateBody", "inSeries"]);
         }
     },
     async beforeDeleteMany(event) {
