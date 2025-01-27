@@ -40,15 +40,15 @@ services:
     restart: unless-stopped
     env_file: .env
     image: postgres:12.0-alpine
-    shm_size: '1gb'
+    shm_size: '2gb'
     deploy:
       resources:
         limits:
-          cpus: '3.0' # number of cores
-          memory: 4GB
+          cpus: '6.0' # number of cores
+          memory: 6GB
         reservations:
-          cpus: '0.5'
-          memory: 512M
+          cpus: '2'
+          memory: 2GB
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
