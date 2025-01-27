@@ -61,6 +61,14 @@ services:
     networks:
       - strapi-rpb
 
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - strapi-rpbDB
+
 volumes:
   strapi-rpb-data:
 
