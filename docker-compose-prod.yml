@@ -32,7 +32,8 @@ services:
     networks:
       - strapi-rpb
     depends_on:
-      - strapi-rpbDB
+      strapi-rpbDB:
+        condition: service_healthy
 
   strapi-rpbDB:
     container_name: strapi-rpbDB
@@ -60,6 +61,11 @@ services:
       - 5434:5432
     networks:
       - strapi-rpb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
 
 volumes:
   strapi-rpb-data:
