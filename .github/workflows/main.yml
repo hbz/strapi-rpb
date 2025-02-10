@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main", "update-build-test" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Create .env
+      run: cp .env.example .env
+    - name: Build the Docker image
+      run: docker compose build --no-cache
+    - name: Start containers
+      run: docker compose up -d
+    - name: wait for 1 minute
+      run: sleep 60s
+    - name: Access start page
+      run: curl http://localhost:1337
