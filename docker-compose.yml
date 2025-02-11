@@ -62,6 +62,8 @@ services:
     image: adminer
     ports:
       - 8080:8080
+    networks:
+      - strapi-rpb
     restart: always
     depends_on:
       - strapi-rpbDB
