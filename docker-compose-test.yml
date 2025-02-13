@@ -22,7 +22,6 @@ services:
       - ./config:/opt/app/config
       - ./config.json:/opt/app/config.json
       - ./src:/opt/app/src
-      - lookup_node_modules:/opt/app/src/plugins/lookup/node_modules/
       - ./package.json:/opt/package.json
       - ./package-lock.json:/opt/package-lock.json
       - ./.env:/opt/app/.env
@@ -45,8 +44,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '6.0' # number of cores
-          memory: 6GB
+          cpus: '3.0' # number of cores
+          memory: 3GB
         reservations:
           cpus: '2'
           memory: 2GB
@@ -75,7 +74,6 @@ services:
 
 volumes:
   strapi-rpb-data:
-  lookup_node_modules:
 
 networks:
   strapi-rpb:

@@ -50,6 +50,7 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
+    command: postgres -c statement_timeout=1min
     volumes:
       - strapi-rpb-data:/var/lib/postgresql/data/ #using a volume
       #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
@@ -57,6 +58,16 @@ services:
       - 5434:5432
     networks:
       - strapi-rpb
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - strapi-rpb
+    restart: always
+    depends_on:
+      - strapi-rpbDB
 
 volumes:
   strapi-rpb-data:

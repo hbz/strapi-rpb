@@ -64,6 +64,6 @@ Read more in the [Strapi docs](https://docs.strapi.io/dev-docs/cli#strapi-config
 
 ### Deployment
 
-To deploy changes, go to the repo directory, pull the changes, and rebuild the container (`sudo docker compose down ; sudo docker compose -f docker-compose-prod.yml up -d --build`).
+To deploy changes, go to the repo directory, pull the changes, and rebuild the container (`sudo docker compose -f docker-compose-prod.yml down ; sudo docker compose -f docker-compose-prod.yml up -d --build --force-recreate`).
 
 For details on our setup see https://dienst-wiki.hbz-nrw.de/display/SEM/RPB (internal).
