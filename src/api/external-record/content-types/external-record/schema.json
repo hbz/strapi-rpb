@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "external_records",
+  "info": {
+    "singularName": "external-record",
+    "pluralName": "external-records",
+    "displayName": "Fremddaten",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hbzId": {
+      "type": "customField",
+      "options": {
+        "source": {
+          "hbz-Verbundkatalog-ohne-Aufsätze": true
+        }
+      },
+      "customField": "plugin::lookup.lookup"
+    },
+    "hebisId": {
+      "type": "string"
+    },
+    "inCollection": {
+      "type": "enumeration",
+      "enum": [
+        "nur RPB",
+        "RPB und BiblioVino",
+        "nur BiblioVino"
+      ],
+      "default": "nur RPB"
+    },
+    "spatial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.spatial"
+    },
+    "subject": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.subject"
+    },
+    "subjectComponentList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.subject-component-list"
+    },
+    "note": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rpb.note"
+    },
+    "rpbId": {
+      "type": "string"
+    }
+  }
+}

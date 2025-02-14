@@ -17,7 +17,8 @@
       "type": "customField",
       "options": {
         "source": {
-          "hbz-Verbundkatalog-ohne-Aufsätze": true
+          "hbz-Verbundkatalog-ohne-Aufsätze": true,
+          "RPB-Titeldaten": true
         }
       },
       "customField": "plugin::lookup.lookup"

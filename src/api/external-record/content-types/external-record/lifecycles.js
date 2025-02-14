@@ -1,20 +1,11 @@
 const labelHelper = require('../../../labelHelper');
 const backupHelper = require('../../../backupHelper');
 const indexHelper = require('../../../indexHelper');
-const type = "api::independent-work.independent-work";
+const type = "api::external-record.external-record";
 const populateAll = {
-    volumeIn: true,
-    person: true,
-    corporateBody: true,
-    parallelTitle: true,
-    alternativeTitle: true,
-    inSeries: true,
-    item: true,
+    note: true,
     spatial: true,
     subject: true,
-    note: true,
-    url: true,
-    isbn: true,
     subjectComponentList: {
         populate: {
             subjectComponent: true,
@@ -23,14 +14,6 @@ const populateAll = {
     updatedBy: true,
     createdBy: true
 };
-const updateLabels = async (result, lookupFields) => {
-    for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
-        for (const component of labelHelper.componentsFor(field, result)) {
-            component.label = await labelHelper.labelFor(component);
-            component.label = component.label && labelHelper.trimmed(component.label);
-        }
-    }
-}
 
 module.exports = {
     async afterCreate(event) {
@@ -41,26 +24,25 @@ module.exports = {
         });
         if (!result.rpbId || entriesWithRpbId.length > 1) { // new or cloned entries
             await strapi.entityService.update(type, result.id, {
-                data: { rpbId: `s${result.id}`, created: null, createdAt: new Date().toISOString() },
+                data: { rpbId: `f${result.id}`, createdAt:new Date().toISOString() },
                 populate: populateAll
             });
         } else {
             backupHelper.saveToDisk({ model: { collectionName: event.model.collectionName }, result: entriesWithRpbId[0] });
         }
     },
-    afterUpdate(event) {
+    async afterUpdate(event) {
         backupHelper.saveToDisk(event);
         indexHelper.index(event);
     },
     async afterFindOne(event) {
-        const lookupFields = ["person", "corporateBody", "spatial", "subject",
-            "subjectComponentList.subjectComponent", "subjectComponentList", "inSeries"];
+        const lookupFields = ["spatial", "subject", "subjectComponentList.subjectComponent", "subjectComponentList"];
         const { result } = event;
-        await updateLabels(result, lookupFields);
-    },
-    async afterFindMany(event) {
-        for (result of event.result) {
-            await updateLabels(result, ["person", "corporateBody", "inSeries"]);
+        for (const field of lookupFields.filter((f) => result && result.hasOwnProperty(f.split(".")[0]))) {
+            for (const component of labelHelper.componentsFor(field, result)) {
+                component.label = await labelHelper.labelFor(component);
+                component.label = component.label && labelHelper.trimmed(component.label);
+            }
         }
     },
     async beforeDeleteMany(event) {

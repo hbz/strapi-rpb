@@ -22,6 +22,7 @@ services:
       - ./config:/opt/app/config
       - ./config.json:/opt/app/config.json
       - ./src:/opt/app/src
+      - lookup_node_modules:/opt/app/src/plugins/lookup/node_modules/
       - ./package.json:/opt/package.json
       - ./package-lock.json:/opt/package-lock.json
       - ./.env:/opt/app/.env
@@ -41,19 +42,20 @@ services:
     restart: unless-stopped
     env_file: .env
     image: postgres:12.0-alpine
-    shm_size: '1gb'
+    shm_size: '2gb'
     deploy:
       resources:
         limits:
-          cpus: '3.0' # number of cores
-          memory: 4GB
+          cpus: '6.0' # number of cores
+          memory: 6GB
         reservations:
-          cpus: '0.5'
-          memory: 512M
+          cpus: '2'
+          memory: 2GB
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
+    command: postgres -c statement_timeout=1min
     volumes:
       #- strapi-rpb-data:/var/lib/postgresql/data/ #using a volume
       - ./data/postgresql/data:/var/lib/postgresql/data/ # if you want to use a bind folder
@@ -67,8 +69,19 @@ services:
       timeout: 5s
       retries: 3
 
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - strapi-rpb
+    restart: always
+    depends_on:
+      - strapi-rpbDB
+
 volumes:
   strapi-rpb-data:
+  lookup_node_modules:
 
 networks:
   strapi-rpb:
