@@ -63,6 +63,11 @@ services:
       - 5434:5432
     networks:
       - strapi-rpb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
 
   adminer:
     image: adminer

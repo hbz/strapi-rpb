@@ -32,7 +32,8 @@ services:
     networks:
       - strapi-rpb
     depends_on:
-      - strapi-rpbDB
+      strapi-rpbDB:
+        condition: service_healthy
 
   strapi-rpbDB:
     container_name: strapi-rpbDB
