@@ -22,6 +22,7 @@ services:
       - ./config:/opt/app/config
       - ./config.json:/opt/app/config.json
       - ./src:/opt/app/src
+      - lookup_node_modules:/opt/app/src/plugins/lookup/node_modules/
       - ./package.json:/opt/package.json
       - ./package-lock.json:/opt/package-lock.json
       - ./.env:/opt/app/.env
@@ -32,7 +33,8 @@ services:
     networks:
       - strapi-rpb
     depends_on:
-      - strapi-rpbDB
+      strapi-rpbDB:
+        condition: service_healthy
 
   strapi-rpbDB:
     container_name: strapi-rpbDB
@@ -61,6 +63,11 @@ services:
       - 5434:5432
     networks:
       - strapi-rpb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
 
   adminer:
     image: adminer
@@ -74,6 +81,7 @@ services:
 
 volumes:
   strapi-rpb-data:
+  lookup_node_modules:
 
 networks:
   strapi-rpb:
