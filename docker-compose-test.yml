@@ -22,6 +22,7 @@ services:
       - ./config:/opt/app/config
       - ./config.json:/opt/app/config.json
       - ./src:/opt/app/src
+      - lookup_node_modules:/opt/app/src/plugins/lookup/node_modules/
       - ./package.json:/opt/package.json
       - ./package-lock.json:/opt/package-lock.json
       - ./.env:/opt/app/.env
@@ -80,6 +81,7 @@ services:
 
 volumes:
   strapi-rpb-data:
+  lookup_node_modules:
 
 networks:
   strapi-rpb:
