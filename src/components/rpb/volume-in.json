@@ -10,9 +10,6 @@
     "numbering": {
       "type": "string"
     },
-    "sortBy": {
-      "type": "integer"
-    },
     "value": {
       "type": "customField",
       "options": {
