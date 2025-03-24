@@ -55,7 +55,7 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
-    command: postgres -c statement_timeout=1min
+    command: postgres -c statement_timeout=10min
     volumes:
       #- strapi-rpb-data:/var/lib/postgresql/data/ #using a volume
       - ./data/postgresql/data:/var/lib/postgresql/data/ # if you want to use a bind folder
