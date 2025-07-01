@@ -177,7 +177,8 @@ export default function Index({
         if(fieldValue && fieldValue.startsWith(idPrefix)) {
           const response = await fetch(supportedIdPrefixes[idPrefix].url);
           if (!response.ok) {
-            throw new Error(`Error! status: ${response.status}`);
+            console.log(`Error! status: ${response.status}`);
+            return;
           }
           const result = await response.json();
           if(supportedIdPrefixes[idPrefix].test(result)) {
