@@ -19,10 +19,12 @@ const supportedIdPrefixes = (value) => ({
 const fetchLabel = async (source) => {
     const response = await fetch(source.url);
     if (!response.ok) {
-        throw new Error(`Unexpected response; status ${response.status} for url ${source.url}`);
+        console.log(`Unexpected response; status ${response.status} for url ${source.url}`);
+        return source.url;
+    } else {
+        const json = await response.json();
+        return source.test(json) ? source.process(json) : null;
     }
-    const json = await response.json();
-    return source.test(json) ? source.process(json) : null;
 }
 
 const withNumbering = (component, string) => {
