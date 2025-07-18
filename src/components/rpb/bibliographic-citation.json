@@ -11,7 +11,8 @@
       "required": true,
       "options": {
         "source": {
-          "hbz-Verbundkatalog-ohne-Aufsätze": true
+          "hbz-Verbundkatalog-ohne-Aufsätze": true,
+          "RPB-Titeldaten": true
         },
         "editable": true
       },
