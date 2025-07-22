@@ -177,14 +177,6 @@ export default {
               },
               {
                 intlLabel: {
-                  id: "lookup.sources.RPB-Titeldaten",
-                  defaultMessage: "RPB-Titeldaten",
-                },
-                name: "options.source.RPB-Titeldaten",
-                type: "checkbox",
-              },
-              {
-                intlLabel: {
                   id: "lookup.sources.hbz-Verbundkatalog-ohne-Aufsätze",
                   defaultMessage: "hbz-Verbundkatalog (ohne Aufsätze)",
                 },
@@ -197,6 +189,22 @@ export default {
                   defaultMessage: "hbz-Verbundkatalog (nur Reihen)",
                 },
                 name: "options.source.hbz-Verbundkatalog-nur-Reihen",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Titeldaten",
+                  defaultMessage: "RPB-Titeldaten",
+                },
+                name: "options.source.RPB-Titeldaten",
+                type: "checkbox",
+              },
+              {
+                intlLabel: {
+                  id: "lookup.sources.RPB-Titeldaten-ohne-Aufsätze",
+                  defaultMessage: "RPB-Titeldaten (ohne Aufsätze)",
+                },
+                name: "options.source.RPB-Titeldaten-ohne-Aufsätze",
                 type: "checkbox",
               },
             ],

@@ -12,7 +12,7 @@
       "options": {
         "source": {
           "hbz-Verbundkatalog-ohne-Aufsätze": true,
-          "RPB-Titeldaten": true
+          "RPB-Titeldaten-ohne-Aufsätze": true
         },
         "editable": true
       },
