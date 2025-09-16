@@ -48,7 +48,8 @@ module.exports = {
             backupHelper.saveToDisk({ model: { collectionName: event.model.collectionName }, result: entriesWithRpbId[0] });
         }
     },
-    afterUpdate(event) {
+    async afterUpdate(event) {
+        event.result = await strapi.entityService.findOne(type, event.result.id, { populate: populateAll });
         backupHelper.saveToDisk(event);
         indexHelper.index(event);
     },

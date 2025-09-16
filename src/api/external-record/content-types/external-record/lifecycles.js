@@ -32,6 +32,7 @@ module.exports = {
         }
     },
     async afterUpdate(event) {
+        event.result = await strapi.entityService.findOne(type, event.result.id, { populate: populateAll });
         backupHelper.saveToDisk(event);
         indexHelper.index(event);
     },
