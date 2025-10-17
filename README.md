@@ -77,3 +77,16 @@ Read more in the [Strapi docs](https://docs.strapi.io/dev-docs/cli#strapi-config
 To deploy changes, go to the repo directory, pull the changes, and rebuild the container (`sudo docker compose -f docker-compose-prod.yml down ; sudo docker compose -f docker-compose-prod.yml up -d --build --force-recreate`).
 
 For details on our setup see https://dienst-wiki.hbz-nrw.de/display/SEM/RPB (internal).
+
+## Backup and restore
+
+We create various daily backups for our test and productive instances:
+
+1. Backup Postgresql `data` directory: `tar -czf [archivefile] data/`, restore via `restore-data-dir.sh` 
+2. SQL dump of database: `pg_dump [database] -U [user] > | gzip > [dumpfile]` Read more in the [Postgresql docs](https://www.postgresql.org/docs/12/backup-dump.html)
+3. Export strapi data: `strapi export -- --file export_strapi_rpb  --no-encrypt` Read more in https://docs.strapi.io/cms/cli#strapi-export, restore https://docs.strapi.io/cms/cli#strapi-import
+4. Dump config: `config:dump -f config.json-dump`, see `config:restore` in https://docs.strapi.io/cms/cli#strapi-configuration-1
+5. Backup current docker image: `docker image save --output [outputfile] strapi-rpb`, restore https://docs.docker.com/reference/cli/docker/image/load/
+6. Backup edits written to disk: see https://github.com/hbz/strapi-rpb/pull/36
+
+All backups mentioned above are run by cron. Check `/etc/cron.d/` for the git versioned crontab that contains the specific backups commands and file paths.
