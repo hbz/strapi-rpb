@@ -48,9 +48,8 @@ module.exports = {
             backupHelper.saveToDisk({ model: { collectionName: event.model.collectionName }, result: entriesWithRpbId[0] });
         }
     },
-    afterUpdate(event) {
-        backupHelper.saveToDisk(event);
-        indexHelper.index(event);
+    async afterUpdate(event) {
+        backupHelper.handleUpdate(event, type, populateAll);
     },
     async afterFindOne(event) {
         const lookupFields = ["person", "corporateBody", "spatial", "subject",
