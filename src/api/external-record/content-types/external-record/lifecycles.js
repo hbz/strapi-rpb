@@ -32,8 +32,7 @@ module.exports = {
         }
     },
     async afterUpdate(event) {
-        backupHelper.saveToDisk(event);
-        indexHelper.index(event);
+        backupHelper.handleUpdate(event, type, populateAll);
     },
     async afterFindOne(event) {
         const lookupFields = ["spatial", "subject", "subjectComponentList.subjectComponent", "subjectComponentList"];
