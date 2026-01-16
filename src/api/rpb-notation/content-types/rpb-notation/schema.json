@@ -22,6 +22,9 @@
       "unique": true,
       "required": true,
       "regex": "^http://purl.org/lobid/rpb#n.*$"
+    },
+    "definition": {
+      "type": "text"
     }
   }
 }
