@@ -286,7 +286,7 @@ export default {
             `${strapi.backendURL}/api/rpb-authorities?filters[id][$eq]=${useCMEditViewDataManager().initialData.id}&populate=*`
           }>JSON</Link>
           <br /><Link target="_blank" href={
-            `http://test.rpb.lobid.org/search?q="${encodeURIComponent(useCMEditViewDataManager().initialData.preferredName)}"`
+            `http://test.rpb.lobid.org/search?q="http://rpb.lobid.org/sw/${encodeURIComponent(useCMEditViewDataManager().initialData.rpbId)}"`
           }>OPAC</Link>
         </p>
       ) : (<p />),
