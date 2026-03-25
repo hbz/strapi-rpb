@@ -40,7 +40,7 @@ module.exports = ({ strapi }) => ({
     try {
       const response = await axios(
         {
-          url: `http://quaoar1.hbz-nrw.de:1990/resources/search?q=${prompt}&filter=${filter}&format=json:suggest&size=10`,
+          url: `http://rpb1.hbz-nrw.de:1990/resources/search?q=${prompt}&filter=${filter}&format=json:suggest&size=10`,
           method: 'GET',
         })
 
