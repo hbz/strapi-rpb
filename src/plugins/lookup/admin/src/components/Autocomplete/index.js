@@ -164,10 +164,10 @@ export default function Index({
     const fetchData = async () => {
       setDetails('');
       const supportedIdPrefixes = {
-        "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${fieldValue}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
-        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(fieldValue)}"+OR+gndIdentifier:"${lastSegment(fieldValue)}"`, test: (r) => r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "https://d-nb.info/gnd/": {url: `https://lobid.org/gnd/search?format=json&q=id:"${fieldValue}"`, test: (r) => r.member && r.member.length > 0, process: (r) => r.member[0].preferredName},
+        "http://rppd.lobid.org/": {url: `https://rppd.lobid.org/search?format=json&q=rppdId:"${lastSegment(fieldValue)}"+OR+gndIdentifier:"${lastSegment(fieldValue)}"`, test: (r) => r.member && r.member.length > 0, process: (r) => r.member[0].preferredName},
         "http://lobid.org/resources": {url: `https://lobid.org/resources/${lastSegment(fieldValue)}.json`, test: (r) => r, process: (r) => r.title},
-        "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(fieldValue)}?format=json`, test: (r) => r.member.length > 0, process: (r) => r.member[0].title},
+        "http://rpb.lobid.org": {url: `https://rpb.lobid.org/${lastSegment(fieldValue)}?format=json`, test: (r) => r.member && r.member.length > 0, process: (r) => r.member[0].title},
         "http://rpb.lobid.org/sw/": {url: `${strapi.backendURL}/api/rpb-authorities?pagination[limit]=1&filters[rpbId][$eq]=${lastSegment(fieldValue)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.preferredName},
         "http://purl.org/lobid/rpb": {url: `${strapi.backendURL}/api/rpb-notations?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(fieldValue)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
         "https://rpb.lobid.org/spatial": {url: `${strapi.backendURL}/api/rpb-spatials?pagination[limit]=1&filters[uri][$endsWith]=${uriFragment(fieldValue)}`, test: (r) => r.data.length > 0, process: (r) => r.data[0].attributes.prefLabel},
