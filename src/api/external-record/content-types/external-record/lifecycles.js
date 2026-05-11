@@ -15,6 +15,10 @@ const populateAll = {
     createdBy: true
 };
 
+const getTitle = async (rpbId, lookupFields) => {
+    return labelHelper.fetchLabel(
+        { url: `http://rpb2.hbz-nrw.de:2090/resources/${rpbId}.json`, test: (r) => r, process: (r) => r.title });
+}
 module.exports = {
     async afterCreate(event) {
         const { result } = event;
@@ -42,6 +46,12 @@ module.exports = {
                 component.label = await labelHelper.labelFor(component);
                 component.label = component.label && labelHelper.trimmed(component.label);
             }
+        }
+        result.title = await getTitle(result.rpbId);
+    },
+    async afterFindMany(event) {
+        for (result of event.result) {
+            result.title = await getTitle(result.rpbId);
         }
     },
     async beforeDeleteMany(event) {

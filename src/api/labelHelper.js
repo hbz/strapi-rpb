@@ -32,6 +32,9 @@ const withNumbering = (component, string) => {
 }
 
 module.exports = {
+    fetchLabel: async (source) => {
+        return fetchLabel(source);
+    },
     labelFor: async (component) => {
         if (component.subjectComponent) {
             return component.subjectComponent.map(c => c["label"]).join(" | ");

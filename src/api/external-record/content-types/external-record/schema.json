@@ -55,6 +55,9 @@
     },
     "rpbId": {
       "type": "string"
+    },
+    "title": {
+      "type": "text"
     }
   }
 }
