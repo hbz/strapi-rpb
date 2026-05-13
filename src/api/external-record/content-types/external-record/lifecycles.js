@@ -49,11 +49,11 @@ module.exports = {
                 component.label = component.label && labelHelper.trimmed(component.label);
             }
         }
-        result.title = await getTitle(result.rpbId);
+        result.label = await getTitle(result.rpbId);
     },
     async afterFindMany(event) {
         for (result of event.result) {
-            result.title = await getTitle(result.rpbId);
+            result.label = await getTitle(result.rpbId);
         }
     },
     async beforeDeleteMany(event) {

@@ -56,7 +56,7 @@
     "rpbId": {
       "type": "string"
     },
-    "title": {
+    "label": {
       "type": "text"
     }
   }
