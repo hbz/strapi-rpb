@@ -17,7 +17,7 @@ const populateAll = {
 
 const getTitle = async (rpbId, lookupFields) => {
     const url = `http://rpb2.hbz-nrw.de:2090/resources/${rpbId}.json`;
-    const title = rpbId ? labelHelper.fetchLabel(
+    const title = rpbId ? await labelHelper.fetchLabel(
         { url: url, test: (r) => r, process: (r) => r.title.replace(/[\x00-\x1F\x7F-\x9F]/g, '') }) : '';
     return title === url ? '' : title;
 }
